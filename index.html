@@ -1,866 +1,335 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {
-  ChefHat, Plus, Minus, X, Pencil, Trash2, ArrowLeft, ArrowRight,
-  Play, Pause, RotateCcw, Check, Clock, BookOpen, Lightbulb, Sparkles, Link2
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Cookbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{font-family:'Inter',sans-serif;background:#F7F2E7;color:#292524;min-height:100vh;}
+button{font:inherit;cursor:pointer;background:none;border:none;}
+input,textarea{font:inherit;}
+.fd{font-family:'Fraunces',serif;}
+.fm{font-family:'JetBrains Mono',monospace;}
+/* layout */
+.flex{display:flex;}.flex-col{flex-direction:column;}.flex-wrap{flex-wrap:wrap;}
+.flex1{flex:1 1 0%;}.shrink0{flex-shrink:0;}
+.items-center{align-items:center;}.items-start{align-items:flex-start;}.items-baseline{align-items:baseline;}
+.justify-center{justify-content:center;}.justify-between{justify-content:space-between;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;}
+@media(max-width:600px){.grid2{grid-template-columns:1fr;}}
+.gap1{gap:.25rem;}.gap2{gap:.5rem;}.gap3{gap:.75rem;}.gap4{gap:1rem;}
+.col-gap2{column-gap:.5rem;}.col-gap3{column-gap:.75rem;}
+.space2>*+*{margin-top:.5rem;}.space3>*+*{margin-top:.75rem;}.space4>*+*{margin-top:1rem;}
+/* position */
+.rel{position:relative;}.fixed{position:fixed;}.abs{position:absolute;}
+.inset0{top:0;right:0;bottom:0;left:0;}
+.top0{top:0;}.left0{left:0;}.right0{right:0;}.bottom0{bottom:0;}
+.bot4{bottom:1rem;}.bot6{bottom:1.5rem;}.right6{right:1.5rem;}
+.z50{z-index:50;}
+/* sizing */
+.w6{width:1.5rem;}.w9{width:2.25rem;}.w10{width:2.5rem;}.w12{width:3rem;}.w14{width:3.5rem;}
+.w20{width:5rem;}.w24{width:6rem;}.wfull{width:100%;}
+.h6{height:1.5rem;}.h9{height:2.25rem;}.h10{height:2.5rem;}.h12{height:3rem;}.h15{height:.375rem;}
+.h24{height:6rem;}
+.minscreen{min-height:100vh;}
+.max2xl{max-width:42rem;}.max3xl{max-width:48rem;}.maxmd{max-width:28rem;}
+.mxauto{margin-left:auto;margin-right:auto;}
+/* spacing */
+.p1{padding:.25rem;}.p2{padding:.5rem;}.p3{padding:.75rem;}.p4{padding:1rem;}.p5{padding:1.25rem;}.p10{padding:2.5rem;}
+.px2{padding-left:.5rem;padding-right:.5rem;}.px3{padding-left:.75rem;padding-right:.75rem;}
+.px4{padding-left:1rem;padding-right:1rem;}.px5{padding-left:1.25rem;padding-right:1.25rem;}
+.px6{padding-left:1.5rem;padding-right:1.5rem;}
+.py1{padding-top:.25rem;padding-bottom:.25rem;}.py15{padding-top:.375rem;padding-bottom:.375rem;}
+.py2{padding-top:.5rem;padding-bottom:.5rem;}.py25{padding-top:.625rem;padding-bottom:.625rem;}
+.py3{padding-top:.75rem;padding-bottom:.75rem;}.py4{padding-top:1rem;padding-bottom:1rem;}
+.py5{padding-top:1.25rem;padding-bottom:1.25rem;}
+.pb24{padding-bottom:6rem;}.pb32{padding-bottom:8rem;}.pt6{padding-top:1.5rem;}.pt8{padding-top:2rem;}
+.mb1{margin-bottom:.25rem;}.mb2{margin-bottom:.5rem;}.mb3{margin-bottom:.75rem;}
+.mb4{margin-bottom:1rem;}.mb5{margin-bottom:1.25rem;}.mb6{margin-bottom:1.5rem;}.mb8{margin-bottom:2rem;}
+.mt05{margin-top:.125rem;}.mt2{margin-top:.5rem;}.mt3{margin-top:.75rem;}
+/* typography */
+.xs{font-size:.75rem;line-height:1rem;}.sm{font-size:.875rem;line-height:1.25rem;}
+.f10{font-size:10px;}
+.lg{font-size:1.125rem;line-height:1.75rem;}.xl{font-size:1.25rem;line-height:1.75rem;}
+.xl2{font-size:1.5rem;line-height:2rem;}.xl3{font-size:1.875rem;line-height:2.25rem;}
+.xl4{font-size:2.25rem;line-height:2.5rem;}
+.fw5{font-weight:500;}.fw6{font-weight:600;}.fw7{font-weight:700;}
+.upper{text-transform:uppercase;}.tcenter{text-align:center;}.tleft{text-align:left;}
+.track{letter-spacing:.025em;}.track-wide{letter-spacing:.1em;}
+.relax{line-height:1.625;}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.underline{text-decoration:underline;}
+/* colors */
+.bg-parchment{background-color:#F7F2E7;}.bg-plum{background-color:#4A2E3A;}
+.bg-rust{background-color:#C1602A;}.bg-butter{background-color:#E8C468;}
+.bg-sage{background-color:#8A9B7E;}.bg-white{background-color:#fff;}
+.c-ink{color:#292524;}.c-parchment{color:#F7F2E7;}.c-rust{color:#C1602A;}
+.c-plum{color:#4A2E3A;}.c-sage{color:#6F8264;}.c-butter{color:#E8C468;}.c-white{color:#fff;}
+.c-ink40{color:rgba(41,37,36,.4);}.c-ink50{color:rgba(41,37,36,.5);}
+.c-ink60{color:rgba(41,37,36,.6);}.c-ink70{color:rgba(41,37,36,.7);}.c-ink80{color:rgba(41,37,36,.8);}
+.c-parchment70{color:rgba(247,242,231,.7);}.c-parchment90{color:rgba(247,242,231,.9);}
+.c-butter90{color:rgba(232,196,104,.9);}
+.bg-sage10{background-color:rgba(138,155,126,.12);}.bg-sage20{background-color:rgba(138,155,126,.22);}
+.bg-rust10{background-color:rgba(193,96,42,.1);}.bg-rust20{background-color:rgba(193,96,42,.2);}
+.bg-butter40{background-color:rgba(232,196,104,.4);}
+.bg-parchment5{background-color:rgba(247,242,231,.05);}
+.bg-parchment10{background-color:rgba(247,242,231,.1);}
+/* borders */
+.border{border:1px solid #EADFC8;}.border2{border:2px dashed #D8CBAE;}
+.border-top{border-top:1px solid #EADFC8;}
+.b-rust{border-color:#C1602A !important;}.b-parchment20{border-color:rgba(247,242,231,.2);}
+.rounded{border-radius:.5rem;}.rounded-xl{border-radius:.75rem;}
+.rounded-2xl{border-radius:1rem;}.rounded-full{border-radius:9999px;}
+/* shadows */
+.shadow{box-shadow:0 1px 3px rgba(0,0,0,.1);}.shadow-sm{box-shadow:0 1px 2px rgba(0,0,0,.05);}
+.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1);}
+/* misc */
+.hidden{display:none;}.block{display:block;}.inline-block{display:inline-block;}
+.opacity40{opacity:.4;}.opacity30{opacity:.3;}
+.transition{transition:all .15s ease;}
+.cursor-grab{cursor:grab;}
+input[type=number]{-moz-appearance:textfield;}
+input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;}
+/* component helpers */
+.tag{font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:.25rem .5rem;border-radius:9999px;}
+.input-base{width:100%;background:#fff;border:1px solid #EADFC8;border-radius:.5rem;padding:.5rem .75rem;font-size:.875rem;color:#292524;outline:none;}
+.input-base:focus{box-shadow:0 0 0 2px rgba(193,96,42,.3);}
+.btn-rust{background:#C1602A;color:#F7F2E7;border-radius:9999px;padding:.75rem 1.25rem;font-weight:500;transition:opacity .15s;}
+.btn-rust:hover{opacity:.9;}.btn-rust:disabled{opacity:.4;}
+.step-bar{height:.375rem;border-radius:9999px;flex:1;}
+</style>
+</head>
+<body>
+<div id="root"></div>
 
-const STORAGE_KEY = 'recipes';
+<script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.23.5/babel.min.js"></script>
 
-const pastaRecipe = {
-  id: 'seed-1',
-  title: 'Weeknight Garlic Butter Pasta',
-  description: 'A fast, comforting pasta that teaches you how to build a pan sauce from scratch.',
-  baseServings: 2,
-  tags: ['Beginner', '20 min'],
-  ingredients: [
-    { id: 'i1', name: 'Spaghetti', amount: 200, unit: 'g' },
-    { id: 'i2', name: 'Butter', amount: 3, unit: 'tbsp' },
-    { id: 'i3', name: 'Garlic cloves, minced', amount: 4, unit: '' },
-    { id: 'i4', name: 'Red chili flakes', amount: 0.5, unit: 'tsp' },
-    { id: 'i5', name: 'Parmesan, grated', amount: 0.5, unit: 'cup' },
-    { id: 'i6', name: 'Salt', amount: 1, unit: 'tsp' },
-    { id: 'i7', name: 'Black pepper', amount: 0.25, unit: 'tsp' },
-    { id: 'i8', name: 'Fresh parsley, chopped', amount: 2, unit: 'tbsp' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Boil the pasta',
-      content: 'Bring a large pot of water to a boil. Salt it generously, then add the {i1}.',
-      why: 'Salting the water is your only chance to season the pasta itself — it should taste like the sea.',
-      timerSeconds: 600,
-    },
-    {
-      id: 's2', title: 'Save the starchy water',
-      content: 'Just before draining, scoop out about 1 cup of the pasta water and set it aside.',
-      why: 'This cloudy water is full of starch and will help the sauce cling to the pasta later.',
-      timerSeconds: null,
-    },
-    {
-      id: 's3', title: 'Build the garlic butter',
-      content: 'While the pasta cooks, melt {i2} in a large pan over medium-low heat. Add {i3} and {i4}, and cook gently until fragrant.',
-      why: 'Low heat is key — burnt garlic turns bitter and there is no fixing it. Aim for golden, not brown.',
-      timerSeconds: 120,
-    },
-    {
-      id: 's4', title: 'Combine',
-      content: 'Add the drained pasta to the pan along with a splash of the reserved pasta water. Toss well.',
-      why: 'The starchy water emulsifies with the butter, creating a glossy sauce that coats every strand.',
-      timerSeconds: null,
-    },
-    {
-      id: 's5', title: 'Finish',
-      content: 'Remove from heat and stir in {i5}, {i6}, and {i7}. Add more pasta water if it looks dry. Top with {i8} and serve right away.',
-      why: 'Adding cheese off the heat keeps it from clumping into a greasy mess.',
-      timerSeconds: null,
-    },
-  ],
-};
+<script type="text/babel" data-presets="react">
+const {useState,useEffect,useRef} = React;
+const STORAGE_KEY = 'my-cookbook-v2';
 
-const khandviRecipe = {
-  id: 'seed-2',
-  title: 'Khandvi',
-  description: "A delicate Gujarati snack of rolled gram-flour batter, finished with a mustard-seed tempering. The tricky part is the batter — the 'plate test' is your guide to knowing when it's ready.",
-  baseServings: 4,
-  tags: ['Intermediate', '40 min'],
-  ingredients: [
-    { id: 'i1', name: 'Besan (gram flour)', amount: 1, unit: 'cup' },
-    { id: 'i2', name: 'Sour yogurt (curd)', amount: 0.75, unit: 'cup' },
-    { id: 'i3', name: 'Water', amount: 2.25, unit: 'cup' },
-    { id: 'i4', name: 'Ginger-green chili paste', amount: 1, unit: 'tsp' },
-    { id: 'i5', name: 'Turmeric powder', amount: 0.25, unit: 'tsp' },
-    { id: 'i6', name: 'Salt', amount: 0.667, unit: 'tsp' },
-    { id: 'i7', name: 'Asafoetida (hing)', amount: 1, unit: 'pinch' },
-    { id: 'i8', name: 'Fresh grated coconut', amount: 2, unit: 'tbsp' },
-    { id: 'i9', name: 'Chopped coriander leaves', amount: 2, unit: 'tbsp' },
-    { id: 'i10', name: 'Oil, for tempering', amount: 1, unit: 'tbsp' },
-    { id: 'i11', name: 'Curry leaves', amount: 9, unit: '' },
-    { id: 'i12', name: 'Mustard seeds', amount: 1, unit: 'tsp' },
-    { id: 'i13', name: 'White sesame seeds', amount: 2, unit: 'tsp' },
-    { id: 'i14', name: 'Green chili, chopped (for tempering)', amount: 1, unit: 'tsp' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Make the buttermilk',
-      content: 'In a bowl, whisk the {i2} with {i3} until smooth and well combined.',
-      why: 'This thin, smooth buttermilk is the base of the batter — getting it lump-free here makes everything easier later.',
-      timerSeconds: null,
-    },
-    {
-      id: 's2', title: 'Add the spices',
-      content: 'Stir in the {i4}, {i5}, {i6}, and {i7}. If your yogurt isn\'t very sour, add a squeeze of lemon juice for tang.',
-      why: 'The 1:3 ratio of besan to buttermilk is what gives khandvi its texture — keep that proportion even if you scale the recipe.',
-      timerSeconds: null,
-    },
-    {
-      id: 's3', title: 'Whisk in the besan',
-      content: 'Add the {i1} and whisk thoroughly until the batter is completely smooth, with no lumps.',
-      why: 'Any lumps now become hard bits later. Keep whisking — a hand whisk or beater both work.',
-      timerSeconds: null,
-    },
-    {
-      id: 's4', title: 'Prep your rolling surface',
-      content: 'Lightly grease large plates, trays, or a clean countertop with oil. Also mix the {i8} and {i9} together in a small bowl for the filling.',
-      why: 'The cooked batter sets fast, so have your surface and filling ready before you start cooking — there is no pause once it\'s done.',
-      timerSeconds: null,
-    },
-    {
-      id: 's5', title: 'Cook the batter',
-      content: 'Pour the batter into a saucepan over the lowest heat. Stir constantly as it heats, thickens, and eventually leaves the sides of the pan.',
-      why: 'Low heat and constant stirring prevent lumps. This usually takes around 15-17 minutes — resist the urge to raise the heat to speed it up.',
-      timerSeconds: 1020,
-    },
-    {
-      id: 's6', title: 'Do the plate test',
-      content: 'Spread a small spoonful of batter thinly on a plate, let it cool for a few seconds, then try to roll it. If it rolls smoothly without sticking, the batter is ready. If it tears or stays pasty, cook a little longer and test again.',
-      why: 'This is the single most important step. Undercooked batter won\'t roll; overcooked batter gets too thick to spread thinly.',
-      timerSeconds: null,
-    },
-    {
-      id: 's7', title: 'Spread it thin',
-      content: 'Working quickly while the batter is still hot, pour about ½ to ⅔ cup onto a greased plate and spread it into a thin, even layer with a spatula. Repeat with the remaining batter on your other plates.',
-      why: 'Speed is everything here — the batter thickens as it cools, so a delay means thicker, lumpier layers.',
-      timerSeconds: null,
-    },
-    {
-      id: 's8', title: 'Add the filling',
-      content: 'Once each spread layer has cooled slightly, sprinkle it lightly and evenly with the coconut-coriander mixture.',
-      why: 'This stuffed style is a regional variation — if you\'d rather skip it, just garnish the rolls with coconut and coriander after tempering instead.',
-      timerSeconds: null,
-    },
-    {
-      id: 's9', title: 'Cut and roll',
-      content: 'Cut the cooled batter into even strips, then gently roll each strip into a tight spiral. Arrange the rolls on a serving plate, packed closely together.',
-      why: 'If a strip tears instead of rolling, that section was probably spread too thick — just roll it as best you can, it will still taste good.',
-      timerSeconds: null,
-    },
-    {
-      id: 's10', title: 'Make the tempering',
-      content: 'Heat the {i10} in a small pan. Add the {i12} and let them crackle, then add the {i11} and {i14} and fry for a few seconds. Finally stir in the {i13} until they crackle and change color.',
-      why: 'This spiced oil, called a "tempering" or "tadka", is poured over the dish at the end for a final hit of aroma and crunch.',
-      timerSeconds: 60,
-    },
-    {
-      id: 's11', title: 'Finish and serve',
-      content: 'Pour the hot tempering, oil and all, evenly over the khandvi rolls. Garnish with extra coconut and coriander if you like, and serve with coriander chutney.',
-      why: null,
-      timerSeconds: null,
-    },
-  ],
-};
-
-const thaiCurryRecipe = {
-  id: 'seed-3',
-  title: 'Vegetable Green Thai Curry',
-  description: 'An authentic homemade Thai green curry with freshly made paste, coconut milk and crunchy vegetables. The fresh paste is what makes it special.',
-  baseServings: 4,
-  tags: ['Intermediate', 'Thai', '45 min', 'Vegan'],
-  ingredients: [
-    { id: 'i1', name: 'Coriander seeds', amount: 1, unit: 'tsp' },
-    { id: 'i2', name: 'Cumin seeds', amount: 1, unit: 'tsp' },
-    { id: 'i3', name: 'White peppercorns', amount: 1, unit: 'tsp' },
-    { id: 'i4', name: 'Galangal (Thai ginger), peeled', amount: 2, unit: 'inch' },
-    { id: 'i5', name: 'Fresh turmeric', amount: 0.5, unit: 'inch' },
-    { id: 'i6', name: 'Lemongrass stalks (bottom soft part only)', amount: 2, unit: '' },
-    { id: 'i7', name: 'Garlic cloves', amount: 9, unit: '' },
-    { id: 'i8', name: 'Shallots (Madras onions)', amount: 4, unit: '' },
-    { id: 'i9', name: 'Dark green chilies', amount: 9, unit: '' },
-    { id: 'i10', name: 'Lemon zest (or kaffir lime zest)', amount: 1, unit: 'tsp' },
-    { id: 'i11', name: 'Coriander stalks and roots', amount: 4, unit: '' },
-    { id: 'i12', name: 'Salt', amount: 1, unit: 'pinch' },
-    { id: 'i13', name: 'Miso paste (vegetarian umami)', amount: 1, unit: 'tsp' },
-    { id: 'i14', name: 'Coconut milk', amount: 200, unit: 'ml' },
-    { id: 'i15', name: 'Coconut milk (remaining)', amount: 800, unit: 'ml' },
-    { id: 'i16', name: 'Baby corn', amount: 0.5, unit: 'cup' },
-    { id: 'i17', name: 'Mushrooms', amount: 0.5, unit: 'cup' },
-    { id: 'i18', name: 'Broccoli florets', amount: 0.5, unit: 'cup' },
-    { id: 'i19', name: 'Carrots, sliced', amount: 0.5, unit: 'cup' },
-    { id: 'i20', name: 'Green capsicum, sliced', amount: 0.5, unit: 'cup' },
-    { id: 'i21', name: 'Red bell pepper, sliced', amount: 0.333, unit: 'cup' },
-    { id: 'i22', name: 'Brown sugar', amount: 1.5, unit: 'tbsp' },
-    { id: 'i23', name: 'Kaffir lime leaves', amount: 3, unit: '' },
-    { id: 'i24', name: 'Thai basil', amount: 1, unit: 'handful' },
-    { id: 'i25', name: 'Large red chilies, sliced (garnish)', amount: 2, unit: '' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Toast the spices',
-      content: 'Lightly toast {i1} and {i2} in a dry pan for about 1 minute until fragrant.',
-      why: 'Toasting wakes up the essential oils in the spices, giving the paste a deeper, more complex flavour.',
-      timerSeconds: 60,
-    },
-    {
-      id: 's2', title: 'Grind the spices',
-      content: 'Transfer the toasted seeds and {i3} to a mortar and pestle (or grinder) and grind into a fine powder.',
-      why: null,
-      timerSeconds: null,
-    },
-    {
-      id: 's3', title: 'Make the paste',
-      content: 'Add {i4}, {i5}, {i6}, {i7}, {i8}, {i9}, {i10}, {i11}, {i12}, and {i13} to the mortar. Pound for 10–15 minutes (or grind for 1–2 minutes) until a fine, bright green paste forms.',
-      why: 'A mortar and pestle bruises the fibres rather than cutting them — it gives a more aromatic paste. A blender is fine if you\'re short on time.',
-      timerSeconds: 900,
-    },
-    {
-      id: 's4', title: 'Reduce the coconut milk',
-      content: 'Pour {i14} into a wide pan and cook on high heat for 2–3 minutes until it thickens. No oil needed.',
-      why: 'Reducing a small amount of coconut milk first concentrates the fat so the paste fries rather than boils — this is the key step most people skip.',
-      timerSeconds: 180,
-    },
-    {
-      id: 's5', title: 'Fry the paste',
-      content: 'Add 3–4 tbsp of your fresh paste to the thickened coconut milk. Cook for 3–4 minutes, stirring, until the paste darkens and the oil separates from the coconut milk.',
-      why: 'The oil splitting ("cracking") means the paste is cooked through and the raw flavour is gone — don\'t skip this step.',
-      timerSeconds: 240,
-    },
-    {
-      id: 's6', title: 'Add remaining coconut milk',
-      content: 'Pour in {i15} and stir well to combine, making sure there are no lumps of paste.',
-      why: null,
-      timerSeconds: null,
-    },
-    {
-      id: 's7', title: 'Cook the hard vegetables',
-      content: 'Add {i16} first and boil for 7–8 minutes.',
-      why: 'Baby corn takes the longest to cook — adding it first means everything finishes at the same time.',
-      timerSeconds: 480,
-    },
-    {
-      id: 's8', title: 'Add remaining vegetables',
-      content: 'Add {i17}, {i18}, {i19}, {i20}, {i21}, {i22}, and salt to taste. Cook for 3–4 minutes — the vegetables should stay crunchy and hold their colour.',
-      why: 'Overcooking kills both the colour and the crunch. Pull the pan off the moment the vegetables are just tender.',
-      timerSeconds: 240,
-    },
-    {
-      id: 's9', title: 'Final infusion',
-      content: 'Add {i23} (torn slightly), {i24}, and {i25}. Cook for just 2 more minutes.',
-      why: 'The lime leaves and basil are fragile — too much heat and their aroma is lost. Two minutes is enough to infuse.',
-      timerSeconds: 120,
-    },
-    {
-      id: 's10', title: 'Serve',
-      content: 'Serve hot with jasmine rice.',
-      why: null,
-      timerSeconds: null,
-    },
-  ],
-};
-
-const vegDumBiryaniRecipe = {
-  id: 'seed-4',
-  title: 'Veg Dum Biryani',
-  description: 'A layered, aromatic biryani with parboiled basmati rice and spiced vegetables, slow-cooked on dum for perfectly separated, flavourful grains.',
-  baseServings: 4,
-  tags: ['Intermediate', 'Indian', '1.5 hrs'],
-  ingredients: [
-    { id: 'i1', name: 'Basmati rice (long grain, high quality)', amount: 2, unit: 'cup' },
-    { id: 'i2', name: 'Cauliflower florets', amount: 1, unit: 'cup' },
-    { id: 'i3', name: 'Carrots, diced', amount: 0.5, unit: 'cup' },
-    { id: 'i4', name: 'French beans, chopped', amount: 0.5, unit: 'cup' },
-    { id: 'i5', name: 'Green peas', amount: 0.5, unit: 'cup' },
-    { id: 'i6', name: 'Potatoes, cubed', amount: 1, unit: 'cup' },
-    { id: 'i7', name: 'Thick yogurt (curd)', amount: 0.75, unit: 'cup' },
-    { id: 'i8', name: 'Ginger-garlic paste', amount: 2, unit: 'tbsp' },
-    { id: 'i9', name: 'Fried onions (birista)', amount: 0.5, unit: 'cup' },
-    { id: 'i10', name: 'Fresh mint leaves', amount: 0.5, unit: 'cup' },
-    { id: 'i11', name: 'Fresh coriander, chopped', amount: 0.25, unit: 'cup' },
-    { id: 'i12', name: 'Ghee', amount: 3, unit: 'tbsp' },
-    { id: 'i13', name: 'Saffron strands', amount: 1, unit: 'pinch' },
-    { id: 'i14', name: 'Warm milk (for saffron)', amount: 3, unit: 'tbsp' },
-    { id: 'i15', name: 'Shahi jeera (caraway seeds)', amount: 1, unit: 'tsp' },
-    { id: 'i16', name: 'Bay leaves', amount: 2, unit: '' },
-    { id: 'i17', name: 'Cinnamon stick', amount: 1, unit: 'inch' },
-    { id: 'i18', name: 'Cloves', amount: 4, unit: '' },
-    { id: 'i19', name: 'Green cardamom', amount: 3, unit: '' },
-    { id: 'i20', name: 'Black cardamom', amount: 1, unit: '' },
-    { id: 'i21', name: 'Red chili powder', amount: 1, unit: 'tsp' },
-    { id: 'i22', name: 'Turmeric powder', amount: 0.5, unit: 'tsp' },
-    { id: 'i23', name: 'Biryani masala', amount: 2, unit: 'tsp' },
-    { id: 'i24', name: 'Salt', amount: 1.5, unit: 'tsp' },
-    { id: 'i25', name: 'Oil', amount: 2, unit: 'tbsp' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Soak the rice',
-      content: 'Wash {i1} thoroughly in cold water until the water runs clear. Soak in fresh water for at least 30 minutes, then drain.',
-      why: 'Soaking hydrates the grains so they elongate fully during cooking and stay separate — never skip this step for biryani.',
-      timerSeconds: 1800,
-    },
-    {
-      id: 's2', title: 'Soak the saffron',
-      content: 'Crush {i13} lightly and soak in {i14}. Set aside — it will deepen in colour and flavour as it sits.',
-      why: null,
-      timerSeconds: null,
-    },
-    {
-      id: 's3', title: 'Prep the vegetables',
-      content: 'Chop {i2}, {i3}, {i4}, and {i6} into even, medium-sized pieces. Keep {i5} aside. Uniform size ensures everything cooks at the same rate.',
-      why: null,
-      timerSeconds: null,
-    },
-    {
-      id: 's4', title: 'Marinate the vegetables',
-      content: 'In a large bowl, mix together {i7}, {i8}, half of {i9}, half of {i10}, {i11}, {i21}, {i22}, {i23}, and {i24}. Add all the vegetables and mix well. Leave to marinate for at least 20 minutes.',
-      why: 'The yogurt marinade tenderises the vegetables and builds the flavour of the base gravy — the longer it marinates, the better.',
-      timerSeconds: 1200,
-    },
-    {
-      id: 's5', title: 'Cook the base gravy',
-      content: 'Heat {i25} in a heavy-bottomed pot over medium heat. Add the marinated vegetables and cook, stirring occasionally, for 8–10 minutes until the gravy thickens and the oil begins to separate.',
-      why: 'You want the gravy thick enough to support the rice layers without making them soggy.',
-      timerSeconds: 600,
-    },
-    {
-      id: 's6', title: 'Parboil the rice',
-      content: 'Bring a large pot of water to a boil. Add {i15}, {i16}, {i17}, {i18}, {i19}, {i20}, and salt generously. Add the soaked rice and cook until it is 70–80% done (grains should still have a slight bite). Drain immediately.',
-      why: 'Parboiling to exactly 70–80% is the most important step — the rice finishes on dum. Overcooked rice here means mushy biryani.',
-      timerSeconds: 480,
-    },
-    {
-      id: 's7', title: 'Layer the biryani',
-      content: 'Spread the vegetable gravy evenly across the bottom of a heavy pot. Layer the parboiled rice on top. Drizzle the saffron milk, {i12}, and scatter the remaining {i9} and {i10} over the rice.',
-      why: 'Layering from the bottom up — gravy first, then rice, then aromatics on top — gives you the classic streaked, aromatic biryani look when you serve it.',
-      timerSeconds: null,
-    },
-    {
-      id: 's8', title: 'Seal and cook on dum',
-      content: 'Cover the pot tightly with a lid (seal the edges with dough or foil if needed). Cook on high heat for 2 minutes, then reduce to the lowest possible heat and cook for 15–20 minutes.',
-      why: 'Dum cooking traps all the steam inside — this is what mingles the aromas and finishes the rice perfectly. The dough seal is traditional; foil works fine.',
-      timerSeconds: 1200,
-    },
-    {
-      id: 's9', title: 'Rest and serve',
-      content: 'Turn off the heat and let the biryani rest undisturbed for 5 minutes. Then open the lid and gently fluff from the sides with a wide spatula, keeping the layers as intact as possible. Serve hot with raita.',
-      why: 'Resting lets the steam redistribute. Always fluff from the sides — stirring from the top breaks the grains and collapses the layers.',
-      timerSeconds: 300,
-    },
-  ],
-};
-
-const pavBhajiRecipe = {
-  id: 'seed-5',
-  title: 'Pav Bhaji',
-  description: 'Mumbai street-style pav bhaji with a rich, spiced vegetable mash cooked on a tawa with a flavourful tadka, served with buttery pav.',
-  baseServings: 8,
-  tags: ['Intermediate', 'Indian', 'Street Food', '1 hr'],
-  ingredients: [
-    { id: 'i1', name: 'Coriander seeds', amount: 5, unit: 'tbsp' },
-    { id: 'i2', name: 'Cumin seeds', amount: 3, unit: 'tbsp' },
-    { id: 'i3', name: 'Cloves', amount: 21, unit: '' },
-    { id: 'i4', name: 'Star anise', amount: 4, unit: '' },
-    { id: 'i5', name: 'Black cardamom', amount: 5, unit: '' },
-    { id: 'i6', name: 'Cinnamon sticks', amount: 3, unit: '' },
-    { id: 'i7', name: 'Bay leaves', amount: 4, unit: '' },
-    { id: 'i8', name: 'Kashmiri red chillies (for masala)', amount: 22, unit: '' },
-    { id: 'i9', name: 'Fennel seeds', amount: 3, unit: 'tbsp' },
-    { id: 'i10', name: 'Kasuri methi (for masala)', amount: 2, unit: 'tbsp' },
-    { id: 'i11', name: 'Turmeric powder (for masala)', amount: 0.5, unit: 'tsp' },
-    { id: 'i12', name: 'Dry ginger powder', amount: 0.5, unit: 'tsp' },
-    { id: 'i13', name: 'Hing', amount: 1, unit: 'tsp' },
-    { id: 'i14', name: 'Kaala namak', amount: 1, unit: 'tsp' },
-    { id: 'i15', name: 'Aamchur powder', amount: 1, unit: 'tbsp' },
-    { id: 'i16', name: 'Salt (for masala)', amount: 1, unit: 'tbsp' },
-    { id: 'i17', name: 'Kashmiri red chillies (deseeded & soaked, for paste)', amount: 17, unit: '' },
-    { id: 'i18', name: 'Garlic cloves (for paste)', amount: 0.75, unit: 'cup' },
-    { id: 'i19', name: 'Cauliflower, cut into florets', amount: 1, unit: 'medium' },
-    { id: 'i20', name: 'Green peas', amount: 0.75, unit: 'cup' },
-    { id: 'i21', name: 'Butter', amount: 100, unit: 'g' },
-    { id: 'i22', name: 'Oil', amount: 2, unit: 'tbsp' },
-    { id: 'i23', name: 'Cumin seeds (for bhaji)', amount: 2, unit: 'tsp' },
-    { id: 'i24', name: 'Onions, chopped', amount: 2, unit: 'medium' },
-    { id: 'i25', name: 'Capsicum, chopped', amount: 2, unit: 'medium' },
-    { id: 'i26', name: 'Potatoes, boiled and mashed', amount: 7, unit: 'medium' },
-    { id: 'i27', name: 'Tomatoes, chopped', amount: 7, unit: 'medium' },
-    { id: 'i28', name: 'Beetroot, boiled and grated', amount: 1, unit: 'medium' },
-    { id: 'i29', name: 'Fresh coriander, chopped', amount: 1, unit: 'handful' },
-    { id: 'i30', name: 'Green chilli paste (2 green chillies)', amount: 1, unit: 'tsp' },
-    { id: 'i31', name: 'Kashmiri red chilli powder', amount: 1, unit: 'tsp' },
-    { id: 'i32', name: 'Coriander powder', amount: 1, unit: 'tbsp' },
-    { id: 'i33', name: 'Turmeric powder (for bhaji)', amount: 0.5, unit: 'tsp' },
-    { id: 'i34', name: 'Kasuri methi (for bhaji)', amount: 1, unit: 'tsp' },
-    { id: 'i35', name: 'Lemon juice', amount: 1, unit: 'tsp' },
-    { id: 'i36', name: 'Garam masala (for tadka)', amount: 1, unit: 'pinch' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Make the pav bhaji masala',
-      content: 'Dry roast {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, and {i9} on low heat until fragrant. Cool completely, then grind with {i10}, {i11}, {i12}, {i13}, {i14}, {i15}, and {i16} into a fine powder. Store in an airtight jar.',
-      why: 'Making your own masala is what separates great pav bhaji from average. The aamchur and kaala namak give it the characteristic tangy, slightly funky depth.',
-      timerSeconds: 300,
-    },
-    {
-      id: 's2', title: 'Make the red chilli paste',
-      content: 'Blend the soaked {i17} with a little water into a smooth, runny paste. Set aside.',
-      why: 'Soaked Kashmiri chillies give vivid red colour without too much heat — the colour is mostly from the skin, not the seeds.',
-      timerSeconds: null,
-    },
-    {
-      id: 's3', title: 'Make the garlic paste',
-      content: 'Blend {i18} with a little water into a smooth, watery paste. Set aside.',
-      why: null,
-      timerSeconds: null,
-    },
-    {
-      id: 's4', title: 'Boil the vegetables',
-      content: 'Bring a large pot of water to a boil. Add {i19}, {i20}, a pinch of turmeric, and a pinch of salt. Boil until soft and cooked through. Drain and set aside.',
-      why: null,
-      timerSeconds: 480,
-    },
-    {
-      id: 's5', title: 'Start the bhaji',
-      content: 'Heat a large tawa on medium-high heat. Add {i21} (half) and {i22}. Add {i23} and let it crackle. Add {i24} and cook until pinkish. Add {i25} and cook on high flame for 2–3 minutes.',
-      why: 'A wide tawa gives maximum surface area — that contact with the hot surface is what builds the bhaji\'s signature charred, smoky flavour.',
-      timerSeconds: 300,
-    },
-    {
-      id: 's6', title: 'Add vegetables and spices',
-      content: 'Add {i27}, the boiled {i19} and {i20}, {i26}, and {i28}. Add salt, 2 tbsp of your prepared masala, {i31}, {i32}, {i33}, {i34}, and {i30}. Mix well and break down the chunks with a spatula.',
-      why: null,
-      timerSeconds: null,
-    },
-    {
-      id: 's7', title: 'Mash the bhaji',
-      content: 'Add 7–8 tbsp each of the prepared garlic paste and red chilli paste. Add 1–2 cups of hot water. Using a pav bhaji masher, mash everything on low heat for 15–20 minutes until the bhaji is almost completely smooth. Add more hot water to adjust consistency — street-style bhaji is slightly thin.',
-      why: 'Keep the flame low while mashing — high heat scorches the bottom. The longer you mash, the better the texture. Don\'t rush this step.',
-      timerSeconds: 1200,
-    },
-    {
-      id: 's8', title: 'Make the tadka',
-      content: 'In a separate pan, heat 50g butter. Add a pinch of {i23}, 4–5 tbsp red chilli paste, 2–3 tbsp garlic paste, 1 tsp pav bhaji masala, and {i36}. Cook on medium-high for 1–2 minutes. Pour the tadka into the bhaji and mix well.',
-      why: 'The tadka is the secret finishing layer — it adds a fresh hit of butter, garlic, and chilli on top of the long-cooked base.',
-      timerSeconds: 120,
-    },
-    {
-      id: 's9', title: 'Finish and serve',
-      content: 'Check seasoning and adjust salt. Add {i29}, remaining butter, and {i35}. Cook on medium heat for 2–3 more minutes. Serve hot with soft, buttered pav.',
-      why: null,
-      timerSeconds: 180,
-    },
-  ],
-};
-
-const alooMasalaRecipe = {
-  id: 'seed-6',
-  title: 'Aloo Sandwiches',
-  description: 'A simple, fragrant spiced potato filling — perfect for sandwiches, dosas, parathas, or as a quick side dish.',
-  baseServings: 4,
-  tags: ['Beginner', 'Indian', '15 min', 'Vegan'],
-  ingredients: [
-    { id: 'i1', name: 'Potatoes, boiled and roughly mashed', amount: 4, unit: 'medium' },
-    { id: 'i2', name: 'Turmeric (haldi)', amount: 0.5, unit: 'tsp' },
-    { id: 'i3', name: 'Coriander powder (dhana)', amount: 1, unit: 'tsp' },
-    { id: 'i4', name: 'Salt', amount: 0.75, unit: 'tsp' },
-    { id: 'i5', name: 'Kasuri methi', amount: 1, unit: 'tsp' },
-    { id: 'i6', name: 'Ghee', amount: 2, unit: 'tbsp' },
-    { id: 'i7', name: 'Jeera (cumin seeds)', amount: 0.5, unit: 'tsp' },
-    { id: 'i8', name: 'Rai (mustard seeds)', amount: 0.5, unit: 'tsp' },
-    { id: 'i9', name: 'Hing (asafoetida)', amount: 1, unit: 'pinch' },
-    { id: 'i10', name: 'Ginger, finely grated (adrak)', amount: 0.5, unit: 'tsp' },
-    { id: 'i11', name: 'Green chilli, finely chopped (mirchi)', amount: 1, unit: '' },
-    { id: 'i12', name: 'Lemon juice (nimbu)', amount: 1, unit: 'tsp' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Mix the masalas into the aloo',
-      content: 'In a bowl, combine {i1} with {i2}, {i3}, {i4}, and {i5}. Mix well so the spices coat the potato evenly.',
-      why: 'Mixing the dry spices into the potato before cooking means they are evenly distributed rather than sitting in patches.',
-      timerSeconds: null,
-    },
-    {
-      id: 's2', title: 'Make the tadka',
-      content: 'Heat {i6} in a pan over medium heat. Add {i8} and wait for them to crackle, then add {i7} and {i9}. Let them sizzle for a few seconds.',
-      why: 'Mustard seeds need a few seconds before they pop — adding the jeera and hing right after keeps them from burning.',
-      timerSeconds: 30,
-    },
-    {
-      id: 's3', title: 'Add ginger and chilli',
-      content: 'Add {i10} and {i11} to the pan and cook for 30 seconds until fragrant.',
-      why: null,
-      timerSeconds: 30,
-    },
-    {
-      id: 's4', title: 'Cook the aloo',
-      content: 'Add the spiced {i1} to the pan. Mix well and cook on medium heat for 5 minutes, stirring occasionally.',
-      why: 'A few minutes on the heat brings the raw flavour out of the spices and lets everything come together.',
-      timerSeconds: 300,
-    },
-    {
-      id: 's5', title: 'Finish with lemon',
-      content: 'Turn off the heat and squeeze in {i12}. Mix and taste — adjust salt if needed. Serve hot.',
-      why: 'Adding lemon off the heat keeps it bright and fresh — cooking lemon juice makes it bitter.',
-      timerSeconds: null,
-    },
-  ],
-};
-
-const chikadCholeRecipe = {
-  id: 'seed-7',
-  title: 'Chikad Chole',
-  description: 'A thick, rustic Punjabi-style chole where the chickpeas and potato are blended into the gravy itself, giving it its signature muddy texture. Serve with naan or puri.',
-  baseServings: 4,
-  tags: ['Intermediate', 'Punjabi', 'Vegan', '1 hr + soaking'],
-  ingredients: [
-    { id: 'i1', name: 'Kabuli chole, washed and soaked overnight', amount: 1.5, unit: 'cup' },
-    { id: 'i2', name: 'Onions, sliced', amount: 2, unit: 'medium' },
-    { id: 'i3', name: 'Potato, diced', amount: 1, unit: 'medium' },
-    { id: 'i4', name: 'Salt', amount: 1, unit: 'tsp' },
-    { id: 'i5', name: 'Coriander seeds', amount: 2, unit: 'tsp' },
-    { id: 'i6', name: 'Black pepper', amount: 1, unit: 'tsp' },
-    { id: 'i7', name: 'Dry red chillies', amount: 2, unit: '' },
-    { id: 'i8', name: 'Jeera (cumin seeds)', amount: 2, unit: 'tsp' },
-    { id: 'i9', name: 'Black cardamom', amount: 2, unit: '' },
-    { id: 'i10', name: 'Anardana (pomegranate seed powder)', amount: 1.5, unit: 'tsp' },
-    { id: 'i11', name: 'Kasuri methi', amount: 1.5, unit: 'tsp' },
-    { id: 'i12', name: 'Oil', amount: 2, unit: 'tbsp' },
-    { id: 'i13', name: 'Ghee', amount: 2, unit: 'tbsp' },
-    { id: 'i14', name: 'Ginger garlic paste', amount: 1, unit: 'tbsp' },
-    { id: 'i15', name: 'Turmeric (haldi)', amount: 0.25, unit: 'tsp' },
-    { id: 'i16', name: 'Red chilli powder', amount: 1, unit: 'tsp' },
-    { id: 'i17', name: 'Black salt (kala namak)', amount: 0.5, unit: 'tsp' },
-    { id: 'i18', name: 'Fresh coriander (hara dhaniya), chopped', amount: 1, unit: 'handful' },
-  ],
-  steps: [
-    {
-      id: 's1', title: 'Pressure cook the chole',
-      content: 'Add {i1} to a pressure cooker with {i2}, {i3}, {i4}, and water just above the level of the chole. Pressure cook for 6–7 whistles or until completely soft. Let pressure release naturally.',
-      why: 'Cooking the onion and potato together with the chole means they absorb the starch and flavour — both will be blended back in to thicken the gravy.',
-      timerSeconds: null,
-    },
-    {
-      id: 's2', title: 'Make the chole masala',
-      content: 'Heat a dry pan on low flame. Roast {i5}, {i6}, {i7}, {i8}, and {i9} for a few minutes until fragrant. Switch off the flame, add {i10} and {i11}, and roast for 1 more minute in the residual heat. Cool and grind into a fine powder.',
-      why: 'Adding the anardana and kasuri methi off the heat protects them — both are delicate and turn bitter if roasted too long.',
-      timerSeconds: 300,
-    },
-    {
-      id: 's3', title: 'Make the paste',
-      content: 'Open the pressure cooker. Remove the cooked {i3} and about ¼ cup of the chole. Blend them together into a smooth paste with a splash of the cooking water.',
-      why: 'This blended potato-chole paste is what makes chikad chole thick and creamy — it\'s the dish\'s defining technique.',
-      timerSeconds: null,
-    },
-    {
-      id: 's4', title: 'Cook the masala',
-      content: 'Heat {i12} and {i13} in a pan. Add {i14} and cook for 30 seconds. Add {i15} and {i16}, then add the ground chole masala with a little water. Cook on medium heat for a few minutes until the oil begins to separate.',
-      why: 'Cooking the masala until the oil releases means the raw spice flavour is gone and the masala is fully cooked through.',
-      timerSeconds: 300,
-    },
-    {
-      id: 's5', title: 'Add the paste and roast',
-      content: 'Add the blended chole-potato paste to the pan. Roast on medium heat, stirring, for a few minutes until the mixture releases oil.',
-      why: null,
-      timerSeconds: 300,
-    },
-    {
-      id: 's6', title: 'Combine and simmer',
-      content: 'Add this masala to the pressure-cooked chole and mix well. Bring to a boil. Add salt to taste and {i17}. Mash a few chole with the back of a spoon and cook for a few more minutes until the curry is thick.',
-      why: 'Mashing some of the chole thickens the gravy further — the more you mash, the thicker and more "chikad" it gets.',
-      timerSeconds: 300,
-    },
-    {
-      id: 's7', title: 'Garnish and serve',
-      content: 'Garnish with {i18}. Serve hot with naan or puri.',
-      why: null,
-      timerSeconds: null,
-    },
-  ],
-};
-
-const seedRecipes = [pastaRecipe, khandviRecipe, thaiCurryRecipe, vegDumBiryaniRecipe, pavBhajiRecipe, alooMasalaRecipe, chikadCholeRecipe];
-
-const FRACTIONS = [
-  [0.125, '⅛'], [0.25, '¼'], [0.333, '⅓'], [0.5, '½'],
-  [0.667, '⅔'], [0.75, '¾'], [0.875, '⅞'],
+// ---- Recipe data ----
+const SEED_RECIPES = [
+  {id:'seed-1',title:'Weeknight Garlic Butter Pasta',description:'A fast, comforting pasta that teaches you how to build a pan sauce from scratch.',baseServings:2,tags:['Beginner','20 min'],ingredients:[{id:'i1',name:'Spaghetti',amount:200,unit:'g'},{id:'i2',name:'Butter',amount:3,unit:'tbsp'},{id:'i3',name:'Garlic cloves, minced',amount:4,unit:''},{id:'i4',name:'Red chili flakes',amount:0.5,unit:'tsp'},{id:'i5',name:'Parmesan, grated',amount:0.5,unit:'cup'},{id:'i6',name:'Salt',amount:1,unit:'tsp'},{id:'i7',name:'Black pepper',amount:0.25,unit:'tsp'},{id:'i8',name:'Fresh parsley, chopped',amount:2,unit:'tbsp'}],steps:[{id:'s1',title:'Boil the pasta',content:'Bring a large pot of water to a boil. Salt it generously, then add the {i1}.',why:'Salting the water is your only chance to season the pasta itself — it should taste like the sea.',timerSeconds:600},{id:'s2',title:'Save the starchy water',content:'Just before draining, scoop out about 1 cup of the pasta water and set it aside.',why:'This cloudy water is full of starch and will help the sauce cling to the pasta later.',timerSeconds:null},{id:'s3',title:'Build the garlic butter',content:'While the pasta cooks, melt {i2} in a large pan over medium-low heat. Add {i3} and {i4}, and cook gently until fragrant.',why:'Low heat is key — burnt garlic turns bitter and there is no fixing it. Aim for golden, not brown.',timerSeconds:120},{id:'s4',title:'Combine',content:'Add the drained pasta to the pan along with a splash of the reserved pasta water. Toss well.',why:'The starchy water emulsifies with the butter, creating a glossy sauce that coats every strand.',timerSeconds:null},{id:'s5',title:'Finish',content:'Remove from heat and stir in {i5}, {i6}, and {i7}. Add more pasta water if it looks dry. Top with {i8} and serve right away.',why:'Adding cheese off the heat keeps it from clumping into a greasy mess.',timerSeconds:null}]},
+  {id:'seed-2',title:'Khandvi',description:"A delicate Gujarati snack of rolled gram-flour batter, finished with a mustard-seed tempering. The tricky part is the batter — the 'plate test' is your guide.",baseServings:4,tags:['Intermediate','40 min'],ingredients:[{id:'i1',name:'Besan (gram flour)',amount:1,unit:'cup'},{id:'i2',name:'Sour yogurt (curd)',amount:0.75,unit:'cup'},{id:'i3',name:'Water',amount:2.25,unit:'cup'},{id:'i4',name:'Ginger-green chili paste',amount:1,unit:'tsp'},{id:'i5',name:'Turmeric powder',amount:0.25,unit:'tsp'},{id:'i6',name:'Salt',amount:0.667,unit:'tsp'},{id:'i7',name:'Asafoetida (hing)',amount:1,unit:'pinch'},{id:'i8',name:'Fresh grated coconut',amount:2,unit:'tbsp'},{id:'i9',name:'Chopped coriander leaves',amount:2,unit:'tbsp'},{id:'i10',name:'Oil, for tempering',amount:1,unit:'tbsp'},{id:'i11',name:'Curry leaves',amount:9,unit:''},{id:'i12',name:'Mustard seeds',amount:1,unit:'tsp'},{id:'i13',name:'White sesame seeds',amount:2,unit:'tsp'},{id:'i14',name:'Green chili, chopped (for tempering)',amount:1,unit:'tsp'}],steps:[{id:'s1',title:'Make the buttermilk',content:'Whisk {i2} with {i3} until smooth and lump-free.',why:'This thin, smooth buttermilk is the base of the batter — getting it lump-free here makes everything easier later.',timerSeconds:null},{id:'s2',title:'Add the spices',content:"Stir in {i4}, {i5}, {i6}, and {i7}. If your yogurt isn't very sour, add a squeeze of lemon juice for tang.",why:'The 1:3 ratio of besan to buttermilk is what gives khandvi its texture — keep that proportion even if you scale the recipe.',timerSeconds:null},{id:'s3',title:'Whisk in the besan',content:'Add {i1} and whisk thoroughly until completely smooth with no lumps.',why:'Any lumps now become hard bits later. Keep whisking — a hand whisk or beater both work.',timerSeconds:null},{id:'s4',title:'Prep your rolling surface',content:'Lightly grease large plates or trays with oil. Mix {i8} and {i9} together in a small bowl for the filling.',why:"The cooked batter sets fast, so have your surface and filling ready before you start cooking — there is no pause once it's done.",timerSeconds:null},{id:'s5',title:'Cook the batter',content:'Pour the batter into a saucepan over the lowest heat. Stir constantly as it heats, thickens, and eventually leaves the sides of the pan.',why:'Low heat and constant stirring prevent lumps. This takes around 15–17 minutes — resist the urge to raise the heat.',timerSeconds:1020},{id:'s6',title:'Do the plate test',content:'Spread a small spoonful of batter thinly on a plate, let it cool for a few seconds, then try to roll it. If it rolls smoothly without sticking, the batter is ready.',why:'This is the single most important step. Undercooked batter won\'t roll; overcooked batter gets too thick to spread thinly.',timerSeconds:null},{id:'s7',title:'Spread it thin',content:'Working quickly while the batter is still hot, pour about ½ to ⅔ cup onto each greased plate and spread into a thin, even layer.',why:'Speed is everything here — the batter thickens as it cools.',timerSeconds:null},{id:'s8',title:'Add filling and roll',content:'Once cooled slightly, sprinkle with the coconut-coriander mixture. Cut into strips and roll each into a tight spiral.',why:"If a strip tears, it was spread too thick — just roll it as best you can, it'll still taste good.",timerSeconds:null},{id:'s9',title:'Make the tempering',content:'Heat {i10}. Add {i12} and let crackle, then add {i11} and {i14}. Stir in {i13} until they crackle. Pour over the rolls.',why:'This spiced oil is poured over the dish at the end for a final hit of aroma and crunch.',timerSeconds:60}]},
+  {id:'seed-3',title:'Vegetable Green Thai Curry',description:'An authentic homemade Thai green curry with freshly made paste, coconut milk and crunchy vegetables. The fresh paste is what makes it special.',baseServings:4,tags:['Intermediate','Thai','45 min','Vegan'],ingredients:[{id:'i1',name:'Coriander seeds',amount:1,unit:'tsp'},{id:'i2',name:'Cumin seeds',amount:1,unit:'tsp'},{id:'i3',name:'White peppercorns',amount:1,unit:'tsp'},{id:'i4',name:'Galangal (Thai ginger), peeled',amount:2,unit:'inch'},{id:'i5',name:'Fresh turmeric',amount:0.5,unit:'inch'},{id:'i6',name:'Lemongrass stalks (bottom soft part only)',amount:2,unit:''},{id:'i7',name:'Garlic cloves',amount:9,unit:''},{id:'i8',name:'Shallots (Madras onions)',amount:4,unit:''},{id:'i9',name:'Dark green chilies',amount:9,unit:''},{id:'i10',name:'Lemon zest (or kaffir lime zest)',amount:1,unit:'tsp'},{id:'i11',name:'Coriander stalks and roots',amount:4,unit:''},{id:'i12',name:'Salt',amount:1,unit:'pinch'},{id:'i13',name:'Miso paste (vegetarian umami)',amount:1,unit:'tsp'},{id:'i14',name:'Coconut milk (first)',amount:200,unit:'ml'},{id:'i15',name:'Coconut milk (remaining)',amount:800,unit:'ml'},{id:'i16',name:'Baby corn',amount:0.5,unit:'cup'},{id:'i17',name:'Mushrooms',amount:0.5,unit:'cup'},{id:'i18',name:'Broccoli florets',amount:0.5,unit:'cup'},{id:'i19',name:'Carrots, sliced',amount:0.5,unit:'cup'},{id:'i20',name:'Green capsicum, sliced',amount:0.5,unit:'cup'},{id:'i21',name:'Red bell pepper, sliced',amount:0.333,unit:'cup'},{id:'i22',name:'Brown sugar',amount:1.5,unit:'tbsp'},{id:'i23',name:'Kaffir lime leaves',amount:3,unit:''},{id:'i24',name:'Thai basil',amount:1,unit:'handful'},{id:'i25',name:'Large red chilies, sliced (garnish)',amount:2,unit:''}],steps:[{id:'s1',title:'Toast the spices',content:'Toast {i1} and {i2} in a dry pan for about 1 minute until fragrant.',why:'Toasting wakes up the essential oils in the spices, giving the paste a deeper, more complex flavour.',timerSeconds:60},{id:'s2',title:'Make the paste',content:'Grind toasted spices with {i3} into a fine powder. Add {i4}, {i5}, {i6}, {i7}, {i8}, {i9}, {i10}, {i11}, {i12}, and {i13}. Pound for 10–15 minutes (or grind 1–2 minutes) until a bright green paste forms.',why:'A mortar and pestle gives a more aromatic paste. A blender is fine if short on time.',timerSeconds:900},{id:'s3',title:'Reduce the coconut milk',content:'Pour {i14} into a wide pan and cook on high heat for 2–3 minutes until it thickens. No oil needed.',why:'Reducing coconut milk first concentrates the fat so the paste fries rather than boils — the key step most people skip.',timerSeconds:180},{id:'s4',title:'Fry the paste',content:'Add 3–4 tbsp of your fresh paste to the thickened coconut milk. Cook for 3–4 minutes, stirring, until the paste darkens and the oil separates.',why:'The oil splitting means the paste is cooked through. Don\'t skip this step.',timerSeconds:240},{id:'s5',title:'Add coconut milk and vegetables',content:'Pour in {i15} and stir well. Add {i16} first and boil for 7–8 minutes. Then add {i17}, {i18}, {i19}, {i20}, {i21}, {i22}, and salt to taste. Cook for 3–4 minutes — vegetables should stay crunchy.',why:'Baby corn takes longest — adding it first means everything finishes together. Overcooking kills colour and crunch.',timerSeconds:720},{id:'s6',title:'Final infusion',content:'Add {i23} (torn), {i24}, and {i25}. Cook for just 2 more minutes. Serve with jasmine rice.',why:'The lime leaves and basil are fragile — two minutes is enough to infuse without losing their aroma.',timerSeconds:120}]},
+  {id:'seed-4',title:'Veg Dum Biryani',description:'A layered, aromatic biryani with parboiled basmati rice and spiced vegetables, slow-cooked on dum for perfectly separated, flavourful grains.',baseServings:4,tags:['Intermediate','Indian','1.5 hrs'],ingredients:[{id:'i1',name:'Basmati rice (long grain)',amount:2,unit:'cup'},{id:'i2',name:'Cauliflower florets',amount:1,unit:'cup'},{id:'i3',name:'Carrots, diced',amount:0.5,unit:'cup'},{id:'i4',name:'French beans, chopped',amount:0.5,unit:'cup'},{id:'i5',name:'Green peas',amount:0.5,unit:'cup'},{id:'i6',name:'Potatoes, cubed',amount:1,unit:'cup'},{id:'i7',name:'Thick yogurt (curd)',amount:0.75,unit:'cup'},{id:'i8',name:'Ginger-garlic paste',amount:2,unit:'tbsp'},{id:'i9',name:'Fried onions (birista)',amount:0.5,unit:'cup'},{id:'i10',name:'Fresh mint leaves',amount:0.5,unit:'cup'},{id:'i11',name:'Fresh coriander, chopped',amount:0.25,unit:'cup'},{id:'i12',name:'Ghee',amount:3,unit:'tbsp'},{id:'i13',name:'Saffron strands',amount:1,unit:'pinch'},{id:'i14',name:'Warm milk (for saffron)',amount:3,unit:'tbsp'},{id:'i15',name:'Shahi jeera (caraway seeds)',amount:1,unit:'tsp'},{id:'i16',name:'Bay leaves',amount:2,unit:''},{id:'i17',name:'Cinnamon stick',amount:1,unit:'inch'},{id:'i18',name:'Cloves',amount:4,unit:''},{id:'i19',name:'Green cardamom',amount:3,unit:''},{id:'i20',name:'Black cardamom',amount:1,unit:''},{id:'i21',name:'Red chili powder',amount:1,unit:'tsp'},{id:'i22',name:'Turmeric powder',amount:0.5,unit:'tsp'},{id:'i23',name:'Biryani masala',amount:2,unit:'tsp'},{id:'i24',name:'Salt',amount:1.5,unit:'tsp'},{id:'i25',name:'Oil',amount:2,unit:'tbsp'}],steps:[{id:'s1',title:'Soak the rice',content:'Wash {i1} until water runs clear. Soak in fresh water for at least 30 minutes, then drain.',why:'Soaking hydrates the grains so they elongate fully during cooking and stay separate.',timerSeconds:1800},{id:'s2',title:'Soak the saffron',content:'Crush {i13} lightly and soak in {i14}. Set aside.',why:null,timerSeconds:null},{id:'s3',title:'Marinate the vegetables',content:'Mix {i7}, {i8}, half of {i9}, half of {i10}, {i11}, {i21}, {i22}, {i23}, and {i24} in a large bowl. Add all vegetables and mix well. Marinate for at least 20 minutes.',why:'The yogurt marinade tenderises the vegetables and builds the flavour of the base gravy.',timerSeconds:1200},{id:'s4',title:'Cook the base gravy',content:'Heat {i25} in a heavy-bottomed pot. Add marinated vegetables and cook for 8–10 minutes until the gravy thickens and oil separates.',why:'You want the gravy thick enough to support the rice layers without making them soggy.',timerSeconds:600},{id:'s5',title:'Parboil the rice',content:'Boil a large pot of water. Add {i15}, {i16}, {i17}, {i18}, {i19}, {i20}, and generous salt. Add soaked rice and cook until 70–80% done (still has a slight bite). Drain immediately.',why:'Parboiling to exactly 70–80% is the most important step — the rice finishes on dum. Overcooked rice here means mushy biryani.',timerSeconds:480},{id:'s6',title:'Layer and seal',content:'Spread vegetable gravy in the bottom of a heavy pot. Layer parboiled rice on top. Drizzle saffron milk, {i12}, and scatter remaining {i9} and {i10} over the rice. Cover tightly (seal edges with dough or foil). Cook on high for 2 minutes, then lowest heat for 15–20 minutes.',why:'Dum cooking traps all the steam inside — this is what mingles the aromas and finishes the rice perfectly.',timerSeconds:1200},{id:'s7',title:'Rest and serve',content:'Rest undisturbed for 5 minutes. Then gently fluff from the sides with a wide spatula. Serve hot with raita.',why:'Always fluff from the sides — stirring from the top breaks the grains and collapses the layers.',timerSeconds:300}]},
+  {id:'seed-5',title:'Pav Bhaji',description:'Mumbai street-style pav bhaji with a rich, spiced vegetable mash cooked on a tawa with a flavourful tadka, served with buttery pav.',baseServings:8,tags:['Intermediate','Indian','Street Food','1 hr'],ingredients:[{id:'i1',name:'Coriander seeds (masala)',amount:5,unit:'tbsp'},{id:'i2',name:'Cumin seeds (masala)',amount:3,unit:'tbsp'},{id:'i3',name:'Cloves',amount:21,unit:''},{id:'i4',name:'Star anise',amount:4,unit:''},{id:'i5',name:'Black cardamom',amount:5,unit:''},{id:'i6',name:'Cinnamon sticks',amount:3,unit:''},{id:'i7',name:'Bay leaves',amount:4,unit:''},{id:'i8',name:'Kashmiri red chillies (masala)',amount:22,unit:''},{id:'i9',name:'Fennel seeds',amount:3,unit:'tbsp'},{id:'i10',name:'Kasuri methi (masala)',amount:2,unit:'tbsp'},{id:'i11',name:'Turmeric powder (masala)',amount:0.5,unit:'tsp'},{id:'i12',name:'Dry ginger powder',amount:0.5,unit:'tsp'},{id:'i13',name:'Hing',amount:1,unit:'tsp'},{id:'i14',name:'Kaala namak',amount:1,unit:'tsp'},{id:'i15',name:'Aamchur powder',amount:1,unit:'tbsp'},{id:'i16',name:'Salt (masala)',amount:1,unit:'tbsp'},{id:'i17',name:'Kashmiri red chillies (soaked, for paste)',amount:17,unit:''},{id:'i18',name:'Garlic cloves (for paste)',amount:0.75,unit:'cup'},{id:'i19',name:'Cauliflower, florets',amount:1,unit:'medium'},{id:'i20',name:'Green peas',amount:0.75,unit:'cup'},{id:'i21',name:'Butter',amount:100,unit:'g'},{id:'i22',name:'Oil',amount:2,unit:'tbsp'},{id:'i23',name:'Cumin seeds (for bhaji)',amount:2,unit:'tsp'},{id:'i24',name:'Onions, chopped',amount:2,unit:'medium'},{id:'i25',name:'Capsicum, chopped',amount:2,unit:'medium'},{id:'i26',name:'Potatoes, boiled and mashed',amount:7,unit:'medium'},{id:'i27',name:'Tomatoes, chopped',amount:7,unit:'medium'},{id:'i28',name:'Beetroot, boiled and grated',amount:1,unit:'medium'},{id:'i29',name:'Fresh coriander, chopped',amount:1,unit:'handful'},{id:'i30',name:'Green chilli paste (2 green chillies)',amount:1,unit:'tsp'},{id:'i31',name:'Kashmiri red chilli powder',amount:1,unit:'tsp'},{id:'i32',name:'Coriander powder',amount:1,unit:'tbsp'},{id:'i33',name:'Turmeric powder (bhaji)',amount:0.5,unit:'tsp'},{id:'i34',name:'Kasuri methi (bhaji)',amount:1,unit:'tsp'},{id:'i35',name:'Lemon juice',amount:1,unit:'tsp'},{id:'i36',name:'Garam masala (for tadka)',amount:1,unit:'pinch'}],steps:[{id:'s1',title:'Make the pav bhaji masala',content:'Dry roast {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, and {i9} on low heat until fragrant. Cool, then grind with {i10}, {i11}, {i12}, {i13}, {i14}, {i15}, and {i16} into a fine powder.',why:'Making your own masala is what separates great pav bhaji from average. The aamchur and kaala namak give it the characteristic tangy, slightly funky depth.',timerSeconds:300},{id:'s2',title:'Make the pastes',content:'Red chilli paste: blend soaked {i17} with water until smooth and runny. Garlic paste: blend {i18} with water into a smooth, watery paste.',why:'Kashmiri chillies give vivid red colour without too much heat.',timerSeconds:null},{id:'s3',title:'Boil the vegetables',content:'Boil {i19} and {i20} with a pinch of turmeric and salt until soft. Drain and set aside.',timerSeconds:480,why:null},{id:'s4',title:'Start the bhaji',content:'Heat half of {i21} with {i22} on a large tawa. Add {i23} and let crackle. Add {i24} and cook until pinkish. Add {i25} and cook on high for 2–3 minutes.',why:"A wide tawa gives maximum surface area — that contact with the hot surface builds the bhaji's signature charred, smoky flavour.",timerSeconds:300},{id:'s5',title:'Add vegetables and spices',content:'Add {i27}, boiled {i19} and {i20}, {i26}, and {i28}. Add salt, 2 tbsp of your masala, {i31}, {i32}, {i33}, {i34}, and {i30}. Mix well and break down chunks with a spatula.',why:null,timerSeconds:null},{id:'s6',title:'Mash the bhaji',content:'Add 7–8 tbsp each of garlic paste and red chilli paste. Add 1–2 cups hot water. Mash on low heat for 15–20 minutes until almost completely smooth. Add more hot water to adjust consistency.',why:"Keep the flame low while mashing — high heat scorches the bottom. The longer you mash, the better the texture.",timerSeconds:1200},{id:'s7',title:'Make the tadka',content:'In a separate pan heat 50g butter. Add a pinch of {i23}, 4–5 tbsp red chilli paste, 2–3 tbsp garlic paste, 1 tsp masala, and {i36}. Cook 1–2 minutes. Pour into the bhaji and mix.',why:"The tadka is the secret finishing layer — a fresh hit of butter, garlic, and chilli on top of the long-cooked base.",timerSeconds:120},{id:'s8',title:'Finish and serve',content:'Check seasoning. Add {i29}, remaining butter, and {i35}. Cook on medium heat for 2–3 more minutes. Serve hot with soft buttered pav.',why:null,timerSeconds:180}]},
+  {id:'seed-6',title:'Aloo Sandwiches',description:'A simple, fragrant spiced potato filling — perfect for sandwiches, dosas, parathas, or as a quick side dish.',baseServings:4,tags:['Beginner','Indian','15 min','Vegan'],ingredients:[{id:'i1',name:'Potatoes, boiled and roughly mashed',amount:4,unit:'medium'},{id:'i2',name:'Turmeric (haldi)',amount:0.5,unit:'tsp'},{id:'i3',name:'Coriander powder (dhana)',amount:1,unit:'tsp'},{id:'i4',name:'Salt',amount:0.75,unit:'tsp'},{id:'i5',name:'Kasuri methi',amount:1,unit:'tsp'},{id:'i6',name:'Ghee',amount:2,unit:'tbsp'},{id:'i7',name:'Jeera (cumin seeds)',amount:0.5,unit:'tsp'},{id:'i8',name:'Rai (mustard seeds)',amount:0.5,unit:'tsp'},{id:'i9',name:'Hing (asafoetida)',amount:1,unit:'pinch'},{id:'i10',name:'Ginger, finely grated (adrak)',amount:0.5,unit:'tsp'},{id:'i11',name:'Green chilli, finely chopped (mirchi)',amount:1,unit:''},{id:'i12',name:'Lemon juice (nimbu)',amount:1,unit:'tsp'}],steps:[{id:'s1',title:'Mix masalas into the aloo',content:'Combine {i1} with {i2}, {i3}, {i4}, and {i5}. Mix well so the spices coat the potato evenly.',why:'Mixing the dry spices into the potato before cooking means they are evenly distributed.',timerSeconds:null},{id:'s2',title:'Make the tadka',content:'Heat {i6}. Add {i8} and wait for them to crackle, then add {i7} and {i9}. Let them sizzle for a few seconds.',why:'Mustard seeds need a few seconds before they pop — adding the jeera and hing right after keeps them from burning.',timerSeconds:30},{id:'s3',title:'Add ginger and chilli',content:'Add {i10} and {i11} to the pan and cook for 30 seconds until fragrant.',why:null,timerSeconds:30},{id:'s4',title:'Cook the aloo',content:'Add the spiced {i1} to the pan. Mix well and cook on medium heat for 5 minutes, stirring occasionally.',why:'A few minutes on the heat brings the raw flavour out of the spices and lets everything come together.',timerSeconds:300},{id:'s5',title:'Finish with lemon',content:'Turn off the heat and squeeze in {i12}. Mix and taste — adjust salt if needed. Serve hot.',why:'Adding lemon off the heat keeps it bright and fresh — cooking lemon juice makes it bitter.',timerSeconds:null}]},
+  {id:'seed-7',title:'Chikad Chole',description:'A thick, rustic Punjabi-style chole where chickpeas and potato are blended into the gravy itself, giving it its signature muddy texture. Serve with naan or puri.',baseServings:4,tags:['Intermediate','Punjabi','Vegan','1 hr + soaking'],ingredients:[{id:'i1',name:'Kabuli chole, soaked overnight',amount:1.5,unit:'cup'},{id:'i2',name:'Onions, sliced',amount:2,unit:'medium'},{id:'i3',name:'Potato, diced',amount:1,unit:'medium'},{id:'i4',name:'Salt',amount:1,unit:'tsp'},{id:'i5',name:'Coriander seeds',amount:2,unit:'tsp'},{id:'i6',name:'Black pepper',amount:1,unit:'tsp'},{id:'i7',name:'Dry red chillies',amount:2,unit:''},{id:'i8',name:'Jeera (cumin seeds)',amount:2,unit:'tsp'},{id:'i9',name:'Black cardamom',amount:2,unit:''},{id:'i10',name:'Anardana (pomegranate seed powder)',amount:1.5,unit:'tsp'},{id:'i11',name:'Kasuri methi',amount:1.5,unit:'tsp'},{id:'i12',name:'Oil',amount:2,unit:'tbsp'},{id:'i13',name:'Ghee',amount:2,unit:'tbsp'},{id:'i14',name:'Ginger garlic paste',amount:1,unit:'tbsp'},{id:'i15',name:'Turmeric (haldi)',amount:0.25,unit:'tsp'},{id:'i16',name:'Red chilli powder',amount:1,unit:'tsp'},{id:'i17',name:'Black salt (kala namak)',amount:0.5,unit:'tsp'},{id:'i18',name:'Fresh coriander (hara dhaniya), chopped',amount:1,unit:'handful'}],steps:[{id:'s1',title:'Pressure cook the chole',content:'Add {i1} to a pressure cooker with {i2}, {i3}, {i4}, and water just above the level of the chole. Pressure cook for 6–7 whistles until completely soft. Let pressure release naturally.',why:'Cooking the onion and potato together with the chole means they absorb the starch and flavour — both will be blended back in to thicken the gravy.',timerSeconds:null},{id:'s2',title:'Make the chole masala',content:'Heat a dry pan on low flame. Roast {i5}, {i6}, {i7}, {i8}, and {i9} for a few minutes until fragrant. Switch off the flame, add {i10} and {i11}, and roast for 1 more minute in the residual heat. Cool and grind into a fine powder.',why:'Adding the anardana and kasuri methi off the heat protects them — both are delicate and turn bitter if roasted too long.',timerSeconds:300},{id:'s3',title:'Make the paste',content:'Remove the cooked {i3} and about ¼ cup of the chole from the cooker. Blend into a smooth paste with a splash of cooking water.',why:"This blended potato-chole paste is what makes chikad chole thick and creamy — it's the dish's defining technique.",timerSeconds:null},{id:'s4',title:'Cook the masala',content:'Heat {i12} and {i13} in a pan. Add {i14} and cook 30 seconds. Add {i15} and {i16}, then add the ground chole masala with a little water. Cook until the oil separates.',why:'Cooking the masala until the oil releases means the raw spice flavour is gone.',timerSeconds:300},{id:'s5',title:'Add paste and roast',content:'Add the blended chole-potato paste to the pan. Roast on medium heat, stirring, for a few minutes until the mixture releases oil.',why:null,timerSeconds:300},{id:'s6',title:'Combine and simmer',content:'Add this masala to the pressure-cooked chole and mix well. Bring to a boil. Add salt to taste and {i17}. Mash a few chole with the back of a spoon and cook for a few more minutes until thick.',why:'Mashing some of the chole thickens the gravy further — the more you mash, the thicker and more "chikad" it gets.',timerSeconds:300},{id:'s7',title:'Garnish and serve',content:'Garnish with {i18}. Serve hot with naan or puri.',why:null,timerSeconds:null}]}
 ];
 
-function formatAmount(num) {
-  if (!num && num !== 0) return '';
-  if (num === 0) return '0';
-  const whole = Math.floor(num);
-  const frac = num - whole;
-  for (const [val, sym] of FRACTIONS) {
-    if (Math.abs(frac - val) < 0.03) {
-      return whole > 0 ? `${whole}${sym}` : sym;
-    }
+// ---- Helpers ----
+const FRACS=[[0.125,'⅛'],[0.25,'¼'],[0.333,'⅓'],[0.5,'½'],[0.667,'⅔'],[0.75,'¾'],[0.875,'⅞']];
+function fmt(num){
+  if(!num&&num!==0)return'';if(num===0)return'0';
+  const w=Math.floor(num),f=num-w;
+  for(const[v,s]of FRACS){if(Math.abs(f-v)<0.03)return w>0?`${w}${s}`:s;}
+  const r=Math.round(num*100)/100;return r%1===0?r.toString():r.toFixed(2).replace(/0$/,'');
+}
+function scaleIng(ing,sc){const a=fmt(ing.amount*sc);return`${a}${ing.unit?' '+ing.unit:''} ${ing.name}`.trim();}
+function renderContent(content,ings,sc){
+  return content.replace(/\{(i[\w-]+)\}/g,(m,id)=>{const i=ings.find(x=>x.id===id);return i?scaleIng(i,sc):m;});
+}
+function fmtTime(s){const m=Math.floor(s/60),sec=s%60;return`${m}:${sec.toString().padStart(2,'0')}`;}
+function newId(p){return`${p}-${Date.now()}-${Math.random().toString(36).slice(2,7)}`;}
+
+function loadRecipes(){
+  try{const r=localStorage.getItem(STORAGE_KEY);return r?JSON.parse(r):null;}catch(e){return null;}
+}
+function saveRecipes(r){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(r));return true;}catch(e){return false;}}
+
+function initRecipes(){
+  const stored=loadRecipes();
+  if(!stored||!stored.length){
+    saveRecipes(SEED_RECIPES);
+    return SEED_RECIPES;
   }
-  const rounded = Math.round(num * 100) / 100;
-  return rounded % 1 === 0 ? rounded.toString() : rounded.toFixed(2).replace(/0$/, '');
+  const ids=new Set(stored.map(r=>r.id));
+  const newSeeds=SEED_RECIPES.filter(r=>!ids.has(r.id));
+  if(newSeeds.length){
+    const merged=[...stored,...newSeeds];
+    saveRecipes(merged);
+    return merged;
+  }
+  return stored;
 }
 
-function scaledIngredient(ing, scale) {
-  const amt = formatAmount(ing.amount * scale);
-  return `${amt}${ing.unit ? ' ' + ing.unit : ''} ${ing.name}`.trim();
-}
-
-function renderStepContent(content, ingredients, scale) {
-  return content.replace(/\{(i[\w-]+)\}/g, (match, id) => {
-    const ing = ingredients.find((i) => i.id === id);
-    return ing ? scaledIngredient(ing, scale) : match;
-  });
-}
-
-function formatTime(s) {
-  const m = Math.floor(s / 60);
-  const sec = s % 60;
-  return `${m}:${sec.toString().padStart(2, '0')}`;
-}
-
-function newId(prefix) {
-  return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
-}
-
-function extractJson(text) {
-  const cleaned = text.replace(/```json/gi, '').replace(/```/g, '');
-  const start = cleaned.indexOf('{');
-  const end = cleaned.lastIndexOf('}');
-  if (start === -1 || end === -1 || end < start) throw new Error('No JSON found in response');
-  return JSON.parse(cleaned.slice(start, end + 1));
-}
-
-// ---------- Servings Dial ----------
-function ServingsDial({ servings, baseServings, onChange }) {
-  const pct = Math.max(8, Math.min((servings / (baseServings * 2)) * 100, 100));
-  return (
-    <div className="flex items-center gap-4">
-      <button
-        onClick={() => onChange(Math.max(1, servings - 1))}
-        className="w-10 h-10 rounded-full flex items-center justify-center bg-rust text-parchment transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
-        style={{ ringColor: '#C1602A' }}
-        aria-label="Decrease servings"
-      >
-        <Minus size={18} />
-      </button>
-      <div
-        className="relative w-24 h-24 rounded-full flex items-center justify-center shrink-0"
-        style={{ background: `conic-gradient(#C1602A ${pct}%, #E8DFCB ${pct}%)` }}
-      >
-        <div className="absolute inset-[6px] rounded-full bg-parchment flex flex-col items-center justify-center">
-          <span className="font-mono text-2xl font-bold text-plum">{servings}</span>
-          <span className="text-[10px] uppercase tracking-wide text-ink/50">servings</span>
+// ---- Servings Dial ----
+function ServingsDial({servings,base,onChange}){
+  const pct=Math.max(8,Math.min((servings/(base*2))*100,100));
+  return(
+    <div className="flex items-center gap4">
+      <button onClick={()=>onChange(Math.max(1,servings-1))} className="w10 h10 rounded-full flex items-center justify-center bg-rust c-parchment xl fw7 transition" style={{flexShrink:0}}>−</button>
+      <div className="rel w24 h24 rounded-full flex items-center justify-center" style={{background:`conic-gradient(#C1602A ${pct}%,#E8DFCB ${pct}%)`,flexShrink:0}}>
+        <div className="abs rounded-full bg-parchment flex flex-col items-center justify-center" style={{inset:6}}>
+          <span className="fm xl2 fw7 c-plum">{servings}</span>
+          <span className="f10 upper track c-ink50">servings</span>
         </div>
       </div>
-      <button
-        onClick={() => onChange(servings + 1)}
-        className="w-10 h-10 rounded-full flex items-center justify-center bg-rust text-parchment transition hover:opacity-90 focus:outline-none focus:ring-2"
-        aria-label="Increase servings"
-      >
-        <Plus size={18} />
-      </button>
+      <button onClick={()=>onChange(servings+1)} className="w10 h10 rounded-full flex items-center justify-center bg-rust c-parchment xl fw7 transition" style={{flexShrink:0}}>+</button>
     </div>
   );
 }
 
-// ---------- Library ----------
-function Library({ recipes, onOpen, onAdd, loading, onExport }) {
-  const [selectedTags, setSelectedTags] = useState([]);
+// ---- Library ----
+function Library({recipes,onOpen,onAdd,onExport,onImport}){
+  const [selTags,setSelTags]=useState([]);
+  const [showPaste,setShowPaste]=useState(false);
+  const [pasteText,setPasteText]=useState('');
+  const fileRef=useRef(null);
+  const allTags=[...new Set(recipes.flatMap(r=>r.tags||[]))].sort();
+  const toggle=tag=>setSelTags(p=>p.includes(tag)?p.filter(t=>t!==tag):[...p,tag]);
+  const filtered=selTags.length===0?recipes:recipes.filter(r=>(r.tags||[]).some(t=>selTags.includes(t)));
 
-  const allTags = Array.from(new Set(recipes.flatMap((r) => r.tags || []))).sort();
+  const handlePasteImport=()=>{
+    try{
+      const data=JSON.parse(pasteText);
+      if(!Array.isArray(data))throw new Error('not array');
+      onImport(data);
+      setShowPaste(false);setPasteText('');
+    }catch(e){alert("Couldn't read that — make sure you pasted a full cookbook export.");}
+  };
 
-  const toggleTag = (tag) =>
-    setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]));
-
-  const filtered = selectedTags.length === 0
-    ? recipes
-    : recipes.filter((r) => (r.tags || []).some((t) => selectedTags.includes(t)));
-
-  return (
-    <div className="max-w-3xl mx-auto px-5 pb-24 pt-8">
-      <div className="flex items-center justify-between gap-3 mb-1">
-        <div className="flex items-center gap-3">
-          <ChefHat className="text-rust" size={28} />
-          <h1 className="font-display text-3xl font-bold text-plum">Your Cookbook</h1>
+  return(
+    <div className="max3xl mxauto px5 pb24 pt8">
+      <div className="flex items-center justify-between gap3 mb1">
+        <div className="flex items-center gap3">
+          <span style={{fontSize:28}}>🍳</span>
+          <h1 className="fd xl3 fw7 c-plum">My Cookbook</h1>
         </div>
-        <button onClick={onExport} className="text-xs px-3 py-1.5 rounded-full border text-ink/60 hover:bg-sage/10" style={{ borderColor: '#EADFC8' }} title="Download all recipes as a file">
-          Export
-        </button>
+        <div className="flex gap2">
+          <button onClick={onExport} className="xs px3 py15 rounded-full border c-ink60 transition" style={{background:'#fff'}}>⬇ Export</button>
+          <button onClick={()=>setShowPaste(true)} className="xs px3 py15 rounded-full border c-ink60 transition" style={{background:'#fff'}}>📋 Paste</button>
+          <button onClick={()=>fileRef.current?.click()} className="xs px3 py15 rounded-full border c-ink60 transition" style={{background:'#fff'}}>⬆ Import</button>
+          <input ref={fileRef} type="file" accept="application/json" className="hidden" onChange={e=>{
+            const f=e.target.files[0];if(!f)return;
+            const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(Array.isArray(d))onImport(d);else alert('Invalid file.');}catch(e){alert('Could not read file.');}};
+            rd.readAsText(f);e.target.value='';
+          }}/>
+        </div>
       </div>
-      <p className="text-ink/60 mb-5 text-sm">
-        {recipes.length} recipe{recipes.length === 1 ? '' : 's'} — saved just for you.
-      </p>
+      <p className="c-ink60 mb5 sm">{recipes.length} recipe{recipes.length===1?'':'s'} — saved on this device.</p>
 
-      {!loading && allTags.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-6">
-          {allTags.map((tag) => {
-            const active = selectedTags.includes(tag);
-            return (
-              <button
-                key={tag}
-                onClick={() => toggleTag(tag)}
-                className={`text-xs font-mono px-3 py-1.5 rounded-full border transition ${
-                  active ? 'bg-rust text-parchment border-rust' : 'bg-white text-ink/60 hover:bg-sage/10'
-                }`}
-                style={!active ? { borderColor: '#EADFC8' } : undefined}
-              >
-                {tag}
-              </button>
-            );
+      {allTags.length>0&&(
+        <div className="flex flex-wrap gap2 mb6">
+          {allTags.map(tag=>{
+            const active=selTags.includes(tag);
+            return <button key={tag} onClick={()=>toggle(tag)} className="tag transition" style={{background:active?'#C1602A':'#fff',color:active?'#F7F2E7':'rgba(41,37,36,.6)',border:'1px solid '+(active?'#C1602A':'#EADFC8')}}>{tag}</button>;
           })}
-          {selectedTags.length > 0 && (
-            <button onClick={() => setSelectedTags([])} className="text-xs px-3 py-1.5 rounded-full text-rust underline">
-              Clear
-            </button>
-          )}
+          {selTags.length>0&&<button onClick={()=>setSelTags([])} className="xs px3 py15 c-rust underline">Clear</button>}
         </div>
       )}
 
-      {loading && <p className="text-ink/50 text-sm">Loading your recipes…</p>}
-
-      {!loading && recipes.length === 0 && (
-        <div className="border-2 border-dashed rounded-2xl p-10 text-center" style={{ borderColor: '#D8CBAE' }}>
-          <BookOpen className="mx-auto mb-3 text-sage" size={36} />
-          <h2 className="font-display text-xl font-semibold text-plum mb-1">Your cookbook is empty</h2>
-          <p className="text-ink/60 text-sm mb-5">Add your first recipe to get started.</p>
-          <button
-            onClick={onAdd}
-            className="bg-rust text-parchment px-5 py-2.5 rounded-full font-medium text-sm transition hover:opacity-90"
-          >
-            Add a recipe
-          </button>
+      {recipes.length===0&&(
+        <div className="border2 rounded-2xl p10 tcenter">
+          <p style={{fontSize:36,marginBottom:12}}>📖</p>
+          <h2 className="fd xl fw6 c-plum mb1">Your cookbook is empty</h2>
+          <p className="c-ink60 sm mb5">Add your first recipe to get started.</p>
+          <button onClick={onAdd} className="btn-rust px5 py25">Add a recipe</button>
         </div>
       )}
 
-      {!loading && recipes.length > 0 && filtered.length === 0 && (
-        <p className="text-ink/50 text-sm">No recipes match these tags.</p>
-      )}
+      {recipes.length>0&&filtered.length===0&&<p className="c-ink50 sm">No recipes match these tags.</p>}
 
-      {!loading && filtered.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {filtered.map((r) => (
-            <button
-              key={r.id}
-              onClick={() => onOpen(r.id)}
-              className="text-left bg-white rounded-2xl p-5 shadow-sm border transition hover:shadow-md hover:-translate-y-0.5"
-              style={{ borderColor: '#EADFC8' }}
-            >
-              <h3 className="font-display text-lg font-semibold text-plum mb-1">{r.title}</h3>
-              {r.description && (
-                <p className="text-ink/60 text-sm mb-3 line-clamp-2">{r.description}</p>
-              )}
-              <div className="flex flex-wrap gap-2">
-                {(r.tags || []).map((t) => (
-                  <span key={t} className="text-xs font-mono px-2 py-1 rounded-full bg-sage/20 text-sage">
-                    {t}
-                  </span>
-                ))}
-                <span className="text-xs font-mono px-2 py-1 rounded-full bg-butter/40 text-plum">
-                  serves {r.baseServings}
-                </span>
+      {filtered.length>0&&(
+        <div className="grid2">
+          {filtered.map(r=>(
+            <button key={r.id} onClick={()=>onOpen(r.id)} className="tleft bg-white rounded-2xl p5 shadow-sm border transition" style={{display:'block'}}>
+              <h3 className="fd lg fw6 c-plum mb1">{r.title}</h3>
+              {r.description&&<p className="c-ink60 sm mb3 clamp2">{r.description}</p>}
+              <div className="flex flex-wrap gap2">
+                {(r.tags||[]).map(t=><span key={t} className="tag bg-sage20 c-sage">{t}</span>)}
+                <span className="tag bg-butter40 c-plum">serves {r.baseServings}</span>
               </div>
             </button>
           ))}
         </div>
       )}
 
-      {!loading && recipes.length > 0 && (
-        <button
-          onClick={onAdd}
-          className="fixed bottom-6 right-6 bg-rust text-parchment w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition hover:opacity-90 focus:outline-none focus:ring-2"
-          aria-label="Add recipe"
-        >
-          <Plus size={26} />
-        </button>
+      {recipes.length>0&&(
+        <button onClick={onAdd} className="fixed bot6 right6 bg-rust c-parchment w14 h12 rounded-full shadow-lg flex items-center justify-center xl fw7" style={{fontSize:28,lineHeight:1}}>+</button>
+      )}
+
+      {showPaste&&(
+        <div className="fixed inset0 flex items-center justify-center" style={{background:'rgba(74,46,58,.6)',zIndex:50,padding:'1.25rem'}}>
+          <div className="bg-parchment rounded-2xl p5 wfull flex flex-col" style={{maxWidth:'32rem',maxHeight:'80vh'}}>
+            <div className="flex items-center justify-between mb3">
+              <h2 className="fd lg fw6 c-plum">Paste recipes</h2>
+              <button onClick={()=>{setShowPaste(false);setPasteText('');}} className="c-ink50 xl" style={{lineHeight:1}}>×</button>
+            </div>
+            <p className="sm c-ink70 mb3">Paste the JSON text you copied from the Export button in the Claude cookbook.</p>
+            <textarea value={pasteText} onChange={e=>setPasteText(e.target.value)} className="input-base flex1" style={{minHeight:160,fontFamily:'monospace',fontSize:'.75rem'}} placeholder="Paste here…"/>
+            <button onClick={handlePasteImport} disabled={!pasteText.trim()} className="btn-rust mt3 py3" style={{width:'100%'}}>Add to my cookbook</button>
+          </div>
+        </div>
       )}
     </div>
   );
 }
 
-// ---------- Recipe Detail ----------
-function RecipeDetail({ recipe, onBack, onEdit, onDelete, onCook }) {
-  const [servings, setServings] = useState(recipe.baseServings);
-  const [confirmDelete, setConfirmDelete] = useState(false);
-  const scale = servings / recipe.baseServings;
-
-  useEffect(() => setServings(recipe.baseServings), [recipe.id, recipe.baseServings]);
-
-  return (
-    <div className="max-w-2xl mx-auto px-5 pb-24 pt-6">
-      <button onClick={onBack} className="flex items-center gap-1 text-ink/60 text-sm mb-4 hover:text-plum">
-        <ArrowLeft size={16} /> Cookbook
-      </button>
-
-      <div className="flex items-start justify-between gap-3 mb-2">
-        <h1 className="font-display text-3xl font-bold text-plum">{recipe.title}</h1>
-        <div className="flex gap-2 shrink-0">
-          <button onClick={() => onEdit(recipe.id)} className="w-9 h-9 rounded-full flex items-center justify-center bg-sage/20 text-plum hover:bg-sage/30" aria-label="Edit recipe">
-            <Pencil size={16} />
-          </button>
-          <button
-            onClick={() => (confirmDelete ? onDelete(recipe.id) : setConfirmDelete(true))}
-            onBlur={() => setConfirmDelete(false)}
-            className={`w-9 h-9 rounded-full flex items-center justify-center transition ${confirmDelete ? 'bg-rust text-parchment' : 'bg-rust/10 text-rust hover:bg-rust/20'}`}
-            aria-label="Delete recipe"
-          >
-            <Trash2 size={16} />
-          </button>
+// ---- Recipe Detail ----
+function RecipeDetail({recipe,onBack,onEdit,onDelete,onCook}){
+  const [servings,setServings]=useState(recipe.baseServings);
+  const [confirmDel,setConfirmDel]=useState(false);
+  const scale=servings/recipe.baseServings;
+  useEffect(()=>setServings(recipe.baseServings),[recipe.id]);
+  return(
+    <div className="max2xl mxauto px5 pb24 pt6">
+      <button onClick={onBack} className="flex items-center gap2 c-ink60 sm mb4">← Cookbook</button>
+      <div className="flex items-start justify-between gap3 mb2">
+        <h1 className="fd xl3 fw7 c-plum">{recipe.title}</h1>
+        <div className="flex gap2" style={{flexShrink:0}}>
+          <button onClick={()=>onEdit(recipe.id)} className="w9 h9 rounded-full flex items-center justify-center bg-sage10 c-plum">✏️</button>
+          <button onClick={()=>confirmDel?onDelete(recipe.id):setConfirmDel(true)} onBlur={()=>setConfirmDel(false)} className={`w9 h9 rounded-full flex items-center justify-center ${confirmDel?'bg-rust c-parchment':'bg-rust10 c-rust'}`}>🗑️</button>
         </div>
       </div>
-      {confirmDelete && <p className="text-xs text-rust mb-2">Tap delete again to confirm.</p>}
-
-      {recipe.description && <p className="text-ink/70 mb-3">{recipe.description}</p>}
-
-      {(recipe.tags || []).length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-5">
-          {recipe.tags.map((t) => (
-            <span key={t} className="text-xs font-mono px-2 py-1 rounded-full bg-sage/20 text-sage">
-              {t}
-            </span>
-          ))}
+      {confirmDel&&<p className="xs c-rust mb2">Tap delete again to confirm.</p>}
+      {recipe.description&&<p className="c-ink70 mb3">{recipe.description}</p>}
+      {(recipe.tags||[]).length>0&&(
+        <div className="flex flex-wrap gap2 mb5">
+          {recipe.tags.map(t=><span key={t} className="tag bg-sage20 c-sage">{t}</span>)}
         </div>
       )}
-
-      <div className="bg-plum rounded-2xl p-5 mb-6 flex items-center justify-between flex-wrap gap-4">
+      <div className="bg-plum rounded-2xl p5 mb6 flex items-center justify-between flex-wrap gap4">
         <div>
-          <p className="text-parchment/70 text-xs uppercase tracking-wide mb-1">Adjust servings</p>
-          <p className="text-parchment text-sm">Ingredients scale automatically.</p>
+          <p className="c-parchment70 xs upper track mb1">Adjust servings</p>
+          <p className="c-parchment sm">Ingredients scale automatically.</p>
         </div>
-        <ServingsDial servings={servings} baseServings={recipe.baseServings} onChange={setServings} />
+        <ServingsDial servings={servings} base={recipe.baseServings} onChange={setServings}/>
       </div>
-
-      <section className="mb-8">
-        <h2 className="font-display text-xl font-semibold text-plum mb-3">Ingredients</h2>
-        <ul className="space-y-2">
-          {recipe.ingredients.map((ing) => (
-            <li key={ing.id} className="flex items-baseline gap-3 bg-white rounded-xl px-4 py-2.5 border" style={{ borderColor: '#EADFC8' }}>
-              <span className="font-mono text-sm font-bold text-rust w-20 shrink-0">
-                {formatAmount(ing.amount * scale)}{ing.unit ? ` ${ing.unit}` : ''}
-              </span>
-              <span className="text-ink/80 text-sm">{ing.name}</span>
+      <section className="mb8">
+        <h2 className="fd xl fw6 c-plum mb3">Ingredients</h2>
+        <ul className="space2">
+          {recipe.ingredients.map(ing=>(
+            <li key={ing.id} className="flex items-baseline gap3 bg-white rounded-xl px4 py25 border">
+              <span className="fm sm fw7 c-rust" style={{width:'5rem',flexShrink:0}}>{fmt(ing.amount*scale)}{ing.unit?' '+ing.unit:''}</span>
+              <span className="c-ink80 sm">{ing.name}</span>
             </li>
           ))}
         </ul>
       </section>
-
-      <section className="mb-6">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="font-display text-xl font-semibold text-plum">Steps</h2>
-          <button
-            onClick={() => onCook(recipe.id)}
-            className="flex items-center gap-2 bg-rust text-parchment px-4 py-2 rounded-full text-sm font-medium hover:opacity-90"
-          >
-            <Play size={16} /> Start cooking
-          </button>
+      <section className="mb6">
+        <div className="flex items-center justify-between mb3">
+          <h2 className="fd xl fw6 c-plum">Steps</h2>
+          <button onClick={()=>onCook(recipe.id)} className="flex items-center gap2 bg-rust c-parchment px4 py2 rounded-full sm fw5">▶ Start cooking</button>
         </div>
-        <ol className="space-y-4">
-          {recipe.steps.map((step, i) => (
-            <li key={step.id} className="bg-white rounded-xl p-4 border" style={{ borderColor: '#EADFC8' }}>
-              <div className="flex items-start gap-3">
-                <span className="font-mono text-xs font-bold text-parchment bg-sage rounded-full w-6 h-6 flex items-center justify-center shrink-0 mt-0.5">
-                  {i + 1}
-                </span>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <h3 className="font-semibold text-plum text-sm">{step.title}</h3>
-                    {step.timerSeconds ? (
-                      <span className="flex items-center gap-1 text-xs font-mono text-ink/50">
-                        <Clock size={12} /> {formatTime(step.timerSeconds)}
-                      </span>
-                    ) : null}
+        <ol className="space4">
+          {recipe.steps.map((step,i)=>(
+            <li key={step.id} className="bg-white rounded-xl p4 border">
+              <div className="flex items-start gap3">
+                <span className="fm xs fw7 c-parchment bg-sage rounded-full w6 h6 flex items-center justify-center" style={{flexShrink:0,marginTop:2}}>{i+1}</span>
+                <div style={{flex:1}}>
+                  <div className="flex items-center justify-between gap2 mb1">
+                    <h3 className="fw6 c-plum sm">{step.title}</h3>
+                    {step.timerSeconds&&<span className="xs fm c-ink50">⏱ {fmtTime(step.timerSeconds)}</span>}
                   </div>
-                  <p className="text-ink/80 text-sm">{renderStepContent(step.content, recipe.ingredients, scale)}</p>
-                  {step.why && (
-                    <p className="mt-2 text-xs text-sage flex items-start gap-1.5 bg-sage/10 rounded-lg p-2">
-                      <Lightbulb size={14} className="shrink-0 mt-0.5" />
-                      <span>{step.why}</span>
-                    </p>
-                  )}
+                  <p className="c-ink80 sm">{renderContent(step.content,recipe.ingredients,scale)}</p>
+                  {step.why&&<p className="mt2 xs c-sage flex items-start gap2 bg-sage10 rounded-xl p2">💡 {step.why}</p>}
                 </div>
               </div>
             </li>
@@ -871,530 +340,236 @@ function RecipeDetail({ recipe, onBack, onEdit, onDelete, onCook }) {
   );
 }
 
-// ---------- Cook Mode ----------
-function CookMode({ recipe, onExit }) {
-  const [servings] = useState(recipe.baseServings);
-  const [stepIndex, setStepIndex] = useState(0);
-  const [remaining, setRemaining] = useState(null);
-  const [running, setRunning] = useState(false);
-  const intervalRef = useRef(null);
-
-  const step = recipe.steps[stepIndex];
-  const scale = 1; // cook mode follows the servings chosen on the detail page (kept simple here)
-
-  useEffect(() => {
-    setRemaining(step.timerSeconds || null);
-    setRunning(false);
-    clearInterval(intervalRef.current);
-  }, [stepIndex]);
-
-  useEffect(() => {
-    if (running && remaining > 0) {
-      intervalRef.current = setInterval(() => {
-        setRemaining((r) => {
-          if (r <= 1) {
-            clearInterval(intervalRef.current);
-            setRunning(false);
-            return 0;
-          }
-          return r - 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(intervalRef.current);
-  }, [running]);
-
-  const goTo = (idx) => {
-    if (idx >= 0 && idx < recipe.steps.length) setStepIndex(idx);
-  };
-
-  return (
-    <div className="fixed inset-0 bg-plum flex flex-col">
-      <div className="flex items-center justify-between px-5 py-4">
-        <button onClick={onExit} className="text-parchment/70 flex items-center gap-1 text-sm hover:text-parchment">
-          <X size={18} /> Exit
-        </button>
-        <span className="text-parchment/70 text-sm font-mono">
-          {stepIndex + 1} / {recipe.steps.length}
-        </span>
+// ---- Cook Mode ----
+function CookMode({recipe,onExit}){
+  const [idx,setIdx]=useState(0);
+  const [rem,setRem]=useState(null);
+  const [running,setRunning]=useState(false);
+  const timer=useRef(null);
+  const step=recipe.steps[idx];
+  useEffect(()=>{setRem(step.timerSeconds||null);setRunning(false);clearInterval(timer.current);},[idx]);
+  useEffect(()=>{
+    if(running&&rem>0){timer.current=setInterval(()=>setRem(r=>{if(r<=1){clearInterval(timer.current);setRunning(false);return 0;}return r-1;}),1000);}
+    return()=>clearInterval(timer.current);
+  },[running]);
+  const go=i=>{if(i>=0&&i<recipe.steps.length)setIdx(i);};
+  return(
+    <div className="fixed inset0 bg-plum flex flex-col">
+      <div className="flex items-center justify-between px5 py4">
+        <button onClick={onExit} className="c-parchment70 sm flex items-center gap1">✕ Exit</button>
+        <span className="c-parchment70 sm fm">{idx+1} / {recipe.steps.length}</span>
       </div>
-
-      <div className="flex gap-1.5 px-5 mb-2">
-        {recipe.steps.map((_, i) => (
-          <div
-            key={i}
-            className="h-1.5 flex-1 rounded-full"
-            style={{ backgroundColor: i <= stepIndex ? '#D4A23A' : 'rgba(247,242,231,0.15)' }}
-          />
-        ))}
+      <div className="flex gap2 px5 mb2">
+        {recipe.steps.map((_,i)=><div key={i} className="step-bar" style={{background:i<=idx?'#D4A23A':'rgba(247,242,231,.15)'}}/>)}
       </div>
-
-      <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
-        <p className="font-mono text-sm uppercase tracking-widest text-butter mb-3">Step {stepIndex + 1}</p>
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-parchment mb-4">{step.title}</h2>
-        <p className="text-parchment/90 text-lg leading-relaxed max-w-md mb-5">
-          {renderStepContent(step.content, recipe.ingredients, scale)}
-        </p>
-
-        {step.why && (
-          <p className="text-sm text-butter/90 flex items-start gap-2 max-w-md bg-parchment/5 rounded-xl p-3 mb-5">
-            <Lightbulb size={16} className="shrink-0 mt-0.5" />
-            <span>{step.why}</span>
-          </p>
-        )}
-
-        {step.timerSeconds ? (
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-4xl font-bold text-parchment">{formatTime(remaining ?? step.timerSeconds)}</span>
-            <button
-              onClick={() => setRunning((r) => !r)}
-              className="w-12 h-12 rounded-full bg-rust text-parchment flex items-center justify-center hover:opacity-90"
-              aria-label={running ? 'Pause timer' : 'Start timer'}
-            >
-              {running ? <Pause size={20} /> : <Play size={20} />}
-            </button>
-            <button
-              onClick={() => { setRemaining(step.timerSeconds); setRunning(false); }}
-              className="w-12 h-12 rounded-full bg-parchment/10 text-parchment flex items-center justify-center hover:bg-parchment/20"
-              aria-label="Reset timer"
-            >
-              <RotateCcw size={18} />
-            </button>
+      <div className="flex1 flex flex-col items-center justify-center px6 tcenter">
+        <p className="fm xs upper track-wide c-butter mb3">Step {idx+1}</p>
+        <h2 className="fd xl2 fw7 c-parchment mb4">{step.title}</h2>
+        <p className="c-parchment90 lg relax" style={{maxWidth:'28rem',marginBottom:'1.25rem'}}>{renderContent(step.content,recipe.ingredients,1)}</p>
+        {step.why&&<p className="sm flex items-start gap2 c-butter90 rounded-xl p3 mb5" style={{maxWidth:'28rem',background:'rgba(247,242,231,.05)',textAlign:'left'}}>💡 {step.why}</p>}
+        {step.timerSeconds&&(
+          <div className="flex items-center gap4">
+            <span className="fm xl4 fw7 c-parchment">{fmtTime(rem??step.timerSeconds)}</span>
+            <button onClick={()=>setRunning(r=>!r)} className="w12 h12 rounded-full bg-rust c-parchment flex items-center justify-center lg">{running?'⏸':'▶'}</button>
+            <button onClick={()=>{setRem(step.timerSeconds);setRunning(false);}} className="w12 h12 rounded-full c-parchment flex items-center justify-center lg" style={{background:'rgba(247,242,231,.1)'}}>↺</button>
           </div>
-        ) : null}
-      </div>
-
-      <div className="flex items-center justify-between px-5 py-5 gap-3">
-        <button
-          onClick={() => goTo(stepIndex - 1)}
-          disabled={stepIndex === 0}
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full border border-parchment/20 text-parchment disabled:opacity-30"
-        >
-          <ArrowLeft size={18} /> Back
-        </button>
-        {stepIndex === recipe.steps.length - 1 ? (
-          <button
-            onClick={onExit}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-butter text-plum font-semibold"
-          >
-            <Check size={18} /> Done
-          </button>
-        ) : (
-          <button
-            onClick={() => goTo(stepIndex + 1)}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-rust text-parchment font-semibold"
-          >
-            Next <ArrowRight size={18} />
-          </button>
         )}
+      </div>
+      <div className="flex items-center justify-between px5 py5 gap3">
+        <button onClick={()=>go(idx-1)} disabled={idx===0} className="flex1 flex items-center justify-center gap2 py3 rounded-full c-parchment b-parchment20" style={{border:'1px solid rgba(247,242,231,.2)',opacity:idx===0?.3:1}}>← Back</button>
+        {idx===recipe.steps.length-1
+          ?<button onClick={onExit} className="flex1 flex items-center justify-center gap2 py3 rounded-full bg-butter c-plum fw6">✓ Done</button>
+          :<button onClick={()=>go(idx+1)} className="flex1 flex items-center justify-center gap2 py3 rounded-full bg-rust c-parchment fw6">Next →</button>
+        }
       </div>
     </div>
   );
 }
 
-// ---------- Recipe Form ----------
-function emptyRecipe() {
-  return {
-    id: newId('r'),
-    title: '',
-    description: '',
-    baseServings: 4,
-    tags: [],
-    ingredients: [{ id: newId('i'), name: '', amount: 1, unit: '' }],
-    steps: [{ id: newId('s'), title: '', content: '', why: '', timerSeconds: null }],
-  };
-}
+// ---- Recipe Form ----
+function emptyRecipe(){return{id:newId('r'),title:'',description:'',baseServings:4,tags:[],ingredients:[{id:newId('i'),name:'',amount:1,unit:''}],steps:[{id:newId('s'),title:'',content:'',why:'',timerSeconds:null}]};}
 
-function RecipeForm({ initial, onSave, onCancel }) {
-  const [draft, setDraft] = useState(initial ? JSON.parse(JSON.stringify(initial)) : emptyRecipe());
-  const [tagsInput, setTagsInput] = useState((initial?.tags || []).join(', '));
-  const handleTagsChange = (val) => {
-    setTagsInput(val);
-    setDraft((d) => ({ ...d, tags: val.split(',').map((t) => t.trim()).filter(Boolean) }));
-  };
-  const [showAiImport, setShowAiImport] = useState(!initial);
-  const [aiInput, setAiInput] = useState('');
-  const [aiLoading, setAiLoading] = useState(false);
-  const [aiError, setAiError] = useState(null);
-  const [aiNote, setAiNote] = useState(null);
+function RecipeForm({initial,onSave,onCancel}){
+  const [draft,setDraft]=useState(initial?JSON.parse(JSON.stringify(initial)):emptyRecipe());
+  const [tagsInput,setTagsInput]=useState((initial?.tags||[]).join(', '));
+  const [aiInput,setAiInput]=useState('');
+  const [aiLoading,setAiLoading]=useState(false);
+  const [aiNote,setAiNote]=useState('');
+  const [aiError,setAiError]=useState('');
+  const [showAi,setShowAi]=useState(!initial);
 
-  const updateField = (field, value) => setDraft((d) => ({ ...d, [field]: value }));
+  const upField=(f,v)=>setDraft(d=>({...d,[f]:v}));
+  const upIng=(id,f,v)=>setDraft(d=>({...d,ingredients:d.ingredients.map(i=>i.id===id?{...i,[f]:v}:i)}));
+  const addIng=()=>setDraft(d=>({...d,ingredients:[...d.ingredients,{id:newId('i'),name:'',amount:1,unit:''}]}));
+  const remIng=id=>setDraft(d=>({...d,ingredients:d.ingredients.filter(i=>i.id!==id)}));
+  const upStep=(id,f,v)=>setDraft(d=>({...d,steps:d.steps.map(s=>s.id===id?{...s,[f]:v}:s)}));
+  const addStep=()=>setDraft(d=>({...d,steps:[...d.steps,{id:newId('s'),title:'',content:'',why:'',timerSeconds:null}]}));
+  const remStep=id=>setDraft(d=>({...d,steps:d.steps.filter(s=>s.id!==id)}));
+  const handleTagsChange=v=>{setTagsInput(v);setDraft(d=>({...d,tags:v.split(',').map(t=>t.trim()).filter(Boolean)}));};
 
-  const updateIngredient = (id, field, value) =>
-    setDraft((d) => ({
-      ...d,
-      ingredients: d.ingredients.map((ing) => (ing.id === id ? { ...ing, [field]: value } : ing)),
-    }));
-
-  const addIngredient = () =>
-    setDraft((d) => ({ ...d, ingredients: [...d.ingredients, { id: newId('i'), name: '', amount: 1, unit: '' }] }));
-
-  const removeIngredient = (id) =>
-    setDraft((d) => ({ ...d, ingredients: d.ingredients.filter((ing) => ing.id !== id) }));
-
-  const updateStep = (id, field, value) =>
-    setDraft((d) => ({
-      ...d,
-      steps: d.steps.map((s) => (s.id === id ? { ...s, [field]: value } : s)),
-    }));
-
-  const addStep = () =>
-    setDraft((d) => ({ ...d, steps: [...d.steps, { id: newId('s'), title: '', content: '', why: '', timerSeconds: null }] }));
-
-  const removeStep = (id) =>
-    setDraft((d) => ({ ...d, steps: d.steps.filter((s) => s.id !== id) }));
-
-  const handleAiImport = async () => {
-    if (!aiInput.trim()) return;
-    setAiLoading(true);
-    setAiError(null);
-    setAiNote(null);
-    try {
-      const prompt = `You are a recipe extraction assistant for a cooking app. The user gave you this input (it may be a URL, or pasted recipe text, or a dish description):
-
----
-${aiInput.trim()}
----
-
-If it's a URL, use web search to find and read the recipe. Then respond with ONLY a single JSON object (no markdown fences, no commentary) with this exact shape:
-{
-  "title": string,
-  "description": string (1-2 sentences),
-  "baseServings": number,
-  "tags": array of 2-3 short strings (e.g. cuisine, difficulty, total time like "30 min"),
-  "ingredients": array of { "name": string, "amount": number, "unit": string } (amount as a decimal, e.g. 0.5 for half; unit can be "" for countable items),
-  "steps": array of { "title": string (short), "content": string, "why": string or null (a brief tip on technique, only if genuinely useful), "timerMinutes": number or null }
-}
-In step "content", you may reference an ingredient's scaled amount automatically using {iN} where N is the 1-indexed position of that ingredient in the ingredients array (e.g. "Add {i1} and {i2}"). Use this for ingredients with specific quantities where helpful. Keep "why" notes short (one sentence) and only include them where they add real learning value. Keep the whole response concise.`;
-
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-6",
-          max_tokens: 1000,
-          tools: [{ type: "web_search_20250305", name: "web_search" }],
-          messages: [{ role: "user", content: prompt }],
-        }),
-      });
-      const data = await response.json();
-      const textBlocks = (data.content || []).filter((b) => b.type === 'text').map((b) => b.text);
-      if (!textBlocks.length) throw new Error('Empty response');
-      const parsed = extractJson(textBlocks[textBlocks.length - 1]);
-
-      setDraft((d) => ({
-        ...d,
-        title: parsed.title || d.title,
-        description: parsed.description || d.description,
-        baseServings: Math.max(1, Number(parsed.baseServings) || d.baseServings),
-        ingredients: (parsed.ingredients || []).map((i) => ({
-          id: newId('i'), name: i.name || '', amount: Number(i.amount) || 1, unit: i.unit || '',
-        })),
-        steps: (parsed.steps || []).map((s) => ({
-          id: newId('s'), title: s.title || '', content: s.content || '', why: s.why || '',
-          timerSeconds: s.timerMinutes ? Math.round(Number(s.timerMinutes) * 60) : null,
-        })),
+  const handleAiImport=async()=>{
+    if(!aiInput.trim())return;
+    setAiLoading(true);setAiNote('');setAiError('');
+    try{
+      const prompt=`Extract this recipe and respond ONLY with a single JSON object (no markdown fences):
+{"title":string,"description":string,"baseServings":number,"tags":string[],"ingredients":[{"name":string,"amount":number,"unit":string}],"steps":[{"title":string,"content":string,"why":string|null,"timerMinutes":number|null}]}
+Input: ${aiInput.trim()}`;
+      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,tools:[{type:'web_search_20250305',name:'web_search'}],messages:[{role:'user',content:prompt}]})});
+      const data=await res.json();
+      const text=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+      const clean=text.replace(/```json|```/g,'').trim();
+      const s=clean.indexOf('{'),e=clean.lastIndexOf('}');
+      const parsed=JSON.parse(clean.slice(s,e+1));
+      setDraft(d=>({...d,
+        title:parsed.title||d.title,description:parsed.description||d.description,
+        baseServings:Math.max(1,Number(parsed.baseServings)||d.baseServings),
+        tags:parsed.tags||d.tags,
+        ingredients:(parsed.ingredients||[]).map(i=>({id:newId('i'),name:i.name||'',amount:Number(i.amount)||1,unit:i.unit||''})),
+        steps:(parsed.steps||[]).map(s=>({id:newId('s'),title:s.title||'',content:s.content||'',why:s.why||'',timerSeconds:s.timerMinutes?Math.round(Number(s.timerMinutes)*60):null})),
       }));
-      setTagsInput((parsed.tags || []).join(', '));
-      setAiNote(`Imported "${parsed.title || 'recipe'}" — review everything below before saving.`);
-    } catch (e) {
-      setAiError("Couldn't extract a recipe from that. Try a different link, or paste the recipe text directly.");
-    } finally {
-      setAiLoading(false);
-    }
+      setTagsInput((parsed.tags||[]).join(', '));
+      setAiNote(`Imported "${parsed.title||'recipe'}" — review and save.`);
+    }catch(e){setAiError("Couldn't extract a recipe. Try a different link or paste the recipe text.");}
+    finally{setAiLoading(false);}
   };
 
-  const handleSave = () => {
-    const cleaned = {
-      ...draft,
-      title: draft.title.trim() || 'Untitled recipe',
-      tags: draft.tags || [],
-      ingredients: draft.ingredients.filter((i) => i.name.trim()),
-      steps: draft.steps.filter((s) => s.content.trim() || s.title.trim()),
-      baseServings: Math.max(1, Number(draft.baseServings) || 1),
-    };
+  const handleSave=()=>{
+    const cleaned={...draft,title:draft.title.trim()||'Untitled recipe',tags:draft.tags||[],
+      ingredients:draft.ingredients.filter(i=>i.name.trim()),
+      steps:draft.steps.filter(s=>s.content.trim()||s.title.trim()),
+      baseServings:Math.max(1,Number(draft.baseServings)||1),userEdited:true};
     onSave(cleaned);
   };
 
-  const inputClass = "w-full bg-white border rounded-lg px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-rust/40";
-  const borderStyle = { borderColor: '#EADFC8' };
+  const inp='input-base';
+  return(
+    <div className="max2xl mxauto px5 pb32 pt6">
+      <button onClick={onCancel} className="flex items-center gap1 c-ink60 sm mb4">← Cancel</button>
+      <h1 className="fd xl2 fw7 c-plum mb5">{initial?'Edit recipe':'New recipe'}</h1>
 
-  return (
-    <div className="max-w-2xl mx-auto px-5 pb-32 pt-6">
-      <button onClick={onCancel} className="flex items-center gap-1 text-ink/60 text-sm mb-4 hover:text-plum">
-        <ArrowLeft size={16} /> Cancel
-      </button>
-
-      <h1 className="font-display text-2xl font-bold text-plum mb-5">
-        {initial ? 'Edit recipe' : 'New recipe'}
-      </h1>
-
-      <section className="mb-6 bg-white rounded-2xl border p-4" style={borderStyle}>
-        <button onClick={() => setShowAiImport((s) => !s)} className="flex items-center justify-between w-full text-left">
-          <span className="font-display text-lg font-semibold text-plum flex items-center gap-2">
-            <Sparkles size={18} className="text-sage" /> Add from a link
-          </span>
-          <span className="text-ink/40 text-sm">{showAiImport ? 'Hide' : 'Show'}</span>
+      <section className="mb6 bg-white rounded-2xl border p4">
+        <button onClick={()=>setShowAi(s=>!s)} className="flex items-center justify-between wfull tleft">
+          <span className="fd lg fw6 c-plum">✨ Add from a link or text</span>
+          <span className="c-ink40 sm">{showAi?'Hide':'Show'}</span>
         </button>
-        {showAiImport && (
-          <div className="mt-3 space-y-3">
-            <p className="text-sm text-ink/70">
-              Paste a recipe link (or just describe a dish, or paste recipe text) — Claude will read it and fill in the form below for you.
-            </p>
-            <div className="flex gap-2">
-              <input
-                className={inputClass} style={borderStyle}
-                value={aiInput} onChange={(e) => setAiInput(e.target.value)}
-                placeholder="https://... or describe a dish"
-                onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAiImport(); } }}
-              />
-              <button
-                onClick={handleAiImport} disabled={aiLoading || !aiInput.trim()}
-                className="shrink-0 bg-sage text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 disabled:opacity-40 flex items-center gap-2"
-              >
-                {aiLoading ? 'Reading…' : <><Link2 size={14} /> Fetch</>}
-              </button>
+        {showAi&&(
+          <div className="mt3 space3">
+            <p className="sm c-ink70">Paste any recipe link, or paste the recipe text — Claude will read it and fill in the form.</p>
+            <div className="flex gap2">
+              <input className={inp} value={aiInput} onChange={e=>setAiInput(e.target.value)} placeholder="https://... or recipe text" onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();handleAiImport();}}}/>
+              <button onClick={handleAiImport} disabled={aiLoading||!aiInput.trim()} className="btn-rust px4 py2 sm" style={{flexShrink:0,borderRadius:'.5rem'}}>{aiLoading?'Reading…':'Fetch'}</button>
             </div>
-            {aiError && <p className="text-xs text-rust">{aiError}</p>}
-            {aiNote && <p className="text-xs text-sage">{aiNote}</p>}
+            {aiError&&<p className="xs c-rust">{aiError}</p>}
+            {aiNote&&<p className="xs c-sage">{aiNote}</p>}
           </div>
         )}
       </section>
 
-      <div className="space-y-4 mb-8">
-        <div>
-          <label className="block text-xs font-semibold text-ink/60 mb-1 uppercase tracking-wide">Title</label>
-          <input className={inputClass} style={borderStyle} value={draft.title} onChange={(e) => updateField('title', e.target.value)} placeholder="e.g. Grandma's Lasagna" />
-        </div>
-        <div>
-          <label className="block text-xs font-semibold text-ink/60 mb-1 uppercase tracking-wide">Description</label>
-          <textarea className={inputClass} style={borderStyle} rows={2} value={draft.description} onChange={(e) => updateField('description', e.target.value)} placeholder="A short note about this dish" />
-        </div>
-        <div className="flex gap-4">
-          <div className="flex-1">
-            <label className="block text-xs font-semibold text-ink/60 mb-1 uppercase tracking-wide">Base servings</label>
-            <input type="number" min={1} className={inputClass} style={borderStyle} value={draft.baseServings} onChange={(e) => updateField('baseServings', e.target.value)} />
-          </div>
-          <div className="flex-1">
-            <label className="block text-xs font-semibold text-ink/60 mb-1 uppercase tracking-wide">Tags (comma separated)</label>
-            <input className={inputClass} style={borderStyle} value={tagsInput} onChange={(e) => handleTagsChange(e.target.value)} placeholder="Beginner, 30 min" />
-          </div>
+      <div className="space4 mb8">
+        <div><label className="block xs fw6 c-ink60 mb1 upper track">Title</label><input className={inp} value={draft.title} onChange={e=>upField('title',e.target.value)} placeholder="e.g. Grandma's Dal"/></div>
+        <div><label className="block xs fw6 c-ink60 mb1 upper track">Description</label><textarea className={inp} rows={2} value={draft.description} onChange={e=>upField('description',e.target.value)} placeholder="A short note about this dish" style={{resize:'vertical'}}/></div>
+        <div className="flex gap4">
+          <div style={{flex:1}}><label className="block xs fw6 c-ink60 mb1 upper track">Base servings</label><input type="number" min={1} className={inp} value={draft.baseServings} onChange={e=>upField('baseServings',e.target.value)}/></div>
+          <div style={{flex:1}}><label className="block xs fw6 c-ink60 mb1 upper track">Tags (comma separated)</label><input className={inp} value={tagsInput} onChange={e=>handleTagsChange(e.target.value)} placeholder="Beginner, 30 min"/></div>
         </div>
       </div>
 
-      <section className="mb-8">
-        <h2 className="font-display text-lg font-semibold text-plum mb-3">Ingredients</h2>
-        <div className="space-y-2">
-          {draft.ingredients.map((ing) => (
-            <div key={ing.id} className="flex gap-2 items-start">
-              <input type="number" step="0.25" className={`${inputClass} w-20`} style={borderStyle} value={ing.amount} onChange={(e) => updateIngredient(ing.id, 'amount', Number(e.target.value))} placeholder="1" />
-              <input className={`${inputClass} w-20`} style={borderStyle} value={ing.unit} onChange={(e) => updateIngredient(ing.id, 'unit', e.target.value)} placeholder="cup" />
-              <input className={`${inputClass} flex-1`} style={borderStyle} value={ing.name} onChange={(e) => updateIngredient(ing.id, 'name', e.target.value)} placeholder="Ingredient name" />
-              <button onClick={() => removeIngredient(ing.id)} className="w-9 h-9 shrink-0 rounded-lg flex items-center justify-center text-rust hover:bg-rust/10" aria-label="Remove ingredient">
-                <X size={16} />
-              </button>
+      <section className="mb8">
+        <h2 className="fd lg fw6 c-plum mb3">Ingredients</h2>
+        <div className="space2">
+          {draft.ingredients.map(ing=>(
+            <div key={ing.id} className="flex gap2 items-start">
+              <input type="number" step="0.25" className={inp} value={ing.amount} onChange={e=>upIng(ing.id,'amount',Number(e.target.value))} placeholder="1" style={{width:'5rem',flexShrink:0}}/>
+              <input className={inp} value={ing.unit} onChange={e=>upIng(ing.id,'unit',e.target.value)} placeholder="cup" style={{width:'5rem',flexShrink:0}}/>
+              <input className={`${inp} flex1`} value={ing.name} onChange={e=>upIng(ing.id,'name',e.target.value)} placeholder="Ingredient name"/>
+              <button onClick={()=>remIng(ing.id)} className="w9 h9 rounded-full flex items-center justify-center c-rust bg-rust10" style={{flexShrink:0}}>×</button>
             </div>
           ))}
         </div>
-        <button onClick={addIngredient} className="mt-3 flex items-center gap-1 text-sm text-sage font-medium hover:underline">
-          <Plus size={16} /> Add ingredient
-        </button>
+        <button onClick={addIng} className="mt3 sm c-sage fw5">+ Add ingredient</button>
       </section>
 
-      <section className="mb-8">
-        <h2 className="font-display text-lg font-semibold text-plum mb-3">Steps</h2>
-        <p className="text-xs text-ink/50 mb-3">
-          Tip: in the instructions, you can reference an ingredient's amount automatically by typing its position like <span className="font-mono">{'{i1}'}</span> for the first ingredient, <span className="font-mono">{'{i2}'}</span> for the second, etc.
-        </p>
-        <div className="space-y-4">
-          {draft.steps.map((s, idx) => (
-            <div key={s.id} className="bg-white rounded-xl p-3 border space-y-2" style={borderStyle}>
+      <section className="mb8">
+        <h2 className="fd lg fw6 c-plum mb3">Steps</h2>
+        <div className="space4">
+          {draft.steps.map((s,i)=>(
+            <div key={s.id} className="bg-white rounded-xl p3 border space2">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-sage">Step {idx + 1}</span>
-                <button onClick={() => removeStep(s.id)} className="text-rust hover:bg-rust/10 rounded-full p-1" aria-label="Remove step">
-                  <X size={14} />
-                </button>
+                <span className="fm xs fw7 c-sage">Step {i+1}</span>
+                <button onClick={()=>remStep(s.id)} className="c-rust xs">×</button>
               </div>
-              <input className={inputClass} style={borderStyle} value={s.title} onChange={(e) => updateStep(s.id, 'title', e.target.value)} placeholder="Step title (e.g. Boil the pasta)" />
-              <textarea className={inputClass} style={borderStyle} rows={2} value={s.content} onChange={(e) => updateStep(s.id, 'content', e.target.value)} placeholder="What to do" />
-              <textarea className={inputClass} style={borderStyle} rows={2} value={s.why} onChange={(e) => updateStep(s.id, 'why', e.target.value)} placeholder="Why this matters (optional, helps you learn)" />
+              <input className={inp} value={s.title} onChange={e=>upStep(s.id,'title',e.target.value)} placeholder="Step title"/>
+              <textarea className={inp} rows={2} value={s.content} onChange={e=>upStep(s.id,'content',e.target.value)} placeholder="What to do" style={{resize:'vertical'}}/>
+              <textarea className={inp} rows={2} value={s.why} onChange={e=>upStep(s.id,'why',e.target.value)} placeholder="Why this matters (optional)" style={{resize:'vertical'}}/>
               <div>
-                <label className="block text-xs font-semibold text-ink/60 mb-1 uppercase tracking-wide">Timer (minutes, optional)</label>
-                <input type="number" min={0} className={`${inputClass} w-24`} style={borderStyle}
-                  value={s.timerSeconds ? Math.round(s.timerSeconds / 60) : ''}
-                  onChange={(e) => updateStep(s.id, 'timerSeconds', e.target.value ? Number(e.target.value) * 60 : null)}
-                  placeholder="—" />
+                <label className="block xs fw6 c-ink60 mb1 upper track">Timer (minutes, optional)</label>
+                <input type="number" min={0} className={inp} value={s.timerSeconds?Math.round(s.timerSeconds/60):''} onChange={e=>upStep(s.id,'timerSeconds',e.target.value?Number(e.target.value)*60:null)} placeholder="—" style={{width:'6rem'}}/>
               </div>
             </div>
           ))}
         </div>
-        <button onClick={addStep} className="mt-3 flex items-center gap-1 text-sm text-sage font-medium hover:underline">
-          <Plus size={16} /> Add step
-        </button>
+        <button onClick={addStep} className="mt3 sm c-sage fw5">+ Add step</button>
       </section>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-parchment border-t px-5 py-4 flex gap-3 max-w-2xl mx-auto" style={borderStyle}>
-        <button onClick={onCancel} className="flex-1 py-3 rounded-full border text-ink/70 font-medium" style={borderStyle}>
-          Cancel
-        </button>
-        <button onClick={handleSave} className="flex-1 py-3 rounded-full bg-rust text-parchment font-medium hover:opacity-90">
-          Save recipe
-        </button>
+      <div className="fixed bottom0 left0 right0 bg-parchment border-top px5 py4 flex gap3 max2xl mxauto">
+        <button onClick={onCancel} className="flex1 py3 rounded-full border c-ink70 fw5">Cancel</button>
+        <button onClick={handleSave} className="flex1 btn-rust py3">Save recipe</button>
       </div>
     </div>
   );
 }
 
-// ---------- App ----------
-export default function App() {
-  const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [view, setView] = useState('library'); // library | detail | edit | cook
-  const [activeId, setActiveId] = useState(null);
-  const [saveError, setSaveError] = useState(false);
+// ---- App ----
+function App(){
+  const [recipes,setRecipes]=useState(()=>initRecipes());
+  const [view,setView]=useState('library');
+  const [activeId,setActiveId]=useState(null);
+  const [showExport,setShowExport]=useState(false);
+  const active=recipes.find(r=>r.id===activeId);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const result = await window.storage.get(STORAGE_KEY, false);
-        const stored = result && result.value ? JSON.parse(result.value) : [];
-        const existingIds = new Set(stored.map((r) => r.id));
-        const userEditedIds = new Set(stored.filter((r) => r.userEdited).map((r) => r.id));
-        const newSeeds = seedRecipes.filter((r) => !existingIds.has(r.id) && !userEditedIds.has(r.id));
-        const merged = [...stored, ...newSeeds];
-        setRecipes(merged);
-        if (newSeeds.length || !result) {
-          await window.storage.set(STORAGE_KEY, JSON.stringify(merged), false);
-        }
-      } catch (e) {
-        setRecipes(seedRecipes);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
+  const persist=next=>{setRecipes(next);saveRecipes(next);};
 
-  const persist = async (next) => {
-    setRecipes(next);
-    try {
-      const result = await window.storage.set(STORAGE_KEY, JSON.stringify(next), false);
-      if (!result) setSaveError(true);
-    } catch (e) {
-      setSaveError(true);
-    }
+  const handleSave=recipe=>{
+    const edited={...recipe,userEdited:true};
+    const exists=recipes.some(r=>r.id===recipe.id);
+    persist(exists?recipes.map(r=>r.id===recipe.id?edited:r):[...recipes,edited]);
+    setActiveId(recipe.id);setView('detail');
   };
 
-  const activeRecipe = recipes.find((r) => r.id === activeId);
+  const handleDelete=id=>{persist(recipes.filter(r=>r.id!==id));setActiveId(null);setView('library');};
 
-  const handleSaveRecipe = (recipe) => {
-    const exists = recipes.some((r) => r.id === recipe.id);
-    const edited = { ...recipe, userEdited: true };
-    const next = exists ? recipes.map((r) => (r.id === recipe.id ? edited : r)) : [...recipes, edited];
-    persist(next);
-    setActiveId(recipe.id);
-    setView('detail');
+  const handleImport=data=>{
+    const ids=new Set(recipes.map(r=>r.id));
+    const incoming=data.map(r=>({...r,id:ids.has(r.id)?newId('r'):r.id}));
+    persist([...recipes,...incoming]);
   };
 
-  const handleDelete = (id) => {
-    persist(recipes.filter((r) => r.id !== id));
-    setActiveId(null);
-    setView('library');
-  };
+  const handleExport=()=>setShowExport(true);
 
-  const [showExport, setShowExport] = useState(false);
-  const handleExport = () => setShowExport(true);
+  return(
+    <div className="minscreen bg-parchment c-ink">
+      {view==='library'&&<Library recipes={recipes} onOpen={id=>{setActiveId(id);setView('detail');}} onAdd={()=>{setActiveId(null);setView('edit');}} onExport={handleExport} onImport={handleImport}/>}
+      {view==='detail'&&active&&<RecipeDetail recipe={active} onBack={()=>setView('library')} onEdit={id=>{setActiveId(id);setView('edit');}} onDelete={handleDelete} onCook={id=>{setActiveId(id);setView('cook');}}/>}
+      {view==='edit'&&<RecipeForm initial={active} onSave={handleSave} onCancel={()=>setView(active?'detail':'library')}/>}
+      {view==='cook'&&active&&<CookMode recipe={active} onExit={()=>setView('detail')}/>}
 
-  return (
-    <div className="min-h-screen bg-parchment font-body text-ink" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
-        .font-display { font-family: 'Fraunces', serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .bg-parchment { background-color: #F7F2E7; }
-        .bg-plum { background-color: #4A2E3A; }
-        .bg-rust { background-color: #C1602A; }
-        .bg-butter { background-color: #E8C468; }
-        .bg-sage { background-color: #8A9B7E; }
-        .text-ink { color: #292524; }
-        .text-parchment { color: #F7F2E7; }
-        .text-rust { color: #C1602A; }
-        .text-plum { color: #4A2E3A; }
-        .text-sage { color: #6F8264; }
-        .text-butter { color: #E8C468; }
-        .bg-sage\\/10 { background-color: rgba(138,155,126,0.12); }
-        .bg-sage\\/20 { background-color: rgba(138,155,126,0.22); }
-        .bg-sage\\/30 { background-color: rgba(138,155,126,0.32); }
-        .bg-rust\\/10 { background-color: rgba(193,96,42,0.1); }
-        .bg-rust\\/20 { background-color: rgba(193,96,42,0.2); }
-        .bg-butter\\/40 { background-color: rgba(232,196,104,0.4); }
-        .bg-butter\\/90 { background-color: rgba(232,196,104,0.9); }
-        .text-rust\\/40 { color: rgba(193,96,42,0.4); }
-        .ring-rust\\/40 { --tw-ring-color: rgba(193,96,42,0.4); }
-        .border-rust { border-color: #C1602A; }
-      `}</style>
-
-      {loading && view === 'library' && (
-        <div className="flex items-center justify-center min-h-screen text-ink/50 text-sm">Loading your cookbook…</div>
-      )}
-
-      {!loading && view === 'library' && (
-        <Library
-          recipes={recipes}
-          loading={loading}
-          onOpen={(id) => { setActiveId(id); setView('detail'); }}
-          onAdd={() => { setActiveId(null); setView('edit'); }}
-          onExport={handleExport}
-        />
-      )}
-
-      {view === 'detail' && activeRecipe && (
-        <RecipeDetail
-          recipe={activeRecipe}
-          onBack={() => setView('library')}
-          onEdit={(id) => { setActiveId(id); setView('edit'); }}
-          onDelete={handleDelete}
-          onCook={(id) => { setActiveId(id); setView('cook'); }}
-        />
-      )}
-
-      {view === 'edit' && (
-        <RecipeForm
-          initial={activeRecipe}
-          onSave={handleSaveRecipe}
-          onCancel={() => setView(activeRecipe ? 'detail' : 'library')}
-        />
-      )}
-
-      {view === 'cook' && activeRecipe && (
-        <CookMode recipe={activeRecipe} onExit={() => setView('detail')} />
-      )}
-
-      {saveError && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-rust text-parchment text-xs px-4 py-2 rounded-full shadow">
-          Couldn't save — your changes may not persist.
-        </div>
-      )}
-
-      {showExport && (
-        <div className="fixed inset-0 flex items-center justify-center p-5" style={{ background: 'rgba(74,46,58,0.6)', zIndex: 50 }}>
-          <div className="bg-parchment rounded-2xl p-5 max-w-lg w-full flex flex-col" style={{ maxHeight: '80vh' }}>
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="font-display text-lg font-semibold text-plum">Your recipes</h2>
-              <button onClick={() => setShowExport(false)} className="text-ink/50 hover:text-plum text-xl leading-none" aria-label="Close">×</button>
+      {showExport&&(
+        <div className="fixed inset0 flex items-center justify-center" style={{background:'rgba(74,46,58,.6)',zIndex:50,padding:'1.25rem'}}>
+          <div className="bg-parchment rounded-2xl p5 wfull flex flex-col" style={{maxWidth:'32rem',maxHeight:'80vh'}}>
+            <div className="flex items-center justify-between mb3">
+              <h2 className="fd lg fw6 c-plum">Export your recipes</h2>
+              <button onClick={()=>setShowExport(false)} className="c-ink50 xl" style={{lineHeight:1}}>×</button>
             </div>
-            <p className="text-sm text-ink/70 mb-3">
-              Tap inside the box, select all (Ctrl/Cmd+A), copy (Ctrl/Cmd+C), then save it as a <span className="font-mono">.json</span> file — or paste it directly if your app supports pasting.
-            </p>
-            <textarea
-              readOnly
-              value={JSON.stringify(recipes, null, 2)}
-              className="flex-1 w-full bg-white border rounded-lg p-3 text-xs font-mono"
-              style={{ borderColor: '#EADFC8' }}
-              onFocus={(e) => e.target.select()}
-            />
+            <p className="sm c-ink70 mb3">Tap inside the box, select all (Ctrl/Cmd+A), copy (Ctrl/Cmd+C), then paste into the "Paste recipes" box in your other app.</p>
+            <textarea readOnly value={JSON.stringify(recipes,null,2)} className="input-base flex1 fm xs" style={{minHeight:200}} onFocus={e=>e.target.select()}/>
           </div>
         </div>
       )}
     </div>
   );
 }
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
