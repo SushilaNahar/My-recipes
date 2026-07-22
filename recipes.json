@@ -1892,5 +1892,154 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-paneer-frankie",
+    "title": "Paneer Tikka Frankie",
+    "category": "Other",
+    "description": "A spiced paneer and vegetable filling rolled in roti or paratha with green chutney and raw onion — a quick, satisfying wrap.",
+    "videoUrl": "",
+    "baseServings": 2,
+    "tags": [
+      "Beginner",
+      "Indian",
+      "20 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Oil",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Onion, sliced",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i3",
+        "name": "Capsicum, sliced",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Garlic, chopped",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Green chillies, chopped",
+        "amount": 1.5,
+        "unit": ""
+      },
+      {
+        "id": "i6",
+        "name": "Red chilli powder",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Jeera powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Coriander powder",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Turmeric",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i10",
+        "name": "Salt and pepper to taste",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Curd or fresh cream",
+        "amount": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i12",
+        "name": "Paneer, cubed",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "i13",
+        "name": "Fresh coriander, chopped",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i14",
+        "name": "Roti or paratha",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i15",
+        "name": "Green chutney or mint mayo",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i16",
+        "name": "Raw onion rings (to top)",
+        "amount": 0.5,
+        "unit": "cup"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Sauté the vegetables",
+        "content": "Heat {i1} in a pan. Add {i2}, {i3}, {i4}, and {i5}. Sauté for 2–3 minutes. Do not overcook the veggies.",
+        "why": "Keeping the vegetables slightly crisp gives the frankie filling texture and bite.",
+        "timerSeconds": 180
+      },
+      {
+        "id": "s2",
+        "title": "Add spices and curd",
+        "content": "Add {i6}, {i7}, {i8}, {i9}, {i10}, and {i11}. Cook on medium flame until well combined.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Add the paneer",
+        "content": "Add {i12} and gently mix together so the paneer doesn't break.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Finish the filling",
+        "content": "Top with {i13}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Assemble the frankie",
+        "content": "Place the paneer filling onto {i14}. Drizzle with {i15}. Top with {i16}. Roll up and serve immediately.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
