@@ -175,7 +175,8 @@
         "timerSeconds": null
       }
     ],
-    "userEdited": true
+    "userEdited": true,
+    "videoUrl": ""
   },
   {
     "id": "seed-3",
