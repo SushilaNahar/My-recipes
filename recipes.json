@@ -1152,5 +1152,104 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-1",
+    "title": "Weeknight Garlic Butter Pasta",
+    "category": "Mains",
+    "description": "A fast, comforting pasta that teaches you how to build a pan sauce from scratch.",
+    "baseServings": 2,
+    "tags": [
+      "Beginner",
+      "20 min"
+    ],
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Spaghetti",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "i2",
+        "name": "Butter",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Garlic cloves, minced",
+        "amount": 4,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Red chili flakes",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Parmesan, grated",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i6",
+        "name": "Salt",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Black pepper",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Fresh parsley, chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Boil the pasta",
+        "content": "Bring a large pot of water to a boil. Salt it generously, then add the {i1}.",
+        "why": "Salting the water is your only chance to season the pasta itself — it should taste like the sea.",
+        "timerSeconds": 600
+      },
+      {
+        "id": "s2",
+        "title": "Save the starchy water",
+        "content": "Just before draining, scoop out about 1 cup of the pasta water and set it aside.",
+        "why": "This cloudy water is full of starch and will help the sauce cling to the pasta later.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Build the garlic butter",
+        "content": "While the pasta cooks, melt {i2} in a large pan over medium-low heat. Add {i3} and {i4}, and cook gently until fragrant.",
+        "why": "Low heat is key — burnt garlic turns bitter and there is no fixing it. Aim for golden, not brown.",
+        "timerSeconds": 120
+      },
+      {
+        "id": "s4",
+        "title": "Combine",
+        "content": "Add the drained pasta to the pan along with a splash of the reserved pasta water. Toss well.",
+        "why": "The starchy water emulsifies with the butter, creating a glossy sauce that coats every strand.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Finish",
+        "content": "Remove from heat and stir in {i5}, {i6}, and {i7}. Add more pasta water if it looks dry. Top with {i8} and serve right away.",
+        "why": "Adding cheese off the heat keeps it from clumping into a greasy mess.",
+        "timerSeconds": null
+      }
+    ],
+    "userEdited": true
   }
 ]
