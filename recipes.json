@@ -1378,5 +1378,148 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-aloo-paratha",
+    "title": "Aloo Paratha Stuffing",
+    "category": "Other",
+    "description": "A simple spiced potato stuffing for parathas, enough for about 10 parathas. Serves 4.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Beginner",
+      "Indian",
+      "20 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Potatoes, boiled and mashed",
+        "amount": 0.5,
+        "unit": "kg"
+      },
+      {
+        "id": "i2",
+        "name": "Ginger, finely grated (adrak)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i3",
+        "name": "Green chilli, finely chopped (mirchi)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Mixed herbs",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Kasuri methi",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Lemon juice (nimbu)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Turmeric (haldi)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Coriander powder (dhania)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Fresh coriander, chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i10",
+        "name": "Salt",
+        "amount": 0.75,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Rai (mustard seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Jeera (cumin seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i13",
+        "name": "Hing (asafoetida)",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i14",
+        "name": "Oil or ghee",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i15",
+        "name": "Whole wheat atta (for dough)",
+        "amount": 2,
+        "unit": "cup"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Boil the aloo",
+        "content": "Boil {i1} until fully soft, then mash well.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the tadka",
+        "content": "Heat {i14} in a pan. Add {i11} and let them crackle, then add {i12} and {i13}.",
+        "why": "Letting the mustard seeds crackle first, then adding jeera and hing, keeps everything from burning.",
+        "timerSeconds": 30
+      },
+      {
+        "id": "s3",
+        "title": "Add ginger, chilli and spices",
+        "content": "Add {i2}, {i3}, {i7}, {i8}, {i4}, and {i5} to the pan and cook for a few seconds until fragrant.",
+        "why": null,
+        "timerSeconds": 30
+      },
+      {
+        "id": "s4",
+        "title": "Mix in the aloo",
+        "content": "Add the mashed {i1} along with {i10} and {i9}. Mix everything together thoroughly.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Finish with lemon",
+        "content": "Turn off the heat and squeeze in {i6} last. Mix well. Let the stuffing cool before filling parathas made with {i15}.",
+        "why": "Adding lemon last keeps it bright and fresh, and letting the stuffing cool makes it much easier to fill and roll into the dough.",
+        "timerSeconds": null
+      }
+    ]
   }
 ]
