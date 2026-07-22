@@ -976,5 +976,181 @@
         "timerSeconds": 180
       }
     ]
+  },
+  {
+    "id": "chikad-chole",
+    "title": "Chikad Chole",
+    "category": "Mains",
+    "description": "A thick, rustic Punjabi-style chole where the chickpeas and potato are blended into the gravy itself, giving it its signature muddy texture. Serve with naan or puri.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Intermediate",
+      "Punjabi",
+      "Vegan",
+      "1 hr + soaking"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Kabuli chole, washed and soaked overnight",
+        "amount": 1.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Onions, sliced",
+        "amount": 2,
+        "unit": "medium"
+      },
+      {
+        "id": "i3",
+        "name": "Potato, diced",
+        "amount": 1,
+        "unit": "medium"
+      },
+      {
+        "id": "i4",
+        "name": "Salt",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Coriander seeds",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Black pepper",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Dry red chillies",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i8",
+        "name": "Jeera (cumin seeds)",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Black cardamom",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i10",
+        "name": "Anardana (pomegranate seed powder)",
+        "amount": 1.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Kasuri methi",
+        "amount": 1.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Oil",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i13",
+        "name": "Ghee",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i14",
+        "name": "Ginger garlic paste",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i15",
+        "name": "Turmeric (haldi)",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i16",
+        "name": "Red chilli powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i17",
+        "name": "Black salt (kala namak)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i18",
+        "name": "Fresh coriander (hara dhaniya), chopped",
+        "amount": 1,
+        "unit": "handful"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Pressure cook the chole",
+        "content": "Add {i1} to a pressure cooker with {i2}, {i3}, {i4}, and water just above the level of the chole. Pressure cook 6-7 whistles until completely soft. Let pressure release naturally.",
+        "why": "Cooking onion and potato with the chole means they absorb flavour — both get blended back in to thicken the gravy.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the chole masala",
+        "content": "Dry roast {i5}, {i6}, {i7}, {i8}, and {i9} on low heat until fragrant. Off the heat, add {i10} and {i11}, roast 1 more minute in residual heat. Cool and grind into a fine powder.",
+        "why": "Adding anardana and kasuri methi off the heat protects them — both turn bitter if roasted too long.",
+        "timerSeconds": 300
+      },
+      {
+        "id": "s3",
+        "title": "Make the paste",
+        "content": "Remove the cooked {i3} and about 1/4 cup of the chole. Blend together into a smooth paste with a splash of cooking water.",
+        "why": "This blended potato-chole paste is what makes chikad chole thick and creamy.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Cook the masala",
+        "content": "Heat {i12} and {i13} in a pan. Add {i14} and cook 30 seconds. Add {i15} and {i16}, then the ground chole masala with a little water. Cook medium heat until oil separates.",
+        "why": null,
+        "timerSeconds": 300
+      },
+      {
+        "id": "s5",
+        "title": "Add the paste and roast",
+        "content": "Add the blended chole-potato paste to the pan. Roast on medium heat, stirring, until the mixture releases oil.",
+        "why": null,
+        "timerSeconds": 300
+      },
+      {
+        "id": "s6",
+        "title": "Combine and simmer",
+        "content": "Add this masala to the pressure-cooked chole and mix well. Bring to a boil. Add salt to taste and {i17}. Mash a few chole with the back of a spoon and cook until thick.",
+        "why": "Mashing some chole thickens the gravy from within — the more you mash, the thicker it gets.",
+        "timerSeconds": 300
+      },
+      {
+        "id": "s7",
+        "title": "Garnish and serve",
+        "content": "Garnish with {i18}. Serve hot with naan or puri.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
