@@ -1521,5 +1521,181 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-aloo-sabji-rajji",
+    "title": "Aloo Sabji Rajji Style",
+    "category": "Other",
+    "description": "A coconut-based potato curry with a fresh ground masala of coconut, coriander, and ginger, finished with tomatoes and pressure cooked.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Beginner",
+      "Indian",
+      "30 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Potatoes, cut",
+        "amount": 3,
+        "unit": "medium"
+      },
+      {
+        "id": "i2",
+        "name": "Green chillies",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i3",
+        "name": "Fresh grated coconut",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Fresh coriander (kotmir)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Ginger",
+        "amount": 1,
+        "unit": "inch"
+      },
+      {
+        "id": "i6",
+        "name": "Tomatoes, ground into paste",
+        "amount": 2,
+        "unit": "medium"
+      },
+      {
+        "id": "i7",
+        "name": "Tomato, cut into small cubes",
+        "amount": 1,
+        "unit": "medium"
+      },
+      {
+        "id": "i8",
+        "name": "Oil",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i9",
+        "name": "Rai (mustard seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i10",
+        "name": "Jeera (cumin seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Curry leaves (kadi patta)",
+        "amount": 8,
+        "unit": ""
+      },
+      {
+        "id": "i12",
+        "name": "Green chilli, for tadka",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i13",
+        "name": "Turmeric (haldi)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i14",
+        "name": "Red chilli powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i15",
+        "name": "Coriander powder (dhania)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i16",
+        "name": "Salt",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i17",
+        "name": "Water",
+        "amount": 0.5,
+        "unit": "cup"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Fry the potatoes and chilli",
+        "content": "Cut {i1} and fry along with {i2} until lightly golden. Set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the coconut masala",
+        "content": "Grind {i3} into a paste. Add {i4} and {i5} to the coconut and grind together into a smooth masala.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Prepare the tomatoes",
+        "content": "Grind {i6} into a paste and keep aside. Cut {i7} into small cubes separately.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Start the tadka",
+        "content": "In a pressure cooker, heat {i8}. Add {i9}, {i10}, {i11}, and {i12}.",
+        "why": null,
+        "timerSeconds": 30
+      },
+      {
+        "id": "s5",
+        "title": "Add potatoes and spices",
+        "content": "Add {i13}, then add the fried {i1}. Fry everything together. Add {i14}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Add the coconut masala",
+        "content": "Add the ground coconut masala and fry it in the oil until fragrant.",
+        "why": "Frying the ground coconut masala in the oil cooks out the raw taste and helps it release its flavour into the dish.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Add tomatoes and simmer",
+        "content": "Add the ground tomato paste and the cubed tomato. Add {i15} and {i16}. Add {i17}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s8",
+        "title": "Pressure cook",
+        "content": "Close the lid and cook for two whistles.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
