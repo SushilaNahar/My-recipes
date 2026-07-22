@@ -1251,5 +1251,131 @@
       }
     ],
     "userEdited": true
+  },
+  {
+    "id": "seed-aloo-masala",
+    "title": "Aloo Masala",
+    "category": "Other",
+    "description": "A simple, fragrant spiced potato filling — perfect for sandwiches, dosas, parathas, or as a quick side dish.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Beginner",
+      "Indian",
+      "15 min",
+      "Vegan"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Potatoes, boiled and roughly mashed",
+        "amount": 4,
+        "unit": "medium"
+      },
+      {
+        "id": "i2",
+        "name": "Turmeric (haldi)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i3",
+        "name": "Coriander powder (dhana)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i4",
+        "name": "Salt",
+        "amount": 0.75,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Kasuri methi",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Ghee",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Jeera (cumin seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Rai (mustard seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Hing (asafoetida)",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i10",
+        "name": "Ginger, finely grated (adrak)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Green chilli, finely chopped (mirchi)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i12",
+        "name": "Lemon juice (nimbu)",
+        "amount": 1,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Mix masalas into the aloo",
+        "content": "Combine {i1} with {i2}, {i3}, {i4}, and {i5}. Mix well so the spices coat the potato evenly.",
+        "why": "Mixing the dry spices into the potato before cooking means they are evenly distributed.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the tadka",
+        "content": "Heat {i6}. Add {i8} and wait for them to crackle, then add {i7} and {i9}. Let them sizzle for a few seconds.",
+        "why": "Mustard seeds need a few seconds before they pop — adding the jeera and hing right after keeps them from burning.",
+        "timerSeconds": 30
+      },
+      {
+        "id": "s3",
+        "title": "Add ginger and chilli",
+        "content": "Add {i10} and {i11} to the pan and cook for 30 seconds until fragrant.",
+        "why": null,
+        "timerSeconds": 30
+      },
+      {
+        "id": "s4",
+        "title": "Cook the aloo",
+        "content": "Add the spiced {i1} to the pan. Mix well and cook on medium heat for 5 minutes, stirring occasionally.",
+        "why": "A few minutes on the heat brings the raw flavour out of the spices and lets everything come together.",
+        "timerSeconds": 300
+      },
+      {
+        "id": "s5",
+        "title": "Finish with lemon",
+        "content": "Turn off the heat and squeeze in {i12}. Mix and taste — adjust salt if needed. Serve hot.",
+        "why": "Adding lemon off the heat keeps it bright and fresh — cooking lemon juice makes it bitter.",
+        "timerSeconds": null
+      }
+    ]
   }
 ]
