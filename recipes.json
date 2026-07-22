@@ -1697,5 +1697,199 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-roasted-chickpea-salad",
+    "title": "Roasted Chickpea Salad with Smoky Bell Pepper Dip",
+    "category": "Other",
+    "description": "A protein-rich, gut-friendly salad of spiced roasted chickpeas tossed with fresh vegetables, pomegranate, and peanuts, dressed with a smoky charred bell pepper and paneer dip.",
+    "videoUrl": "",
+    "baseServings": 2,
+    "tags": [
+      "Beginner",
+      "Salad",
+      "20 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Boiled kabuli chana (chickpeas)",
+        "amount": 1.75,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Oil (for roasting chickpeas)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i3",
+        "name": "Salt (for chickpeas)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i4",
+        "name": "Red chilli powder",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Jeera powder",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Dhania powder",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Chana masala",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Onion, finely chopped",
+        "amount": 1,
+        "unit": "small"
+      },
+      {
+        "id": "i9",
+        "name": "Tomato, finely chopped",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i10",
+        "name": "Cucumber, finely chopped",
+        "amount": 1,
+        "unit": "small"
+      },
+      {
+        "id": "i11",
+        "name": "Fresh coriander (dhania)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i12",
+        "name": "Pomegranate arils",
+        "amount": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i13",
+        "name": "Roasted peanuts",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i14",
+        "name": "Lemon juice",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i15",
+        "name": "Red bell pepper, charred and peeled",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i16",
+        "name": "Garlic clove",
+        "amount": 1,
+        "unit": "small"
+      },
+      {
+        "id": "i17",
+        "name": "Paneer, crumbled",
+        "amount": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i18",
+        "name": "Greek yogurt",
+        "amount": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i19",
+        "name": "Salt (for dip)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i20",
+        "name": "Red chilli powder (for dip)",
+        "amount": 1,
+        "unit": "pinch"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Roast the chickpeas",
+        "content": "Heat {i2} in a pan. Add {i1} and roast until lightly crispy and golden.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Season the chickpeas",
+        "content": "Add {i3}, {i4}, {i5}, {i6}, and {i7} to the roasted chickpeas. Toss well and keep aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Char the bell pepper",
+        "content": "Char {i15} directly on a flame until the skin blisters all over.",
+        "why": "Charring the skin gives the dip its smoky flavour — this is the step that makes it distinctive.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Peel and cool",
+        "content": "Peel and deseed the charred pepper, then let it cool completely.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Blend the dip",
+        "content": "Blend the charred pepper with {i16}, {i17}, {i18}, {i19}, and {i20} until smooth.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Assemble the salad",
+        "content": "In a bowl, add the spiced roasted chickpeas. Add {i8}, {i9}, {i10}, {i11}, {i12}, and {i13}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Dress and toss",
+        "content": "Add {i14} and a few spoonfuls of the smoky bell pepper dip. Toss gently until everything is coated.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s8",
+        "title": "Taste and serve",
+        "content": "Taste and adjust seasoning as needed. Serve immediately.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
