@@ -2122,6 +2122,12 @@
         "name": "Black pepper",
         "amount": 0.25,
         "unit": "tsp"
+      },
+      {
+        "id": "i-1784775017365-95zot",
+        "name": "Red bell pepper ",
+        "amount": 1,
+        "unit": "cup"
       }
     ],
     "steps": [
