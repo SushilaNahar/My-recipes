@@ -2041,5 +2041,125 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-quinoa-chickpea-salad",
+    "title": "Quinoa Chickpea Salad with Maple-Lemon Dressing",
+    "category": "Other",
+    "description": "A fresh, protein-rich salad of quinoa, chickpeas, and crisp vegetables tossed in a bright maple-lemon vinaigrette.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Beginner",
+      "Salad",
+      "Vegan",
+      "20 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Quinoa, uncooked",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Water or vegetable stock (for cooking quinoa)",
+        "amount": 2,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Boiled chickpeas",
+        "amount": 1.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Cherry tomatoes, halved",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i5",
+        "name": "Cucumber, diced",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i6",
+        "name": "Fresh parsley, chopped",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i7",
+        "name": "Olive oil",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i8",
+        "name": "Lemon juice",
+        "amount": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i9",
+        "name": "Maple syrup",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i10",
+        "name": "Salt",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Black pepper",
+        "amount": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Cook the quinoa",
+        "content": "Rinse {i1} well. Add to a pot with {i2}, bring to a boil, then reduce heat and simmer covered for 12–15 minutes until the water is absorbed and the quinoa is fluffy. Let it cool.",
+        "why": "Rinsing quinoa removes its natural bitter coating (saponin) — don't skip this step.",
+        "timerSeconds": 900
+      },
+      {
+        "id": "s2",
+        "title": "Prep the vegetables",
+        "content": "While the quinoa cooks, prepare {i4}, {i5}, and {i6}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Make the dressing",
+        "content": "Whisk together {i7}, {i8}, {i9}, {i10}, and {i11} in a small bowl or jar until combined.",
+        "why": "Shaking the dressing in a sealed jar emulsifies it quickly without needing a whisk.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Assemble the salad",
+        "content": "In a large bowl, combine the cooled quinoa, {i3}, cherry tomatoes, cucumber, and parsley.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Dress and serve",
+        "content": "Pour the maple-lemon dressing over the salad and toss well. Taste and adjust salt, pepper, or lemon as needed. Serve chilled or at room temperature.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
