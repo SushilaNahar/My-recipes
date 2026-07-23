@@ -2173,5 +2173,98 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-paneer-toast",
+    "title": "Paneer Toast",
+    "category": "Other",
+    "description": "A quick, cheesy paneer and capsicum toast on sourdough, made in the air fryer.",
+    "videoUrl": "",
+    "baseServings": 2,
+    "tags": [
+      "Beginner",
+      "10 min",
+      "Snack"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Sourdough bread slices",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i2",
+        "name": "Paneer, grated or crumbled",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Capsicum, finely chopped",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Green chilli, finely chopped",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i5",
+        "name": "Chilli flakes",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Oregano",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Salt",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Black pepper",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Grated cheese",
+        "amount": 0.5,
+        "unit": "cup"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Mix the topping",
+        "content": "In a bowl, combine {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, and {i8}. Mix well.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Assemble the toast",
+        "content": "Spread the paneer mixture evenly over {i1}. Top generously with {i9}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Air fry",
+        "content": "Place the toasts in the air fryer and cook for 6 minutes, until the cheese is melted and bubbly and the edges are golden.",
+        "why": "Air fryer times vary by model — check at the 5-minute mark the first time you make this to find your machine's sweet spot.",
+        "timerSeconds": 360
+      }
+    ]
   }
 ]
