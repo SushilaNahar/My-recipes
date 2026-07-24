@@ -2266,5 +2266,162 @@
         "timerSeconds": 360
       }
     ]
+  },
+  {
+    "id": "seed-jain-veggie-salad",
+    "title": "Ultimate Loaded Jain Veggie Salad",
+    "category": "Other",
+    "description": "A colorful, loaded Jain-friendly salad with crisp raw vegetables, chickpeas and paneer, tossed in a garlic-free lemon-herb vinaigrette.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Beginner",
+      "Salad",
+      "Jain",
+      "20 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Fresh lettuce (or mixed greens / shredded cabbage)",
+        "amount": 1,
+        "unit": "bunch"
+      },
+      {
+        "id": "i2",
+        "name": "English cucumber, cubed",
+        "amount": 1,
+        "unit": "large"
+      },
+      {
+        "id": "i3",
+        "name": "Tomatoes, diced (seeds removed)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Radishes, thinly sliced",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i5",
+        "name": "Raw beetroot, grated",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i6",
+        "name": "Broccoli florets, steamed",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i7",
+        "name": "Carrots, grated (or bell peppers, sliced)",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i8",
+        "name": "Boiled kabuli chana (or green moong sprouts)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i9",
+        "name": "Fresh paneer, cubed",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i10",
+        "name": "Toasted pumpkin or sunflower seeds",
+        "amount": 1,
+        "unit": "handful"
+      },
+      {
+        "id": "i11",
+        "name": "Extra virgin olive oil",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i12",
+        "name": "Fresh lemon juice",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i13",
+        "name": "Dijon mustard",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i14",
+        "name": "Maple syrup or honey",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i15",
+        "name": "Hing (asafoetida), optional",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i16",
+        "name": "Salt and black pepper to taste",
+        "amount": 1,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Crisp the lettuce",
+        "content": "Submerge torn {i1} in a bowl of ice-cold water for 10–15 minutes. Remove and dry completely using a salad spinner or clean kitchen towel. Set aside.",
+        "why": "The ice bath makes limp lettuce crisp again — don't skip drying it well, or the dressing will slide right off.",
+        "timerSeconds": 900
+      },
+      {
+        "id": "s2",
+        "title": "Season the veggie mix",
+        "content": "In a large mixing bowl, combine {i2}, {i3}, {i4}, {i5}, {i6}, and {i7}. Add a small pinch of salt and pepper and toss gently.",
+        "why": "Seasoning the vegetables before dressing lets the salt season them from the inside, not just the surface.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Shake the dressing",
+        "content": "In a small glass jar, combine {i11}, {i12}, {i13}, {i14}, {i15}, and {i16}. Seal tightly and shake vigorously until smooth and emulsified.",
+        "why": "Shaking in a sealed jar emulsifies the dressing quickly without needing a whisk.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Assemble",
+        "content": "Add the dry lettuce, {i8}, and {i9} into the bowl with the pre-seasoned veggie mix.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Dress and toss",
+        "content": "Drizzle the dressing around the rim of the bowl right before serving. Toss gently so everything gets a light, even coat.",
+        "why": "Dressing right before serving (not earlier) keeps the lettuce from wilting and going soggy.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Finish and serve",
+        "content": "Top with {i10} for the final crunch and serve immediately.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
