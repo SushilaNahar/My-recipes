@@ -2618,5 +2618,122 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-churma-ladoo",
+    "title": "Churma Ladoo",
+    "category": "Other",
+    "description": "Traditional churma ladoos made by deep-frying muthiyas, grinding coarse, roasting in ghee, and binding with hot jaggery syrup.",
+    "videoUrl": "",
+    "baseServings": 20,
+    "tags": [
+      "Intermediate",
+      "Sweet",
+      "Festive",
+      "1 hr"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Atta (whole wheat flour)",
+        "amount": 1,
+        "unit": "kg"
+      },
+      {
+        "id": "i2",
+        "name": "Ghee, for dough",
+        "amount": 10,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Warm water",
+        "amount": 0,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Ghee, for deep frying",
+        "amount": 700,
+        "unit": "g"
+      },
+      {
+        "id": "i5",
+        "name": "Ghee, for roasting atta grains",
+        "amount": 0,
+        "unit": ""
+      },
+      {
+        "id": "i6",
+        "name": "Ghee, leftover (for jaggery syrup)",
+        "amount": 0,
+        "unit": ""
+      },
+      {
+        "id": "i7",
+        "name": "Gud (jaggery)",
+        "amount": 750,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Make the dough",
+        "content": "Mix {i1} with {i2}, rubbing it into the flour. Add {i3} gradually to form a stiff dough.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Shape and fry muthiyas",
+        "content": "Shape the dough into muthiyas. Deep fry slowly on low heat in {i4} until cooked through and golden.",
+        "why": "Frying slowly on low heat cooks the muthiyas through without browning the outside too fast.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Cool and break",
+        "content": "Let the fried muthiyas cool completely, then break them apart by hand.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Grind coarse",
+        "content": "Grind the broken muthiyas in a mixer. Keep the grains coarse and big — do not grind fine.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Sieve",
+        "content": "Pass the ground mixture through an atta sieve.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Roast the atta grains",
+        "content": "Heat {i5} in a pan. Take small portions of the sieved atta grains and roast very lightly until light brown. Transfer all roasted atta into a vessel.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Make jaggery syrup",
+        "content": "Heat {i6} with {i7} until light bubbles form — do not let it boil strongly.",
+        "why": "A gentle bubble means the jaggery is melted and ready without turning hard or crystallizing once cooled.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s8",
+        "title": "Mix and shape ladoos",
+        "content": "Pour the hot jaggery-ghee mixture over the roasted atta grains and mix well. While still warm, shape into small ladoos.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
