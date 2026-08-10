@@ -2735,5 +2735,120 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-soonth-ladoo",
+    "title": "Soonth Ladoo",
+    "category": "Other",
+    "description": "Warming ladoos made with dry ginger powder, goond, coconut, almonds, and jaggery.",
+    "videoUrl": "",
+    "baseServings": 10,
+    "tags": [
+      "Intermediate",
+      "Sweet",
+      "Winter Special"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Soonth (dry ginger powder)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Khopra (dried coconut)",
+        "amount": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Badam, ground",
+        "amount": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i4",
+        "name": "Goond (edible gum)",
+        "amount": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Dhana ki kali",
+        "amount": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Gud (jaggery)",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Atta",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i8",
+        "name": "Ghee",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Heat the goond",
+        "content": "Heat {i4} in a pan.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Add ghee",
+        "content": "Once the goond is hot, add {i8}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Puff the goond",
+        "content": "Let the goond puff up, then take it out and set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Melt the jaggery",
+        "content": "In the same pan, add {i6} and let it melt.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Add atta",
+        "content": "Add {i7} and mix well. Take the pan off the heat.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Mix in the remaining ingredients",
+        "content": "Add {i2}, then {i5}, then the puffed goond, then {i3}, and finally {i1}, mixing well after each addition.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Shape ladoos",
+        "content": "While the mixture is still warm, shape into small ladoos.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
