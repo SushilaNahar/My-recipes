@@ -2850,5 +2850,89 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-methi-ladoo",
+    "title": "Methi Ladoo",
+    "category": "Other",
+    "description": "Ladoos made with roasted atta, fenugreek (methi), and crushed almonds in jaggery. Traditionally given postpartum, starting from the ninth month.",
+    "videoUrl": "",
+    "baseServings": 10,
+    "tags": [
+      "Intermediate",
+      "Sweet",
+      "Postpartum",
+      "Traditional"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Ghee",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Atta",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Gud (jaggery)",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i4",
+        "name": "Badam, coarsely crushed (not ground)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Methi (fenugreek) powder",
+        "amount": 1,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Roast the atta",
+        "content": "Heat {i1} in a pan. Add {i2} and roast (seko) until fragrant and lightly golden.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Set aside the atta",
+        "content": "Take the roasted atta out of the pan and keep it aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Melt the jaggery",
+        "content": "In the same ghee left in the pan, add {i3} and let it melt slightly.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Combine",
+        "content": "Add the roasted atta back in, followed by {i4} and {i5}. Mix well.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Shape ladoos",
+        "content": "While the mixture is still warm, shape into small balls.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
