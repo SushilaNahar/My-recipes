@@ -2934,5 +2934,83 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-raab",
+    "title": "Raab (Morning Drink)",
+    "category": "Other",
+    "description": "A warm morning drink made with fried ground goond, jaggery, and almonds, traditionally had at 8 am.",
+    "videoUrl": "",
+    "baseServings": 1,
+    "tags": [
+      "Easy",
+      "Drink",
+      "Pregnancy",
+      "Traditional",
+      "Morning"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Ghee",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Goond (edible gum), ground",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Water",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Gud (jaggery)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Badam, crushed",
+        "amount": 1,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Fry the goond",
+        "content": "Heat {i1} in a pan and fry {i2} until it puffs up.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Add water and boil",
+        "content": "Add {i3} and bring to a boil.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Add jaggery",
+        "content": "Add {i4} and stir until dissolved.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Add badam",
+        "content": "Stir in {i5} and serve warm.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
