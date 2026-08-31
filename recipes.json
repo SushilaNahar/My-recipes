@@ -3012,5 +3012,194 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-rawa-dhokla",
+    "title": "Instant Rawa (Soji) Dhokla",
+    "category": "Other",
+    "description": "Soft, spongy steamed semolina dhokla made instantly with curd and Eno, finished with a mustard-sesame-curry leaf tempering.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Easy",
+      "Gujarati",
+      "Steamed",
+      "Breakfast",
+      "30 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Rawa (semolina/suji)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Sour curd/yogurt, whisked smooth",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Water (for batter)",
+        "amount": 0.75,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Ginger-chilli paste",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Salt (for batter)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Oil (in batter)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Eno fruit salt, plain",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Water (to activate Eno)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Oil (for tempering)",
+        "amount": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i10",
+        "name": "Mustard seeds (rai)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Sesame seeds (til)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Hing",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i13",
+        "name": "Green chillies, slit lengthwise",
+        "amount": 3,
+        "unit": ""
+      },
+      {
+        "id": "i14",
+        "name": "Curry leaves",
+        "amount": 9,
+        "unit": ""
+      },
+      {
+        "id": "i15",
+        "name": "Water (for tempering)",
+        "amount": 3.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i16",
+        "name": "Sugar (optional)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i17",
+        "name": "Fresh coriander, chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i18",
+        "name": "Fresh coconut, grated (optional)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i19",
+        "name": "Black pepper or red chilli powder, for dusting (optional)",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i20",
+        "name": "Oil, for greasing pan",
+        "amount": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Make the batter base",
+        "content": "In a bowl, combine {i1}, {i2}, {i4}, {i6}, and {i5}. Gradually add {i3} while whisking to a smooth, lump-free, medium-thick batter (like idli batter). Cover and rest 15-20 minutes.",
+        "why": "Resting lets the rawa absorb the liquid and swell, giving the dhokla its soft texture instead of a gritty bite.",
+        "timerSeconds": 1200
+      },
+      {
+        "id": "s2",
+        "title": "Prepare the steamer and pan",
+        "content": "Grease a cake tin or dhokla plate with {i20}. Add water to a steamer, deep pan, or pressure cooker (without the whistle) and bring to a rolling boil.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Adjust batter and add leavening",
+        "content": "Check the batter's consistency after resting; if too thick, stir in 1-2 tbsp water to loosen it. Sprinkle {i7} over the batter, then pour {i8} directly over it to activate. Gently fold in one direction for 10-15 seconds until light and fluffy.",
+        "why": "Over-mixing at this stage knocks out the air bubbles the Eno just created, which is what makes the dhokla spongy.",
+        "timerSeconds": 15
+      },
+      {
+        "id": "s4",
+        "title": "Steam the dhokla",
+        "content": "Pour the batter immediately into the greased pan and spread evenly. Optionally dust the top with {i19}. Place in the steamer, cover tightly, and steam on high heat.",
+        "why": null,
+        "timerSeconds": 1080
+      },
+      {
+        "id": "s5",
+        "title": "Check doneness and cool",
+        "content": "Insert a toothpick in the center — it should come out clean when done. Remove from the steamer and let cool for 5 minutes.",
+        "why": null,
+        "timerSeconds": 300
+      },
+      {
+        "id": "s6",
+        "title": "Make the tempering",
+        "content": "Heat {i9} in a small pan. Add {i10} and let crackle. Add {i11}, {i13}, {i14}, and {i12}, and sauté for 30 seconds. Lower heat, add {i15} and {i16}, and let it boil for 1 minute before turning off the heat.",
+        "why": "Pouring this warm tempering liquid over the dhokla keeps it moist and juicy instead of drying out.",
+        "timerSeconds": 60
+      },
+      {
+        "id": "s7",
+        "title": "Finish and serve",
+        "content": "Cut the steamed dhokla into squares or diamonds. Spoon the warm tempering evenly over the pieces. Garnish with {i17} and {i18}. Serve warm with green chutney.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
