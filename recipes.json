@@ -3201,5 +3201,143 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-south-indian-dahi-rice",
+    "title": "South Indian Dahi Rice (Curd Rice)",
+    "category": "Other",
+    "description": "Creamy curd rice cooked soft, mixed with curd, milk and malai, finished with a South Indian tempering of cashews, urad dal, mustard, and curry leaves.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Easy",
+      "South Indian",
+      "No-Cook",
+      "Comfort Food"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Rice, cooked soft",
+        "amount": 2,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Kotmir (coriander), chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Dahi (curd)",
+        "amount": 1.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Milk",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i5",
+        "name": "Malai (cream)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Ghee, for vaghar (tempering)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Hing",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i8",
+        "name": "Kaju (cashews)",
+        "amount": 10,
+        "unit": ""
+      },
+      {
+        "id": "i9",
+        "name": "Urad dal",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i10",
+        "name": "Rai (mustard seeds)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Jeera (cumin seeds)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Adrak (ginger), grated, optional",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i13",
+        "name": "Hari mirchi (green chillies)",
+        "amount": 3,
+        "unit": ""
+      },
+      {
+        "id": "i14",
+        "name": "Kadipatta (curry leaves)",
+        "amount": 9,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Cook the rice",
+        "content": "Cook {i1} until soft — softer than usual rice, since it will firm up slightly once mixed with curd.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Mix the base",
+        "content": "To the cooked rice, add {i2}, {i3}, {i4}, and {i5}. Mix well until creamy.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Make the vaghar (tempering)",
+        "content": "Heat {i6} in a small pan. Add {i7} and {i8}, frying the cashews until lightly red. Add {i9} and let it turn golden. Add {i10} and let it crackle, then add {i11}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Finish the tempering",
+        "content": "Add {i12}, {i13}, and {i14} to the tempering and sauté briefly until fragrant.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Combine",
+        "content": "Pour the hot vaghar over the dahi rice mixture and mix well before serving.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
