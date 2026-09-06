@@ -3339,5 +3339,108 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-sing-chutney",
+    "title": "Sing Chutney (Peanut-Sesame Chutney)",
+    "category": "Other",
+    "description": "Dry, versatile roasted peanut and sesame chutney used to season vegetable dishes. Stores well in the fridge.",
+    "videoUrl": "",
+    "baseServings": 8,
+    "tags": [
+      "Easy",
+      "Condiment",
+      "No-Cook Finish",
+      "Make-Ahead"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Sing dana (peanuts)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Til (sesame seeds)",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Kadipatta (curry leaves)",
+        "amount": 10,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Jeera (cumin seeds)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Red mirchi (red chilli powder)",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Hing",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Salt",
+        "amount": 1,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Roast the peanuts",
+        "content": "Dry roast {i1} until golden and fragrant.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Roast the sesame seeds",
+        "content": "Dry roast {i2} separately until lightly golden.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Roast curry leaves and cumin",
+        "content": "Dry roast {i3} and {i4} until crisp and aromatic.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Grind everything",
+        "content": "Combine the roasted peanuts, sesame seeds, curry leaves, and jeera in a grinder. Grind coarsely.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Season",
+        "content": "Add {i5}, {i6}, and {i7} to the ground mixture and mix well.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Store",
+        "content": "Store the chutney in an airtight container in the fridge. Use it to season vegetable dishes.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
