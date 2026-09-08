@@ -3554,5 +3554,86 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-gajar-sandwich",
+    "title": "Gajar (Carrot) Sandwich",
+    "category": "Other",
+    "description": "A simple sandwich filling of peanuts, green chillies, coriander, and grated carrots, with hummus used in place of butter. From a handwritten 1994 recipe notebook.",
+    "videoUrl": "",
+    "baseServings": 2,
+    "tags": [
+      "Easy",
+      "Sandwich",
+      "No-Cook",
+      "Family Recipe"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Peanuts",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Green chillies",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i3",
+        "name": "Coriander",
+        "amount": 1,
+        "unit": "handful"
+      },
+      {
+        "id": "i4",
+        "name": "Salt and pepper",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Lemon juice",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Carrots, grated",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i7",
+        "name": "Hummus, used in place of butter",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i8",
+        "name": "Bread slices",
+        "amount": 4,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Make the filling",
+        "content": "Combine {i1}, {i2}, {i3}, {i4}, {i5}, and {i6} to make the sandwich filling.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Assemble",
+        "content": "Spread {i7} on the bread slices in place of butter, add the carrot filling, and close the sandwich.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
