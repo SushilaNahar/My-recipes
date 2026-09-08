@@ -3442,5 +3442,117 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-papaya-salad",
+    "title": "Papaya Salad",
+    "category": "Other",
+    "description": "A crunchy raw papaya salad with tomatoes, parboiled french beans, crushed peanuts, and a lemon-soy dressing. From a handwritten 1994 recipe notebook.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Easy",
+      "Salad",
+      "No-Cook",
+      "Family Recipe"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Papaya, grated",
+        "amount": 2,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Tomatoes, chopped small",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "French beans, parboiled",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Dhania (coriander) leaves and stalks",
+        "amount": 1,
+        "unit": "handful"
+      },
+      {
+        "id": "i5",
+        "name": "Peanuts, crushed",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Carrots, grated, a little",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Green chillies or fresh red chillies",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i8",
+        "name": "Olive oil",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i9",
+        "name": "Lemon juice",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i10",
+        "name": "Soya sauce",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i11",
+        "name": "Sugar, a little",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Salt",
+        "amount": 1,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Combine the vegetables",
+        "content": "In a large bowl, combine {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, and {i7}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the dressing",
+        "content": "Whisk together {i8}, {i9}, {i10}, {i11}, and {i12}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Toss and serve",
+        "content": "Pour the dressing over the salad and toss well before serving.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
