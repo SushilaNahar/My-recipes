@@ -3736,5 +3736,115 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "r-1790240718992-zyuot",
+    "title": "Rava Sheera",
+    "category": "Other",
+    "description": "Soft, ghee-rich semolina pudding",
+    "videoUrl": "",
+    "baseServings": 1,
+    "tags": [],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Fine rava (semolina)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i2",
+        "name": "Ghee",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i3",
+        "name": "Sugar",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Water (or half milk)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i5",
+        "name": "Cashews",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i6",
+        "name": "Raisins",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i7",
+        "name": "Cardamom powder",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i8",
+        "name": "Saffron strands (optional)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i9",
+        "name": "Salt",
+        "amount": 1,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Fry nuts",
+        "content": "",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Roast rava",
+        "content": "",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Make syrup",
+        "content": "",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Combine",
+        "content": "",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Cook covered",
+        "content": "",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Finish",
+        "content": "",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
