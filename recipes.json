@@ -3736,5 +3736,120 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-rava-sheera",
+    "title": "Rava Sheera",
+    "category": "Other",
+    "description": "Soft, ghee-rich semolina pudding.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Easy",
+      "Sweet",
+      "Festive",
+      "20 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Fine rava (semolina)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Ghee",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Sugar",
+        "amount": 0.75,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Water (or half milk)",
+        "amount": 2,
+        "unit": "cup"
+      },
+      {
+        "id": "i5",
+        "name": "Cashews",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Raisins",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Cardamom powder",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Saffron strands, optional",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i9",
+        "name": "Salt",
+        "amount": 1,
+        "unit": "pinch"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Fry nuts",
+        "content": "Heat 2 tbsp of the {i2} in a heavy pan. Fry {i5} until golden, then {i6} until puffed. Set aside.",
+        "why": null,
+        "timerSeconds": 120
+      },
+      {
+        "id": "s2",
+        "title": "Roast rava",
+        "content": "Add the remaining ghee and {i1}. Roast on low, stirring constantly, until fragrant and lightly golden.",
+        "why": null,
+        "timerSeconds": 420
+      },
+      {
+        "id": "s3",
+        "title": "Make syrup",
+        "content": "In another pan, heat {i4} with {i3}, {i8}, and {i9} until the sugar dissolves and it is hot and steaming.",
+        "why": null,
+        "timerSeconds": 180
+      },
+      {
+        "id": "s4",
+        "title": "Combine",
+        "content": "Pour the hot liquid into the rava slowly while stirring fast to avoid lumps. Keep your face back — it splutters.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Cook covered",
+        "content": "Cover and cook on low until all liquid is absorbed and the rava is soft.",
+        "why": null,
+        "timerSeconds": 180
+      },
+      {
+        "id": "s6",
+        "title": "Finish",
+        "content": "Stir in {i7} and the fried cashews and raisins. Add a spoon of ghee if you like. Rest for a couple minutes and serve warm.",
+        "why": null,
+        "timerSeconds": 120
+      }
+    ]
   }
 ]
