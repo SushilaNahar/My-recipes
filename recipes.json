@@ -4063,5 +4063,134 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-soonth-ladoo-v2",
+    "title": "Soonth Ladoo (Version 2)",
+    "category": "Other",
+    "description": "Warming ladoos with puffed goond, roasted atta, jaggery, coconut, dhana ki kali, almonds and soonth, each added one at a time and mixed for two minutes.",
+    "videoUrl": "",
+    "baseServings": 10,
+    "tags": [
+      "Intermediate",
+      "Sweet",
+      "Winter Special",
+      "Traditional"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Ghee",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Goond (edible gum), for puffing",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Atta, a little",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i4",
+        "name": "Gud (jaggery)",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Kopra (dried coconut), ground",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Dhana ki kali",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Badam, ground",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i8",
+        "name": "Goond, very fine powder",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i9",
+        "name": "Soonth (dry ginger powder)",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Puff the goond",
+        "content": "Heat {i1} in a pan. Add {i2} and fry until it puffs up (phoolas). Take it out.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Roast the atta",
+        "content": "In the same ghee, add {i3} and roast (seko) lightly.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Melt the jaggery",
+        "content": "Add {i4} and let it melt. Once melted, switch off the gas.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Add coconut",
+        "content": "Add {i5} and mix for two minutes.",
+        "why": null,
+        "timerSeconds": 120
+      },
+      {
+        "id": "s5",
+        "title": "Add dhana ki kali",
+        "content": "Add {i6} and mix for two minutes.",
+        "why": null,
+        "timerSeconds": 120
+      },
+      {
+        "id": "s6",
+        "title": "Add badam",
+        "content": "Add {i7} and mix for two minutes.",
+        "why": null,
+        "timerSeconds": 120
+      },
+      {
+        "id": "s7",
+        "title": "Add fine goond",
+        "content": "Add {i8} and mix for two minutes.",
+        "why": null,
+        "timerSeconds": 120
+      },
+      {
+        "id": "s8",
+        "title": "Add soonth",
+        "content": "Add {i9} and mix for two minutes. The mixture is ready to shape into ladoos.",
+        "why": "Soonth goes in last so its flavour stays sharp and isn't cooked off by the heat.",
+        "timerSeconds": 120
+      }
+    ]
   }
 ]
