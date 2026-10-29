@@ -4548,5 +4548,285 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-aloo-tikki-frankie",
+    "title": "Aloo Tikki Frankie",
+    "category": "Other",
+    "description": "Crispy frankie wrap with spiced aloo tikki, creamy sev bhujia green chutney, and a crunchy shredded veg filling. Source: @MasalaChainReaction.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Easy",
+      "Street Food",
+      "Wrap",
+      "Veg",
+      "40 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Oil (for aloo masala)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Onion, finely chopped (for aloo masala)",
+        "amount": 1,
+        "unit": "medium"
+      },
+      {
+        "id": "i3",
+        "name": "Green chilli, chopped (for aloo masala)",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i4",
+        "name": "Ginger-garlic paste",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Dhaniya powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Jeera powder",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Haldi powder",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Kashmiri lal mirch powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Chaat masala (for aloo masala)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i10",
+        "name": "Salt (for aloo masala)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Tomato ketchup",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i12",
+        "name": "Water (for aloo masala)",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i13",
+        "name": "Boiled potatoes, mashed",
+        "amount": 3,
+        "unit": "medium"
+      },
+      {
+        "id": "i14",
+        "name": "Fresh coriander, chopped (for aloo masala)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i15",
+        "name": "Fresh coriander (for green chutney)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i16",
+        "name": "Mint leaves",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i17",
+        "name": "Green chilli (for green chutney)",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i18",
+        "name": "Ginger",
+        "amount": 0.5,
+        "unit": "inch"
+      },
+      {
+        "id": "i19",
+        "name": "Garlic cloves",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i20",
+        "name": "Curd",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i21",
+        "name": "Sev bhujia",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i22",
+        "name": "Salt (for green chutney)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i23",
+        "name": "Water (for green chutney)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i24",
+        "name": "Tortilla or leftover roti",
+        "amount": 4,
+        "unit": ""
+      },
+      {
+        "id": "i25",
+        "name": "Shredded onion",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i26",
+        "name": "Shredded cabbage",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i27",
+        "name": "Grated carrot",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i28",
+        "name": "Fresh coriander (for filling)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i29",
+        "name": "Green chilli, finely chopped (for filling)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i30",
+        "name": "Chaat masala (for filling)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i31",
+        "name": "Lemon juice",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i32",
+        "name": "Oil (for crisping)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i33",
+        "name": "Red chilli powder (for crisping)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i34",
+        "name": "Fresh coriander (for crisping)",
+        "amount": 1,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Start the aloo masala",
+        "content": "Heat {i1} in a pan. Sauté {i2}, {i3} and {i4} until fragrant.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Add the spices",
+        "content": "Add {i5}, {i6}, {i7}, {i8}, {i9} and {i10}. Mix well.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Cook the masala",
+        "content": "Add {i12} and cook the masala for a minute.",
+        "why": null,
+        "timerSeconds": 60
+      },
+      {
+        "id": "s4",
+        "title": "Add potatoes",
+        "content": "Add {i13} and {i11}. Mix everything really well.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Finish and shape tikkis",
+        "content": "Cook until the masala comes together, then add {i14}. Shape the mixture into small aloo tikkis.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Make the green chutney",
+        "content": "Blend {i15}, {i16}, {i17}, {i18}, {i19}, {i20}, {i21} and {i22} with {i23} until smooth and creamy.",
+        "why": "Sev bhujia thickens the chutney and adds a savoury crunch-flavour that keeps it from turning watery on the wrap.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Assemble the frankie",
+        "content": "Spread a generous layer of green chutney on {i24}. Place an aloo tikki in the centre. Add {i25}, {i26}, {i27}, {i28} and {i29}. Sprinkle {i30} and drizzle {i31}. Roll tightly into a wrap.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s8",
+        "title": "Crisp it up",
+        "content": "Heat {i32} in a pan, sprinkle {i33} and {i34}, then place the frankie on the pan. Cook on both sides until golden and crisp.",
+        "why": "Assumed ending: the source text cut off at this step.",
+        "timerSeconds": null
+      }
+    ]
   }
 ]
