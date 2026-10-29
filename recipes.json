@@ -4077,5 +4077,194 @@
         "timerSeconds": 120
       }
     ]
+  },
+  {
+    "id": "seed-aloo-paratha-full",
+    "title": "Aloo Paratha",
+    "category": "Other",
+    "description": "Stuffed wheat paratha with a spiced potato filling of ginger, green chillies, crushed coriander seeds, amchur, anardana, mint and kasuri methi.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Intermediate",
+      "Punjabi",
+      "Breakfast",
+      "Stuffed"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Ginger",
+        "amount": 1,
+        "unit": "inch"
+      },
+      {
+        "id": "i2",
+        "name": "Green chillies",
+        "amount": 3,
+        "unit": ""
+      },
+      {
+        "id": "i3",
+        "name": "Potatoes, boiled and mashed",
+        "amount": 5,
+        "unit": "medium"
+      },
+      {
+        "id": "i4",
+        "name": "Ajwain",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Sukha dhaniya (coriander seeds), coarsely crushed",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Jeera powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Lal mirch powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Amchur powder",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i9",
+        "name": "Anardana powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i10",
+        "name": "Fresh mint leaves, chopped",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i11",
+        "name": "Fresh coriander leaves, chopped",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i12",
+        "name": "Kasuri methi",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i13",
+        "name": "Onion, finely chopped (optional)",
+        "amount": 1,
+        "unit": "medium"
+      },
+      {
+        "id": "i14",
+        "name": "Wheat flour",
+        "amount": 2,
+        "unit": "cup"
+      },
+      {
+        "id": "i15",
+        "name": "Salt (for dough)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i16",
+        "name": "Water",
+        "amount": 0,
+        "unit": ""
+      },
+      {
+        "id": "i17",
+        "name": "Oil (for dough)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i18",
+        "name": "Dry wheat flour, for dusting",
+        "amount": 0,
+        "unit": ""
+      },
+      {
+        "id": "i19",
+        "name": "Ghee/oil/butter, for cooking on tawa",
+        "amount": 0,
+        "unit": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Crush ginger and chillies",
+        "content": "Coarsely crush {i1} and {i2} in a mortar and pestle. Set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the aloo filling",
+        "content": "In a bowl, combine {i3} with the crushed ginger and chillies, {i4}, {i5}, {i6}, {i7}, {i8}, {i9}, {i12}, {i10} and {i11}. Mix well.",
+        "why": "Mash the potatoes completely so there are no chunks, otherwise the filling tears the dough when rolling.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Optional onions",
+        "content": "If using, add {i13} to the filling only just before making the parathas.",
+        "why": "Onions release water on standing, which makes the filling wet and hard to stuff.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Make the dough",
+        "content": "Combine {i14} and {i15}. Add {i16} gradually to make a semi-soft dough, neither too soft nor too loose. Add {i17} and knead until smooth. Cover with a damp cloth and rest for 30 minutes.",
+        "why": null,
+        "timerSeconds": 1800
+      },
+      {
+        "id": "s5",
+        "title": "Divide the dough",
+        "content": "Knead the rested dough once more and divide into equal balls.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Stuff the parathas",
+        "content": "Coat a dough ball with {i18} and flatten with your hands. Using thumb and fingers, shape it into a cup with a slightly thick centre. Add a generous portion of aloo filling, press it down gently with your thumb, then bring the edges together and seal. Remove any excess dough.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Roll",
+        "content": "Gently flatten the filled ball, dust with dry flour, and roll with a rolling pin using gentle movements until evenly thin.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s8",
+        "title": "Cook on tawa",
+        "content": "Cook on a hot tawa, flipping, and spread {i19} on both sides until golden brown spots appear. Serve hot.",
+        "why": "Assumed step: the source text cut off before the cooking instructions.",
+        "timerSeconds": null
+      }
+    ]
   }
 ]
