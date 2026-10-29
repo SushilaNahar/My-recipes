@@ -4266,5 +4266,287 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-veg-dum-biryani-family",
+    "title": "Veg Biryani (Layered)",
+    "category": "Other",
+    "description": "Layered vegetable biryani with a curd-based masala sabji and whole-spice rice, finished with kesar water and dhania.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Intermediate",
+      "Biryani",
+      "Veg",
+      "Family Recipe"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Phool gobi (cauliflower), cut",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Gajar (carrot), cut",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Fansi (french beans), cut",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Matar (peas)",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i5",
+        "name": "Aloo (potato), cut",
+        "amount": 1,
+        "unit": "medium"
+      },
+      {
+        "id": "i6",
+        "name": "Paneer, cubed",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "i7",
+        "name": "Ghee (for sabji)",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i8",
+        "name": "Rai (mustard seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i9",
+        "name": "Jeera (cumin seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i10",
+        "name": "Hing",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i11",
+        "name": "Adrak mirchi paste (ginger-chilli)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i12",
+        "name": "Daal chini (cinnamon), for sabji",
+        "amount": 1,
+        "unit": "small piece"
+      },
+      {
+        "id": "i13",
+        "name": "Kali mirch (black peppercorns), for sabji",
+        "amount": 5,
+        "unit": ""
+      },
+      {
+        "id": "i14",
+        "name": "Laving (cloves), for sabji",
+        "amount": 3,
+        "unit": ""
+      },
+      {
+        "id": "i15",
+        "name": "Tej patta (bay leaf), for sabji",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i16",
+        "name": "Haldi (turmeric)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i17",
+        "name": "Dhania powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i18",
+        "name": "Mirchi (red chilli powder)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i19",
+        "name": "Biryani masala",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i20",
+        "name": "Dahi (curd)",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i21",
+        "name": "Salt (for sabji)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i22",
+        "name": "Basmati rice",
+        "amount": 1.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i23",
+        "name": "Water (for boiling rice)",
+        "amount": 0,
+        "unit": ""
+      },
+      {
+        "id": "i24",
+        "name": "Ghee (for rice)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i25",
+        "name": "Daal chini (cinnamon), for rice",
+        "amount": 1,
+        "unit": "small piece"
+      },
+      {
+        "id": "i26",
+        "name": "Laving (cloves), for rice",
+        "amount": 3,
+        "unit": ""
+      },
+      {
+        "id": "i27",
+        "name": "Kali mirch (black peppercorns), for rice",
+        "amount": 5,
+        "unit": ""
+      },
+      {
+        "id": "i28",
+        "name": "Tej patta (bay leaf), for rice",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i29",
+        "name": "Salt (for rice)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i30",
+        "name": "Kesar (saffron) water",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i31",
+        "name": "Dhania (fresh coriander), chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Start the sabji tempering",
+        "content": "Heat {i7}. Add {i8}, {i9} and {i10}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Add aromatics",
+        "content": "Add {i11}, {i12}, {i13}, {i14} and {i15}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Add vegetables",
+        "content": "Add {i1}, {i2}, {i3}, {i4} and {i5}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Add masalas",
+        "content": "Add {i16}, {i17}, {i18} and {i19}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Add dahi and cook",
+        "content": "Add {i20} and {i21}. Cover and cook until the vegetables are done.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Add paneer",
+        "content": "Add {i6} and mix gently. Set the sabji aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Soak the rice",
+        "content": "Soak {i22} for 10 minutes, then drain.",
+        "why": null,
+        "timerSeconds": 600
+      },
+      {
+        "id": "s8",
+        "title": "Boil water with whole spices",
+        "content": "Boil {i23}. Add {i24}, {i25}, {i26}, {i27} and {i28}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s9",
+        "title": "Cook the rice",
+        "content": "Add the soaked rice and {i29}. Cook for 8 to 10 minutes. Add more water so the grains stay separate.",
+        "why": "Plenty of water keeps the grains from sticking together.",
+        "timerSeconds": 540
+      },
+      {
+        "id": "s10",
+        "title": "Drain and clean",
+        "content": "Cool the rice slightly and remove all the daal chini, laving, kali mirch and tej patta.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s11",
+        "title": "Layer and garnish",
+        "content": "Layer in this order: sabji, rice, then {i30} and {i31}. Repeat once more: sabji, rice, {i30} and {i31}.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
