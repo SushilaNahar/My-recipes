@@ -4828,5 +4828,183 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-cheesy-mexican-rice-bake",
+    "title": "Cheesy Mexican Rice Bake",
+    "category": "Other",
+    "description": "Fluffy rice tossed in a spiced tomato, corn and rajma mix, topped with mozzarella, jalapeños and crushed nachos, then baked until bubbly and golden.",
+    "videoUrl": "",
+    "baseServings": 3,
+    "tags": [
+      "Easy",
+      "Mexican",
+      "Baked",
+      "Rice",
+      "Veg",
+      "40 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Daawat Super Rice (or long-grain rice)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i2",
+        "name": "Water (for rice)",
+        "amount": 2,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Salt (for rice), to taste",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i4",
+        "name": "Olive oil",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Garlic cloves, chopped",
+        "amount": 5,
+        "unit": ""
+      },
+      {
+        "id": "i6",
+        "name": "Onion, chopped",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i7",
+        "name": "Mixed bell peppers",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i8",
+        "name": "Sweet corn",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i9",
+        "name": "Boiled rajma",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i10",
+        "name": "Tomato puree",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i11",
+        "name": "Chilli flakes",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Paprika",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i13",
+        "name": "Oregano",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i14",
+        "name": "Salt and pepper (for mix), to taste",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i15",
+        "name": "Mozzarella cheese",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i16",
+        "name": "Jalapeños",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i17",
+        "name": "Crushed nachos",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i18",
+        "name": "Spring onion greens, chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Cook the rice",
+        "content": "Cook {i1} with {i2} and {i3} until fluffy and non-sticky. Set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Sauté the base",
+        "content": "Heat {i4}. Sauté {i5}, {i6} and {i7}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Add the Mexican mix",
+        "content": "Add {i10}, {i8}, {i9}, {i11}, {i12}, {i13} and {i14}. Cook until the tomato puree thickens.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Mix in the rice",
+        "content": "Add the cooked rice and mix well so every grain is coated.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Top",
+        "content": "Transfer to a baking dish. Top with {i15}, {i16} and {i17}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Bake",
+        "content": "Bake until the cheese is melted, bubbly and golden.",
+        "why": "Assumed temperature and time: the source gave neither. Around 200°C for 10-12 minutes is typical.",
+        "timerSeconds": 660
+      },
+      {
+        "id": "s7",
+        "title": "Finish",
+        "content": "Garnish with {i18} and serve hot.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
