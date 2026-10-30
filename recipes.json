@@ -5006,5 +5006,241 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-cheese-veg-frankie",
+    "title": "Veg Cheese Frankie",
+    "category": "Other",
+    "description": "Street-style frankie with a spiced potato filling, chilli vinegar onions, schezwan chutney, mayos, cheese and a homemade frankie masala. Source: Sagar's Kitchen.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Intermediate",
+      "Street Food",
+      "Wrap",
+      "Veg",
+      "40 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Boiled and mashed potato",
+        "amount": 350,
+        "unit": "g"
+      },
+      {
+        "id": "i2",
+        "name": "Oil",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i3",
+        "name": "Ginger-garlic paste",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i4",
+        "name": "Green chilli, chopped (potato mix)",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i5",
+        "name": "Onions, finely chopped",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i6",
+        "name": "Capsicum, finely chopped",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i7",
+        "name": "Tomato ketchup (potato mix)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i8",
+        "name": "Red chilli sauce",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i9",
+        "name": "Turmeric powder (potato mix)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i10",
+        "name": "Coriander powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i11",
+        "name": "Dry mango powder (potato mix)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Garam masala",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i13",
+        "name": "Kashmiri red chilli powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i14",
+        "name": "Salt, to taste",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i15",
+        "name": "Fresh coriander leaves, chopped",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i16",
+        "name": "Green chilli, chopped (chilli vinegar)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i17",
+        "name": "Vinegar",
+        "amount": 4.5,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i18",
+        "name": "Maggi Masala-ae-Magic",
+        "amount": 1,
+        "unit": "packet"
+      },
+      {
+        "id": "i19",
+        "name": "Turmeric powder (frankie masala)",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i20",
+        "name": "Dry mango powder (frankie masala)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i21",
+        "name": "Red chilli powder (frankie masala)",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i22",
+        "name": "Wraps (roti or paratha)",
+        "amount": 4,
+        "unit": ""
+      },
+      {
+        "id": "i23",
+        "name": "Schezwan chutney/sauce",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i24",
+        "name": "Sliced cabbage",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i25",
+        "name": "Sliced onions",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i26",
+        "name": "Grated cheese",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i27",
+        "name": "Tandoori mayo",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i28",
+        "name": "Original mayo",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i29",
+        "name": "Tomato ketchup (for assembly)",
+        "amount": 4,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Make the potato mix",
+        "content": "Heat {i2}. Sauté {i3}, {i4}, {i5} and {i6}. Add {i7}, {i8}, {i9}, {i10}, {i11}, {i12}, {i13} and {i14}. Add {i1} and mix well. Finish with {i15}.",
+        "why": "Assumed method: the source screenshots showed ingredients only.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the chilli vinegar",
+        "content": "Combine {i16} and {i17}. Toss the sliced onions in it briefly and set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Make the frankie masala",
+        "content": "Mix {i18}, {i19}, {i20} and {i21}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Prepare the wrap",
+        "content": "Warm {i22} on a pan. Spread {i23}, {i27}, {i28} and {i29} over it.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Fill",
+        "content": "Place the potato mix in the centre. Top with {i24}, {i25} (with chilli vinegar), {i26} and a sprinkle of the frankie masala.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s6",
+        "title": "Roll and toast",
+        "content": "Roll tightly and toast on a hot pan with a little oil until golden and the cheese melts. Serve hot.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
