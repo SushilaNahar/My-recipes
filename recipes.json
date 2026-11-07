@@ -5242,5 +5242,353 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-jain-mexican-burrito-bowl",
+    "title": "Jain Mexican Burrito Bowl (No Onion, No Garlic)",
+    "category": "Other",
+    "description": "Rice bowl with sautéed veggies, spiced rajma, charred corn, herbed hing rice, fresh salsa and hung-curd sour cream. No onion, garlic or root vegetables. Adapted from oncheatday.",
+    "videoUrl": "",
+    "baseServings": 3,
+    "tags": [
+      "Intermediate",
+      "Mexican",
+      "Bowl",
+      "Jain",
+      "No Onion No Garlic",
+      "45 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Olive oil (veggies)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Yellow and red bell pepper, sliced",
+        "amount": 0.75,
+        "unit": "cup"
+      },
+      {
+        "id": "i3",
+        "name": "Zucchini",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Green bell pepper, sliced (replaces onion)",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i5",
+        "name": "Salt (veggies), to taste",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i6",
+        "name": "Oregano",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i7",
+        "name": "Olive oil (corn)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i8",
+        "name": "Corn",
+        "amount": 0.75,
+        "unit": "cup"
+      },
+      {
+        "id": "i9",
+        "name": "Coriander leaves (corn)",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i10",
+        "name": "Salt and chilli powder (corn), to taste",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i11",
+        "name": "Lemon juice (corn), a squeeze",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i12",
+        "name": "Cooked rice",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i13",
+        "name": "Butter or oil (rice)",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i14",
+        "name": "Hing (replaces garlic)",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i15",
+        "name": "Jeera (cumin seeds)",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i16",
+        "name": "Coriander (rice)",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i17",
+        "name": "Salt (rice), to taste",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i18",
+        "name": "Chilli flakes",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i19",
+        "name": "Lemon juice (rice), a squeeze",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i20",
+        "name": "Oil (rajma)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i21",
+        "name": "Bay leaf",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i22",
+        "name": "Hing (rajma)",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i23",
+        "name": "Tomato, finely chopped (rajma)",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i24",
+        "name": "Jain-friendly ketchup (rajma)",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i25",
+        "name": "Salt (rajma), to taste",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "id": "i26",
+        "name": "Kidney beans, boiled",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i27",
+        "name": "Water (rajma)",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i28",
+        "name": "Kashmiri red chilli powder",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i29",
+        "name": "Cumin powder",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i30",
+        "name": "Cucumber, finely chopped (salsa, replaces onion)",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i31",
+        "name": "Tomato, finely chopped (salsa)",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i32",
+        "name": "Green chilli, finely chopped",
+        "amount": 2,
+        "unit": ""
+      },
+      {
+        "id": "i33",
+        "name": "Coriander, finely chopped (salsa)",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i34",
+        "name": "Lemon juice (salsa)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i35",
+        "name": "Salt (salsa), to taste",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i36",
+        "name": "Pepper powder",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "id": "i37",
+        "name": "Jain-friendly ketchup (salsa)",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "id": "i38",
+        "name": "Hung curd",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "id": "i39",
+        "name": "Fresh cream, optional",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i40",
+        "name": "Lemon juice (sour cream), or more",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i41",
+        "name": "Salt (sour cream)",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "id": "i42",
+        "name": "Lettuce, optional",
+        "amount": 1,
+        "unit": "handful"
+      },
+      {
+        "id": "i43",
+        "name": "Cheese, grated (Jain-friendly)",
+        "amount": 0.25,
+        "unit": "cup"
+      },
+      {
+        "id": "i44",
+        "name": "Nachos, crushed (onion-garlic free), if you have",
+        "amount": 0.25,
+        "unit": "cup"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Sauté the veggies",
+        "content": "Heat {i1} in a pan. Add {i2}, {i3} and {i4}. Add {i5} and {i6} and sauté until lightly browned at the edges. Remove from heat and set aside.",
+        "why": "Without onion, the browning comes from the peppers. Keep the heat high and the pan uncrowded so they char instead of steaming.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Make the corn salad",
+        "content": "Heat {i7} in the same pan. Add {i8}, cook, then add {i10} and {i9}. Sauté until slightly browned. Take off the heat, squeeze in {i11} and set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Make the herbed rice",
+        "content": "In the same pan, heat {i13}. Add {i15} and {i14}, then {i12}, {i16}, {i17} and {i18}. Mix well, finish with {i19}, take off the heat and set aside.",
+        "why": "Hing and jeera give the savoury base that garlic normally provides.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Start the rajma",
+        "content": "Heat {i20} in a pan. Add {i21} and {i22}. Add {i23} and {i25} and cook until the tomatoes soften and turn pulpy.",
+        "why": "Tomatoes cook down longer here to replace the body that onion adds to the gravy.",
+        "timerSeconds": 300
+      },
+      {
+        "id": "s5",
+        "title": "Add beans and spices",
+        "content": "Add {i26} and smash them a little. Add {i24}, {i28} and {i29} and cook for 2-3 minutes.",
+        "why": null,
+        "timerSeconds": 150
+      },
+      {
+        "id": "s6",
+        "title": "Simmer the rajma",
+        "content": "Add {i27} and let it cook for a while until thick.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s7",
+        "title": "Make the salsa",
+        "content": "Mix {i30}, {i31}, {i32}, {i33}, {i35}, {i36} and {i37}. Or chop everything finely in a chopper, then stir in {i34}.",
+        "why": "Cucumber gives the crunch that raw onion would.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s8",
+        "title": "Make the healthy sour cream",
+        "content": "Mix {i38}, {i39}, {i40} and {i41} until smooth.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s9",
+        "title": "Assemble",
+        "content": "In a large bowl, add the herbed rice, sautéed veggies, rajma, sour cream, corn and salsa. Top with {i42}, {i43} and {i44}.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
