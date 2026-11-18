@@ -5590,5 +5590,107 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-jennifer-aniston-salad",
+    "title": "Jennifer Aniston Salad (Quinoa Chickpea Feta)",
+    "category": "Other",
+    "description": "Make-ahead quinoa salad with chickpeas, feta, cucumber, parsley and pistachios, dressed with lemon and olive oil. Source: Doctor's Kitchen.",
+    "videoUrl": "",
+    "baseServings": 2,
+    "tags": [
+      "Easy",
+      "Salad",
+      "No-Cook",
+      "Make-Ahead",
+      "Veg",
+      "15 min"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Quinoa, cooked",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "i2",
+        "name": "Chickpeas, canned, drained and rinsed",
+        "amount": 1,
+        "unit": "can"
+      },
+      {
+        "id": "i3",
+        "name": "Feta cheese, crumbled",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "i4",
+        "name": "Red onion, chopped",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "id": "i5",
+        "name": "Cucumber, chopped",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "i6",
+        "name": "Parsley, chopped",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "id": "i7",
+        "name": "Pistachios, chopped, roasted, salted",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "id": "i8",
+        "name": "Lemon, large, juiced",
+        "amount": 1,
+        "unit": ""
+      },
+      {
+        "id": "i9",
+        "name": "Extra virgin olive oil",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i10",
+        "name": "Salt and pepper, to taste",
+        "amount": 1,
+        "unit": "pinch"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Prepare the ingredients",
+        "content": "Cook and cool {i1}. Drain and rinse {i2}. Crumble {i3} and chop {i4}, {i5}, {i6} and {i7}.",
+        "why": "Cooling the quinoa first keeps the cucumber crisp and the feta from melting into the salad.",
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Combine",
+        "content": "Place all the prepared ingredients in a large bowl.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Dress and toss",
+        "content": "Pour over {i8} and {i9} and toss to coat. Add {i10} to taste. Serve, or chill for lunch the next day.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
