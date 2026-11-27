@@ -5777,5 +5777,94 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-ajwain-goond-mix",
+    "title": "Ajwain Goond Mix",
+    "category": "Other",
+    "description": "Warm mix of fried goond, ajwain, dhana ki kali, badam and kopra, bound with gud added off the heat.",
+    "videoUrl": "",
+    "baseServings": 4,
+    "tags": [
+      "Easy",
+      "Sweet",
+      "Traditional",
+      "Pregnancy"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Ghee",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i2",
+        "name": "Goond (edible gum), for frying and grinding",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i3",
+        "name": "Ajwain",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i4",
+        "name": "Dhana ki kali",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i5",
+        "name": "Kopra (dried coconut)",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i6",
+        "name": "Badam",
+        "amount": 1,
+        "unit": "tbsp"
+      },
+      {
+        "id": "i7",
+        "name": "Gud (jaggery)",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Fry the goond",
+        "content": "Heat {i1} in a pan. Add {i2} and fry until it puffs up. Remove it and set aside.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s2",
+        "title": "Add the ingredients",
+        "content": "In the same ghee, add {i3}, {i4}, {i5} and {i6}.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Add powdered goond",
+        "content": "Grind the fried goond to a powder and add it to the pan.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Add gud",
+        "content": "Switch off the gas, then add {i7} and mix well.",
+        "why": "Adding gud off the heat keeps it from hardening or turning bitter.",
+        "timerSeconds": null
+      }
+    ]
   }
 ]
