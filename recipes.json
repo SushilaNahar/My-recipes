@@ -5692,5 +5692,90 @@
         "timerSeconds": null
       }
     ]
+  },
+  {
+    "id": "seed-pregnancy-ukali",
+    "title": "Pregnancy Ukali",
+    "category": "Other",
+    "description": "Warm morning decoction of sua and ajwain, sweetened lightly with gud and finished with a ghee tempering.",
+    "videoUrl": "",
+    "baseServings": 1,
+    "tags": [
+      "Easy",
+      "Drink",
+      "Pregnancy",
+      "Traditional",
+      "Morning"
+    ],
+    "userEdited": true,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Sua",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i2",
+        "name": "Ajwain",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i3",
+        "name": "Water",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "id": "i4",
+        "name": "Gud (jaggery), a little",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "id": "i5",
+        "name": "Ghee, a little",
+        "amount": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "title": "Boil",
+        "content": "Add {i1} and {i2} to {i3} and boil for 10 minutes.",
+        "why": null,
+        "timerSeconds": 600
+      },
+      {
+        "id": "s2",
+        "title": "Add gud",
+        "content": "Add {i4} and stir until dissolved.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s3",
+        "title": "Sieve",
+        "content": "Strain the ukali into a cup.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s4",
+        "title": "Temper with ghee",
+        "content": "Heat {i5} and pour the chhonk over the ukali.",
+        "why": null,
+        "timerSeconds": null
+      },
+      {
+        "id": "s5",
+        "title": "Drink",
+        "content": "Drink warm, in the morning.",
+        "why": null,
+        "timerSeconds": null
+      }
+    ]
   }
 ]
